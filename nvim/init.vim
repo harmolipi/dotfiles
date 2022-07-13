@@ -2,16 +2,16 @@ if has("nvim")
   let g:plug_home = stdpath('data') . '/plugged'
 endif
 
-call plug#begin()
+" Plug 'tpope/vim-fugitive'	" Git client for Vim
+" Plug 'tpope/vim-rhubarb'	" 
 
-Plug 'tpope/vim-fugitive'	" Git client for Vim
-Plug 'tpope/vim-rhubarb'	" 
-Plug 'overcache/NeoSolarized'	" NeoSolarized theme
+set backupskip=$TMPDIR/*,$TMP/*,$TEMP/*,/tmp/*,$TMPDIR/*,$TMP/*,$TEMP/*,/private/tmp/*,$TMPDIR/*,$TMP/*,$TEMP/*
 
-if has("nvim")
-  Plug 'neovim/nvim-lspconfig'
-endif
+tnoremap <Esc> <C-\><C-n>
+set noshowmatch
 
-call plug#end()
+" Takuya's (devaslife) config
+runtime ./plug.vim
+runtime ./devaslife/init_takuya.vim
 
 colorscheme NeoSolarized

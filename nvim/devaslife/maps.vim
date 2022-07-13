@@ -1,4 +1,4 @@
-" Description: Keymaps
+" Description: Keymaps (from Takuya)
 
 nnoremap <S-C-p> "0p
 " Delete without yank
