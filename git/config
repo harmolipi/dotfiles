@@ -4,9 +4,15 @@
 [init]
 	defaultBranch = main
 [color]
+  status = auto
+  diff = auto
+  branch = auto
+  interactive = auto
+  grep = auto
 	ui = auto
 [core]
 	excludesfile = ~/.gitignore_global
+  editor = nvim
 [alias]
 	st = status
 	hist = log --pretty=format:\"%Cgreen%h %Creset%cd %Cblue[%cn] %Creset%s%C(yellow)%d%C(reset)\" --graph --date=relative --decorate --all
