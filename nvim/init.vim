@@ -76,4 +76,10 @@ require('lspconfig/quick_lint_js').setup {}
 
 -- Intelephense
 require('lspconfig').intelephense.setup {}
+
+-- YAML
+require('lspconfig').yamlls.setup {}
+
+-- CMP
+
 EOF
