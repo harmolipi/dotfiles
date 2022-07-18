@@ -55,13 +55,37 @@ require("nvim-treesitter.configs").setup {
   },
 }
 
+-- CMP
+local cmp = require('cmp')
+
+cmp.setup({
+  snippet = {
+    expand = function(args)
+      require('luasnip').lsp_expand(args.body)
+    end,
+  },
+  mapping = cmp.mapping.preset.insert({
+    ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<C-e>'] = cmp.mapping.abort(),
+    ['<CR>'] = cmp.mapping.confirm({ select = true }),
+  }),
+  sources = cmp.config.sources({
+    { name = 'nvim_lsp' }, 
+    { name = 'luasnip' },
+  }, {
+    { name = 'buffer' },
+  })
+})
+
+local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
 -- Nvim-lsp-installer
 require("nvim-lsp-installer").setup {
   automatic_installation = true,
 }
-
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 -- Lsp-config
 require'lspconfig'.html.setup {
@@ -69,17 +93,23 @@ require'lspconfig'.html.setup {
 }
 
 -- Tsserver
--- require('lspconfig').tsserver.setup {}
+-- require('lspconfig').tsserver.setup {
+--   capabilities = capabilities,
+-- }
 
 -- Quick_lint_js
-require('lspconfig/quick_lint_js').setup {}
+require('lspconfig/quick_lint_js').setup {
+  capabilities = capabilities,
+}
 
 -- Intelephense
-require('lspconfig').intelephense.setup {}
+require('lspconfig').intelephense.setup {
+  capabilities = capabilities,
+}
 
 -- YAML
-require('lspconfig').yamlls.setup {}
-
--- CMP
+require('lspconfig').yamlls.setup {
+  capabilities = capabilities,
+}
 
 EOF

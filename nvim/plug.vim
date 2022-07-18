@@ -16,7 +16,6 @@ if has("nvim")
   Plug 'kyazdani42/nvim-tree.lua'
   Plug 'folke/which-key.nvim'
   Plug 'williamboman/nvim-lsp-installer'
-  Plug 'neovim/nvim-lspconfig'
   Plug 'glepnir/lspsaga.nvim'
   Plug 'quick-lint/quick-lint-js', {'rtp': 'plugin/vim/quick-lint-js.vim', 'tag': '2.7.0'}
   Plug 'nvim-lua/plenary.nvim'
@@ -25,6 +24,14 @@ if has("nvim")
   Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
   Plug 'dag/vim-fish'
   Plug 'kdheepak/lazygit.nvim'
+  Plug 'L3MON4D3/LuaSnip'
+  Plug 'hrsh7th/nvim-cmp'
+  Plug 'hrsh7th/cmp-nvim-lsp'
+  Plug 'hrsh7th/cmp-buffer'
+  Plug 'rmagatti/auto-session'
+"   Plug 'tpope/vim-surround'
+"   Plug 'tpope/vim-commentary'
+
 "  Plug 'turbio/bracey.vim', {'do': 'npm install --prefix server'}
 "  Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
 endif
