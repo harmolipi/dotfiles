@@ -24,6 +24,7 @@ if has("nvim")
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
   Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
   Plug 'dag/vim-fish'
+  Plug 'kdheepak/lazygit.nvim'
 "  Plug 'turbio/bracey.vim', {'do': 'npm install --prefix server'}
 "  Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
 endif

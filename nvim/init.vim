@@ -1,4 +1,3 @@
-
 set backupskip=$TMPDIR/*,$TMP/*,$TEMP/*,/tmp/*,$TMPDIR/*,$TMP/*,$TEMP/*,/private/tmp/*,$TMPDIR/*,$TMP/*,$TEMP/*
 
 tnoremap <Esc> <C-\><C-n>
@@ -14,6 +13,7 @@ runtime ./devaslife/init_takuya.vim
 
 nnoremap <C-`> :NvimTreeToggle<Return> " Open and close Nvim Tree
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <silent> <leader>gg :LazyGit<cr>
 
 colorscheme NeoSolarized
 
@@ -26,7 +26,11 @@ require("nvim-tree").setup {
       },
     },
   },
---  sync_root_with_cwd: true,
+  renderer = {
+    indent_markers = {
+      enable = true, 
+    },
+  },
 }
 
 require("lualine").setup {
