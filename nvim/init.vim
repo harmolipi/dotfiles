@@ -112,4 +112,9 @@ require('lspconfig').yamlls.setup {
   capabilities = capabilities,
 }
 
+require('lspconfig').emmet_ls.setup {
+  capabilities = capabilities,
+  filetypes = { 'html', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less' },
+}
+
 EOF

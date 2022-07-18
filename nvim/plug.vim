@@ -29,6 +29,7 @@ if has("nvim")
   Plug 'hrsh7th/cmp-nvim-lsp'
   Plug 'hrsh7th/cmp-buffer'
   Plug 'rmagatti/auto-session'
+  Plug 'mattn/emmet-vim'
 "   Plug 'tpope/vim-surround'
 "   Plug 'tpope/vim-commentary'
 
