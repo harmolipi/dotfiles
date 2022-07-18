@@ -1,23 +1,23 @@
 set backupskip=$TMPDIR/*,$TMP/*,$TEMP/*,/tmp/*,$TMPDIR/*,$TMP/*,$TEMP/*,/private/tmp/*,$TMPDIR/*,$TMP/*,$TEMP/*
 
-tnoremap <Esc> <C-\><C-n>
-
 set noshowcmd
 set noruler
 set noshowmatch
 set autochdir
 
-" Takuya's (devaslife) config
-runtime ./plug.vim
-runtime ./devaslife/init_takuya.vim
+runtime ./plug.vim " Plugins
+runtime ./devaslife/init_takuya.vim " Takuya's (devaslife) config
 
+tnoremap <Esc> <C-\><C-n> " Escape from terminal
 nnoremap <C-`> :NvimTreeToggle<Return> " Open and close Nvim Tree
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <silent> <leader>gg :LazyGit<cr>
+nnoremap <leader>ff <cmd>Telescope find_files<cr> " Fuzzy find files
+nnoremap <silent> <leader>gg :LazyGit<cr> " Open lazygit
 
 colorscheme NeoSolarized
 
+" Lua settings
 lua << EOF
+-- Nvim-tree
 require("nvim-tree").setup {
   view = {
     mappings = {
@@ -33,12 +33,15 @@ require("nvim-tree").setup {
   },
 }
 
+-- Lualine
 require("lualine").setup {
   extensions = {"nvim-tree"},
 }
 
+-- Which-key
 require("which-key").setup()
 
+-- Nvim-treesitter
 require("nvim-treesitter.configs").setup {
   auto_install = true,
   highlight = {
@@ -52,6 +55,7 @@ require("nvim-treesitter.configs").setup {
   },
 }
 
+-- Nvim-lsp-installer
 require("nvim-lsp-installer").setup {
   automatic_installation = true,
 }
@@ -59,12 +63,17 @@ require("nvim-lsp-installer").setup {
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
+-- Lsp-config
 require'lspconfig'.html.setup {
   capabilities = capabilities,
 }
 
+-- Tsserver
 -- require('lspconfig').tsserver.setup {}
 
+-- Quick_lint_js
 require('lspconfig/quick_lint_js').setup {}
+
+-- Intelephense
 require('lspconfig').intelephense.setup {}
 EOF
