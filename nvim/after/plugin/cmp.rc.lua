@@ -3,6 +3,8 @@ local cmp = require('cmp')
 local lspkind = require('lspkind')
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 
+vim.cmd([[set completeopt=menu,menuone,noselect]]) -- Should work from vimscript
+
 cmp.setup({
   snippet = {
     expand = function(args)
