@@ -5,6 +5,8 @@ set noruler
 set noshowmatch
 set autochdir
 
+autocmd BufWritePre *.tsx,*.ts,*.jsx,*.js EslintFixAll
+
 runtime ./plug.vim " Plugins
 runtime ./devaslife/init_takuya.vim " Takuya's (devaslife) config
 

@@ -10,6 +10,9 @@ require'lspconfig'.html.setup {
 local saga = require 'lspsaga'
 saga.init_lsp_saga()
 
+-- ESLint
+require('lspconfig').eslint.setup{}
+
 -- Quick_lint_js
 require('lspconfig/quick_lint_js').setup {
   capabilities = capabilities,
@@ -30,3 +33,16 @@ require('lspconfig').emmet_ls.setup {
   capabilities = capabilities,
   filetypes = { 'html', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less' },
 }
+
+-- HTML
+require('lspconfig').html.setup {
+  capabilities = capabilities,
+}
+
+-- CSS
+require('lspconfig').cssls.setup{
+  capabilities = capabilities,
+}
+
+-- CSS modules
+require('lspconfig').cssmodules_ls.setup{}
