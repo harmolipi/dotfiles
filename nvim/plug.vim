@@ -17,6 +17,7 @@ if has("nvim")
   Plug 'folke/which-key.nvim'
   Plug 'williamboman/nvim-lsp-installer'
   Plug 'glepnir/lspsaga.nvim'
+  Plug 'onsails/lspkind-nvim'
   Plug 'quick-lint/quick-lint-js', {'rtp': 'plugin/vim/quick-lint-js.vim', 'tag': '2.7.0'}
   Plug 'nvim-lua/plenary.nvim'
   Plug 'folke/lsp-colors.nvim'
