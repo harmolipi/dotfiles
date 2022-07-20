@@ -33,6 +33,7 @@ if has("nvim")
   Plug 'mattn/emmet-vim'
   Plug 'mhinz/vim-startify'
   Plug 'windwp/nvim-autopairs'
+  Plug 'windwp/nvim-ts-autotag'
 "   Plug 'tpope/vim-surround'
 "   Plug 'tpope/vim-commentary'
 
