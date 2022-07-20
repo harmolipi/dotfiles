@@ -3,7 +3,7 @@
 nnoremap <S-C-p> "0p
 " Delete without yank
 nnoremap <leader>d "_d
-nnoremap x "_x
+" nnoremap x "_x
 
 " Increment/decrement
 nnoremap + <C-a>
