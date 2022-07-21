@@ -31,7 +31,7 @@ require('lspconfig').yamlls.setup {
 -- Emmet_ls
 require('lspconfig').emmet_ls.setup {
   capabilities = capabilities,
-  filetypes = { 'html', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less' },
+  filetypes = { 'html', 'php', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less' },
 }
 
 -- HTML
