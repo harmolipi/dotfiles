@@ -36,6 +36,7 @@ if has("nvim")
   Plug 'windwp/nvim-ts-autotag'
 "   Plug 'tpope/vim-surround'
 "   Plug 'tpope/vim-commentary'
+  Plug 'norcalli/nvim-colorizer.lua'
 
 "  Plug 'turbio/bracey.vim', {'do': 'npm install --prefix server'}
 "  Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
