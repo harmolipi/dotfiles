@@ -108,6 +108,10 @@ autocmd FileType coffee setlocal shiftwidth=2 tabstop=2
 autocmd FileType ruby setlocal shiftwidth=2 tabstop=2
 autocmd FileType yaml setlocal shiftwidth=2 tabstop=2
 
+" augroup fmt
+"   autocmd!
+autocmd BufWritePre * undojoin | Neoformat
+" augroup END
 "}}}
 
 " Imports "{{{
@@ -137,11 +141,11 @@ if exists("&termguicolors") && exists("&winblend")
   set winblend=0
   set wildoptions=pum
   set pumblend=5
-"   set background=dark
-"   Use NeoSolarized
+  "   set background=dark
+  "   Use NeoSolarized
   let g:neosolarized_termtrans=1
-"   runtime ./colors/NeoSolarized.vim
-"   colorscheme NeoSolarized
+  "   runtime ./colors/NeoSolarized.vim
+  "   colorscheme NeoSolarized
 endif
 
 "}}}
