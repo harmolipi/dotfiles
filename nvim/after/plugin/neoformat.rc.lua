@@ -10,3 +10,4 @@ vim.g.neoformat_enabled_css = { "prettier" }
 vim.g.neoformat_enabled_php = { "prettier" }
 vim.g.neoformat_enabled_json = { "prettier" }
 vim.g.neoformat_enabled_yaml = { "prettier" }
+vim.g.neoformat_enabled_lua = {"luafmt"}
