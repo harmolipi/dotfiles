@@ -7,7 +7,7 @@ call plug#begin()
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 
-Plug 'overcache/NeoSolarized'	" NeoSolarized theme
+Plug 'overcache/NeoSolarized'   " NeoSolarized theme
 
 if has("nvim")
   Plug 'neovim/nvim-lspconfig'
@@ -34,13 +34,11 @@ if has("nvim")
   Plug 'mhinz/vim-startify'
   Plug 'windwp/nvim-autopairs'
   Plug 'windwp/nvim-ts-autotag'
-"   Plug 'tpope/vim-surround'
-"   Plug 'tpope/vim-commentary'
   Plug 'sbdchd/neoformat'
   Plug 'norcalli/nvim-colorizer.lua'
-
-"  Plug 'turbio/bracey.vim', {'do': 'npm install --prefix server'}
-"  Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
+  Plug 'tpope/vim-surround'
+  "   Plug 'tpope/vim-commentary'
+  "  Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
 endif
 
 call plug#end()
