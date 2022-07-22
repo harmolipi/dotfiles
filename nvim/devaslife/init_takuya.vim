@@ -108,12 +108,6 @@ autocmd FileType coffee setlocal shiftwidth=2 tabstop=2
 autocmd FileType ruby setlocal shiftwidth=2 tabstop=2
 autocmd FileType yaml setlocal shiftwidth=2 tabstop=2
 
-" augroup fmt
-"   autocmd!
-autocmd BufWritePre * undojoin | Neoformat
-" augroup END
-"}}}
-
 " Imports "{{{
 " ---------------------------------------------------------------------
 " runtime ./devaslife/plug.vim

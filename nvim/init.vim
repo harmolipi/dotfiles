@@ -5,8 +5,6 @@ set noruler
 set noshowmatch
 set autochdir
 
-autocmd BufWritePre *.tsx,*.ts,*.jsx,*.js EslintFixAll
-
 runtime ./plug.vim " Plugins
 runtime ./devaslife/init_takuya.vim " Takuya's (devaslife) config
 
@@ -16,3 +14,9 @@ nnoremap <leader>ff <cmd>Telescope find_files<cr> " Fuzzy find files
 nnoremap <silent> <leader>gg :LazyGit<cr> " Open lazygit
 
 colorscheme NeoSolarized
+
+" Run Neoformat on save on all files
+augroup fmt
+  autocmd!
+  autocmd BufWritePre * undojoin | Neoformat
+augroup END
