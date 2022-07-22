@@ -1,3 +1,6 @@
-require('colorizer').setup({
-  '*';
-}, { css = true })
+require("colorizer").setup(
+    {
+        "*"
+    },
+    {css = true}
+)
