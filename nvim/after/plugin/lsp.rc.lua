@@ -45,4 +45,6 @@ require('lspconfig').cssls.setup{
 }
 
 -- CSS modules
-require('lspconfig').cssmodules_ls.setup{}
+require('lspconfig').cssmodules_ls.setup{
+    capabilities = capabilities,
+}
