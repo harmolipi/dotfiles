@@ -12,6 +12,7 @@ tnoremap <Esc> <C-\><C-n> " Escape from terminal
 nnoremap <C-`> :NvimTreeToggle<Return> " Open and close Nvim Tree
 nnoremap <leader>ff <cmd>Telescope find_files<cr> " Fuzzy find files
 nnoremap <silent> <leader>gg :LazyGit<cr> " Open lazygit
+let g:vcoolor_map = '<C-c>'
 
 colorscheme NeoSolarized
 
