@@ -37,8 +37,8 @@ if has("nvim")
   Plug 'sbdchd/neoformat'
   Plug 'norcalli/nvim-colorizer.lua'
   Plug 'tpope/vim-surround'
+  Plug 'tpope/vim-commentary'
   Plug 'KabbAmine/vCoolor.vim'
-  "   Plug 'tpope/vim-commentary'
   "  Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
 endif
 
