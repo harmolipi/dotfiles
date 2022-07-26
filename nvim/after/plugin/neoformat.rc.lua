@@ -6,6 +6,7 @@ vim.g.neoformat_try_node_exe = 1 -- Look for exe in local directories
 
 -- Enable languages
 vim.g.neoformat_enabled_javascript = {"prettier"}
+vim.g.neoformat_enabled_typescript = {"prettier"}
 vim.g.neoformat_enabled_html = {"prettier"}
 vim.g.neoformat_enabled_css = {"prettier"}
 vim.g.neoformat_enabled_php = {"prettier"}
