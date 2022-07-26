@@ -40,6 +40,7 @@ if has("nvim")
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-commentary'
   Plug 'KabbAmine/vCoolor.vim'
+  Plug 'maxmellon/vim-jsx-pretty'
   Plug 'github/copilot.vim'
   "  Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
 endif
