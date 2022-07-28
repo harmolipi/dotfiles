@@ -52,6 +52,8 @@ if has("nvim")
   Plug 'williamboman/nvim-lsp-installer'
   Plug 'glepnir/lspsaga.nvim'
   Plug 'onsails/lspkind-nvim'
+  "  Treesitter
+  Plug 'p00f/nvim-ts-rainbow'
 endif
 
 call plug#end()
