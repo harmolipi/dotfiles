@@ -33,7 +33,7 @@ if has("nvim")
   Plug 'tpope/vim-commentary'
   Plug 'KabbAmine/vCoolor.vim'
   Plug 'maxmellon/vim-jsx-pretty'
-  Plug 'github/copilot.vim'
+  " Plug 'github/copilot.vim'
   Plug 'leafgarland/typescript-vim'
   "  Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
   "  CMP plugins
