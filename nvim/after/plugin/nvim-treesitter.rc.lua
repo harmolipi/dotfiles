@@ -21,5 +21,8 @@ treesitter.setup {
     },
     context_commentstring = {
         enable = true
+    },
+    autopairs = {
+        enable = true
     }
 }
