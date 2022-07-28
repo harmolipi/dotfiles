@@ -36,6 +36,7 @@ if has("nvim")
   " Plug 'github/copilot.vim'
   Plug 'leafgarland/typescript-vim'
   "  Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
+  Plug 'JoosepAlviste/nvim-ts-context-commentstring'
   Plug 'lewis6991/gitsigns.nvim'
   "  CMP plugins
   Plug 'hrsh7th/nvim-cmp'
