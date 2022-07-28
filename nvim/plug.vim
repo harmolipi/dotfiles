@@ -46,6 +46,7 @@ if has("nvim")
   Plug 'hrsh7th/cmp-nvim-lua'
   "  Snippets
   Plug 'L3MON4D3/LuaSnip'
+  Plug 'rafamadriz/friendly-snippets'
   "  LSP
   Plug 'neovim/nvim-lspconfig'
   Plug 'williamboman/nvim-lsp-installer'
