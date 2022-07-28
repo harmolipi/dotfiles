@@ -4,57 +4,44 @@ if (not status) then
     return
 end
 
+package.path = "/Users/nikobirbilis/.config/nvim/after/plugin/?.lua;" .. package.path
+local handlers = require("lsp-handlers")
+handlers.setup()
+
+local servers = {
+    "cssls",
+    "html",
+    "tsserver",
+    "jsonls",
+    "yamlls",
+    "eslint",
+    "intelephense",
+    "emmet_ls",
+    "cssmodules_ls",
+    "quick_lint_js",
+    "sumneko_lua"
+}
+
 lsp_installer.setup {
     automatic_installation = true
 }
 
-local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
-capabilities.textDocument.completion.completionItem.snippetSupport = true
+local lspconfig_status, lspconfig = pcall(require, "lspconfig")
+if not lspconfig_status then
+    return
+end
 
--- Lsp-config
-require "lspconfig".html.setup {
-    capabilities = capabilities
-}
+local opts = {}
+
+for _, server in pairs(servers) do
+    opts = {
+        on_attach = handlers.on_attach,
+        capabilities = handlers.capabilities
+    }
+
+    lspconfig[server].setup(opts)
+end
 
 -- Lspsaga
 local saga = require "lspsaga"
 saga.init_lsp_saga()
-
--- ESLint
-require("lspconfig").eslint.setup {}
-
--- Quick_lint_js
-require("lspconfig/quick_lint_js").setup {
-    capabilities = capabilities
-}
-
--- Intelephense
-require("lspconfig").intelephense.setup {
-    capabilities = capabilities
-}
-
--- YAMLls
-require("lspconfig").yamlls.setup {
-    capabilities = capabilities
-}
-
--- Emmet_ls
-require("lspconfig").emmet_ls.setup {
-    capabilities = capabilities,
-    filetypes = {"html", "php", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less"}
-}
-
--- HTML
-require("lspconfig").html.setup {
-    capabilities = capabilities
-}
-
--- CSS
-require("lspconfig").cssls.setup {
-    capabilities = capabilities
-}
-
--- CSS modules
-require("lspconfig").cssmodules_ls.setup {
-    capabilities = capabilities
-}
