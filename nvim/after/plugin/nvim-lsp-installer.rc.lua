@@ -39,6 +39,24 @@ for _, server in pairs(servers) do
         capabilities = handlers.capabilities
     }
 
+    if server == "sumneko_lua" then
+        local sumneko_opts = {
+            settings = {
+                Lua = {
+                    diagnostics = {
+                        globals = {"vim"}
+                    },
+                    workspace = {
+                        library = {
+                            [vim.fn.expand "$VIMRUNTIME/lua"] = true,
+                            [vim.fn.stdpath "config" .. "/lua"] = true
+                        }
+                    }
+                }
+            }
+        }
+    end
+
     lspconfig[server].setup(opts)
 end
 
