@@ -11,6 +11,7 @@ telescope.setup {
         prompt_prefix = " ",
         selection_caret = " ",
         path_display = {"smart"},
+        initial_mode = "insert",
         file_ignore_patterns = {".git/", "node_modules"},
         mappings = {
             i = {
