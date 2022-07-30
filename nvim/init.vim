@@ -14,9 +14,3 @@ nnoremap <silent> <leader>gg :LazyGit<cr> " Open lazygit
 let g:vcoolor_map = '<C-c>'
 
 colorscheme NeoSolarized
-
-" Run Neoformat on save on all files
-augroup fmt
-  autocmd!
-  autocmd BufWritePre * undojoin | Neoformat
-augroup END

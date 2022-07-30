@@ -27,7 +27,6 @@ if has("nvim")
   Plug 'mhinz/vim-startify'
   Plug 'windwp/nvim-autopairs'
   Plug 'windwp/nvim-ts-autotag'
-  Plug 'sbdchd/neoformat'
   Plug 'norcalli/nvim-colorizer.lua'
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-commentary'
