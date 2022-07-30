@@ -38,6 +38,7 @@ if has("nvim")
   "  Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'JoosepAlviste/nvim-ts-context-commentstring'
   Plug 'lewis6991/gitsigns.nvim'
+  Plug 'urbit/hoon.vim'
   "  CMP plugins
   Plug 'hrsh7th/nvim-cmp'
   Plug 'hrsh7th/cmp-nvim-lsp'

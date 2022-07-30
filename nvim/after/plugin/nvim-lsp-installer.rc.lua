@@ -19,7 +19,8 @@ local servers = {
     "emmet_ls",
     "cssmodules_ls",
     "quick_lint_js",
-    "sumneko_lua"
+    "sumneko_lua",
+    "hoon_ls"
 }
 
 lsp_installer.setup {
