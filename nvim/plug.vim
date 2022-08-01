@@ -39,6 +39,7 @@ if has("nvim")
   Plug 'lewis6991/gitsigns.nvim'
   Plug 'ludovicchabant/vim-gutentags'
   Plug 'urbit/hoon.vim'
+  Plug 'lukas-reineke/indent-blankline.nvim'
 
   "  CMP plugins
   Plug 'hrsh7th/nvim-cmp'
