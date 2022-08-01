@@ -39,6 +39,7 @@ if has("nvim")
   Plug 'lewis6991/gitsigns.nvim'
   Plug 'ludovicchabant/vim-gutentags'
   Plug 'urbit/hoon.vim'
+
   "  CMP plugins
   Plug 'hrsh7th/nvim-cmp'
   Plug 'hrsh7th/cmp-nvim-lsp'
@@ -47,14 +48,17 @@ if has("nvim")
   Plug 'saadparwaiz1/cmp_luasnip'
   Plug 'hrsh7th/cmp-nvim-lsp'
   Plug 'hrsh7th/cmp-nvim-lua'
+
   "  Snippets
   Plug 'L3MON4D3/LuaSnip'
   Plug 'rafamadriz/friendly-snippets'
+
   "  LSP
   Plug 'neovim/nvim-lspconfig'
   Plug 'williamboman/nvim-lsp-installer'
   Plug 'glepnir/lspsaga.nvim'
   Plug 'onsails/lspkind-nvim'
+
   "  Treesitter
   Plug 'p00f/nvim-ts-rainbow'
 endif
