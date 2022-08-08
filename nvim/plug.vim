@@ -15,7 +15,7 @@ if has("nvim")
   Plug 'kyazdani42/nvim-tree.lua'
   Plug 'folke/which-key.nvim'
   " Plug 'quick-lint/quick-lint-js', {'rtp': 'plugin/vim/quick-lint-js.vim', 'tag': '2.7.0'}
-  " Plug 'nvim-lua/plenary.nvim'
+  Plug 'nvim-lua/plenary.nvim'
   " Plug 'nvim-lua/popup.nvim'
   Plug 'folke/lsp-colors.nvim'
   Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
