@@ -33,7 +33,6 @@ if has("nvim")
   " Plug 'github/copilot.vim'
   " Plug 'leafgarland/typescript-vim'
   " Plug 'jose-elias-alvarez/null-ls.nvim'
-  " Plug 'JoosepAlviste/nvim-ts-context-commentstring'
   " Plug 'lewis6991/gitsigns.nvim'
   Plug 'ludovicchabant/vim-gutentags'
   Plug 'urbit/hoon.vim'
@@ -64,8 +63,9 @@ if has("nvim")
 
   "  Treesitter
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-  " Plug 'p00f/nvim-ts-rainbow'
-  " Plug 'windwp/nvim-ts-autotag'
+  Plug 'p00f/nvim-ts-rainbow'
+  Plug 'windwp/nvim-ts-autotag'
+  Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 endif
 
 call plug#end()
