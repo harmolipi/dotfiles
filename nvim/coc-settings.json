@@ -21,7 +21,9 @@
     "yaml",
     "json",
     "python",
-    "javascriptreact"
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
   ],
   // python
   "python.linting.enabled": true,
