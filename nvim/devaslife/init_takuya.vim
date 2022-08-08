@@ -122,7 +122,7 @@ endif
 "   runtime ./windows.vim
 " endif
 
-runtime ./devaslife/maps.vim
+" runtime ./devaslife/maps.vim
 "}}}
 
 " Syntax theme "{{{
