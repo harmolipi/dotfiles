@@ -81,6 +81,9 @@ autocmd InsertLeave * set nopaste
 " Add asterisks in block comments
 set formatoptions+=r
 
+" Prettier command
+command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument
+
 " }}}
 
 " Highlights "{{{
