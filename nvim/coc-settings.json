@@ -43,7 +43,14 @@
     "border": true,
     "rounded": true,
     "highlight": "CocCustomPopup",
-    "borderhighlight": "CocCustomPopupBoder"
+    "borderhighlight": "CocCustomPopupBorder"
+  },
+  "hover.floatConfig": {
+    "border": true,
+    "rounded": true,
+    "highlight": "CocCustomPopup",
+    "borderhighlight": "CocCustomPopupBorder",
+    "title": " Info"
   },
   "suggest.completionItemKindLabels": {
     "keyword": "\uf1de",
@@ -80,5 +87,4 @@
   // Eslint
   "eslint.enable": true,
   "eslint.format.enable": false
-  // Tsserver
 }
