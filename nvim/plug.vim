@@ -36,6 +36,7 @@ if has("nvim")
 
   "  Snippets
   Plug 'honza/vim-snippets'
+  Plug 'mlaursen/vim-react-snippets'
 
   "  Treesitter
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
