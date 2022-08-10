@@ -1,13 +1,15 @@
 {
   // Refer to this link https://github.com/neoclide/coc.nvim/blob/master/data/schema.json
-  "diagnostic.level": "hint",
-  "diagnostic.errorSign": "",
+  "diagnostic.errorSign": "",
   "diagnostic.warningSign": "",
-  "diagnostic.infoSign": "",
-  "diagnostic.hintSign": "",
+  "diagnostic.infoSign": "",
+  "diagnostic.hintSign": "",
   "diagnostic.enableMessage": "jump",
   "diagnostic.virtualText": true,
   "diagnostic.virtualTextPrefix": "        ",
+  "diagnostic.virtualTextLevel": "error",
+  "diagnostic.virtualTextCurrentLineOnly": false,
+  "diagnostic.format": "%message\n\n[%source |%code]",
   "snippets.extends": {
     "javascript": ["html", "javascript-react"]
   },
@@ -40,17 +42,26 @@
   "suggest.noselect": true,
   "suggest.formatItems": ["abbr", "kind"],
   "suggest.floatConfig": {
+    "maxWidth": 50,
     "border": true,
     "rounded": true,
     "highlight": "CocCustomPopup",
     "borderhighlight": "CocCustomPopupBorder"
   },
   "hover.floatConfig": {
+    "maxWidth": 50,
     "border": true,
     "rounded": true,
     "highlight": "CocCustomPopup",
     "borderhighlight": "CocCustomPopupBorder",
     "title": " Info"
+  },
+  "diagnostic.floatConfig": {
+    "maxWidth": 50,
+    "border": true,
+    "rounded": true,
+    "highlight": "CocCustomPopup",
+    "borderhighlight": "CocCustomPopupBorder"
   },
   "suggest.completionItemKindLabels": {
     "keyword": "\uf1de",
