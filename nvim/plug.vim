@@ -21,12 +21,12 @@ if has("nvim")
   " Plug 'kdheepak/lazygit.nvim'
   " Plug 'mattn/emmet-vim'
   " Plug 'mhinz/vim-startify'
-  " Plug 'tpope/vim-surround'
+  Plug 'tpope/vim-surround'
   Plug 'tpope/vim-commentary'
   " Plug 'maxmellon/vim-jsx-pretty'
   " Plug 'github/copilot.vim'
   " Plug 'leafgarland/typescript-vim'
-  " Plug 'lewis6991/gitsigns.nvim'
+  Plug 'lewis6991/gitsigns.nvim'
   Plug 'ludovicchabant/vim-gutentags'
   Plug 'urbit/hoon.vim'
   Plug 'lukas-reineke/indent-blankline.nvim'
@@ -35,6 +35,7 @@ if has("nvim")
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
   "  Snippets
+  Plug 'honza/vim-snippets'
 
   "  Treesitter
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
