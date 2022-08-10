@@ -36,7 +36,7 @@ vim.cmd([[let &t_Ce = "\e[4:0m"]])
 -- but this doesn't work on iTerm2
 
 -- Turn off paste mode when leaving insert
-vim.opt.nvim_create_autocmd("InsertLeave", {
+vim.api.nvim_create_autocmd("InsertLeave", {
 	pattern = "*",
 	command = "set nopaste",
 })

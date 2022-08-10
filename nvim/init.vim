@@ -6,11 +6,11 @@ set noshowmatch
 set autochdir
 
 runtime ./plug.vim " Plugins
-runtime ./devaslife/init_takuya.vim " Takuya's (devaslife) config
+" runtime ./devaslife/init_takuya.vim " Takuya's (devaslife) config
 
 tnoremap <Esc> <C-\><C-n> " Escape from terminal
 nnoremap <C-`> :NvimTreeToggle<Return> " Open and close Nvim Tree
 nnoremap <silent> <leader>gg :LazyGit<cr> " Open lazygit
 let g:vcoolor_map = '<C-c>'
 
-colorscheme NeoSolarized
+" colorscheme NeoSolarized
