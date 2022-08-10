@@ -299,7 +299,6 @@ colorscheme NeoSolarized
 
 tnoremap <Esc> <C-\><C-n>                     " Escape from terminal
 nnoremap <C-`> :NvimTreeToggle<Return>        " Open and close Nvim Tree
-nnoremap <silent> <leader>gg :LazyGit<CR>     " Open LazyGit
 let g:vcooler_map = '<C-c>'
 
 " Takuya's keymaps
