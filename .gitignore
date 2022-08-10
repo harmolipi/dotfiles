@@ -11,3 +11,8 @@ configstore/update-notifier-zapier-platform-core.json
 tags
 .vim
 coc
+mps-youtube/config.json
+mps-youtube/input_history
+mps-youtube/play_history.m3u
+mps-youtube/cache_py_3.10.
+mps-youtube/transcode
