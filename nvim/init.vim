@@ -294,7 +294,7 @@ colorscheme NeoSolarized
 
 "}}}
 
-" Mappings - neovim "{{{
+" Mappings "{{{
 " ---------------------------------------------------------------------
 
 tnoremap <Esc> <C-\><C-n>                     " Escape from terminal
