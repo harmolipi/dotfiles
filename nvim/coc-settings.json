@@ -97,5 +97,7 @@
   "prettier.trailingComma": "all",
   // Eslint
   "eslint.enable": true,
-  "eslint.format.enable": false
+  "eslint.format.enable": false,
+  // Highlight
+  "colors.filetypes": ["*"]
 }
