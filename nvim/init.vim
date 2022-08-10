@@ -277,6 +277,8 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
+let g:coc_global_extensions = ['coc-json', 'coc-vimlsp', 'coc-tsserver', 'coc-tailwindcss', 'coc-snippets', 'coc-prettier', 'coc-pairs', 'coc-marketplace', 'coc-html', 'coc-highlight', 'coc-eslint', 'coc-emmet', 'coc-diagnostic', 'coc-sumneko-lua', 'coc-pyright', 'coc-phpls', 'coc-json', 'coc-css']
+
 "}}}
 
 " Syntax theme "{{{
