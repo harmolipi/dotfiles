@@ -12,8 +12,10 @@ packer.startup(function(use)
     "svrana/neosolarized.nvim",
     requires = { "tjdevries/colorbuddy.nvim" },
   }
+
   use 'glepnir/lspsaga.nvim' -- LSP UIs
   use 'L3MON4D3/LuaSnip' -- Snippets
+  use 'rafamadriz/friendly-snippets'
   use {
     'nvim-lualine/lualine.nvim', -- Statusline
     requires = { 'kyazdani42/nvim-web-devicons', opt = true } -- File icons
@@ -22,6 +24,7 @@ packer.startup(function(use)
   use 'hrsh7th/cmp-buffer' -- nvim-cmp source for buffer words
   use 'hrsh7th/cmp-nvim-lsp' -- nvim-cmp source for neovim's built-in LSP
   use 'hrsh7th/nvim-cmp' -- Completion
+  use 'saadparwaiz1/cmp_luasnip' -- Luasnip completion source
   use 'neovim/nvim-lspconfig' -- LSP
   use {
     'nvim-treesitter/nvim-treesitter',
