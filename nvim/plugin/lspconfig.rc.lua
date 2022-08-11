@@ -61,37 +61,59 @@ protocol.CompletionItemKind = {
   '', -- TypeParameter
 }
 
+-- Commenting out since I'm trying moving these all to Mason
 -- Set up completion using nvim_cmp with LSP source
-local capabilities = require('cmp_nvim_lsp').update_capabilities(
-  vim.lsp.protocol.make_client_capabilities()
-)
+-- local capabilities = require('cmp_nvim_lsp').update_capabilities(
+--   vim.lsp.protocol.make_client_capabilities()
+-- )
 
-nvim_lsp.tsserver.setup {
-  on_attach = on_attach,
-  filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
-  cmd = { "typescript-language-server", "--stdio" },
-  capabilities = capabilities
-}
+-- nvim_lsp.tsserver.setup {
+--   on_attach = on_attach,
+--   filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
+--   cmd = { "typescript-language-server", "--stdio" },
+--   capabilities = capabilities
+-- }
 
-nvim_lsp.sumneko_lua.setup {
-  on_attach = on_attach,
-  settings = {
-    Lua = {
-      diagnostics = {
-        -- Get the language server to recognize the 'vim' global
-        globals = { 'vim' }
-      },
+-- nvim_lsp.sumneko_lua.setup {
+--   on_attach = on_attach,
+--   settings = {
+--     Lua = {
+--       diagnostics = {
+--         -- Get the language server to recognize the 'vim' global
+--         globals = { 'vim' }
+--       },
 
-      workspace = {
-        -- Make the server aware of Neovim runtime files
-        library = vim.api.nvim_get_runtime_file("", true),
-        checkThirdParty = false
-      }
-    }
-  }
-}
+--       workspace = {
+--         -- Make the server aware of Neovim runtime files
+--         library = vim.api.nvim_get_runtime_file("", true),
+--         checkThirdParty = false
+--       }
+--     }
+--   }
+-- }
 
-nvim_lsp.tailwindcss.setup {}
+-- nvim_lsp.tailwindcss.setup {
+--   capabilities = capabilities,
+--   on_attach = on_attach,
+-- }
+
+-- nvim_lsp.emmet_ls.setup {
+--   capabilities = capabilities,
+--   on_attach = on_attach,
+--   filetypes = { 'html', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less' },
+--   init_options = {
+--     html = {
+--       options = {
+--         ["bem.enabled"] = true,
+--       },
+--     },
+--   },
+-- }
+
+-- nvim_lsp.intelephense.setup {
+--   capabilities = capabilities,
+--   on_attach = on_attach,
+-- }
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
