@@ -1,3 +1,4 @@
+-- Devaslife's settings
 vim.cmd("autocmd!")
 
 vim.scriptencoding = "utf-8"
@@ -37,9 +38,13 @@ vim.cmd([[let &t_Ce = "\e[4:0m"]])
 
 -- Turn off paste mode when leaving insert
 vim.api.nvim_create_autocmd("InsertLeave", {
-	pattern = "*",
-	command = "set nopaste",
+  pattern = "*",
+  command = "set nopaste",
 })
 
 -- Add asterisks in block comments
 vim.opt.formatoptions:append({ "r" })
+
+-- My settings
+vim.opt.splitbelow = true
+vim.opt.splitright = true
