@@ -43,3 +43,6 @@ keymap.set("i", "<S-Tab>", 'pumvisible() ? "\\<C-p>" : "\\<S-Tab>"', { expr = tr
 
 -- Remove highlight after search
 keymap.set("n", "<Esc>", ":noh<CR><Esc>", { silent = true })
+
+-- Leader key
+vim.g.mapleader = '\\'
