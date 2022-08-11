@@ -13,6 +13,7 @@ null_ls.setup {
           vim.lsp.buf.formatting_sync()
         end,
       })
+      vim.cmd("autocmd BufWritePost <buffer> lua vim.lsp.buf.formatting()")
     end
   end,
   sources = {
