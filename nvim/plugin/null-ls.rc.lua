@@ -20,6 +20,11 @@ null_ls.setup {
     null_ls.builtins.diagnostics.eslint_d.with({
       diagnostics_format = '[eslint] #{m}\n(#{c})'
     }),
-    null_ls.builtins.diagnostics.fish
+    null_ls.builtins.diagnostics.fish,
+    -- null_ls.builtins.diagnostics.php,
+    -- null_ls.builtins.diagnostics.tsc,
+    null_ls.builtins.code_actions.eslint_d,
+    null_ls.builtins.completion.luasnip,
+    -- null_ls.builtins.formatting.prettierd,
   }
 }
