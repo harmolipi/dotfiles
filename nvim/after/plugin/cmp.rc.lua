@@ -9,6 +9,8 @@ if (not status) then return end
 local status_luasnip, luasnip = pcall(require, "luasnip")
 if (not status_luasnip) then return end
 
+require("luasnip.loaders.from_vscode").lazy_load()
+
 local status_lspkind, lspkind = pcall(require, "lspkind")
 if (not status_lspkind) then return end
 
@@ -50,7 +52,8 @@ cmp.setup({
   }),
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
-    { name = 'buffer' }
+    { name = 'luasnip' },
+    { name = 'buffer' },
   }),
   formatting = {
     format = lspkind.cmp_format({ with_text = false, maxwidth = 50 })
