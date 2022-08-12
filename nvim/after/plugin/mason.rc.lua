@@ -7,7 +7,7 @@ if (not status_lspconfig) then return end
 
 mason.setup {}
 mason_lspconfig.setup {
-  ensure_installed = { 'tsserver', 'sumneko_lua', 'prettierd', 'hoon_ls' },
+  ensure_installed = { 'tsserver', 'sumneko_lua', 'prettierd', 'hoon_ls', 'jsonls' },
   automatic_installation = true,
 }
 
@@ -88,6 +88,18 @@ mason_lspconfig.setup_handlers {
           options = {
             ["bem.enabled"] = true,
           },
+        },
+      },
+    }
+  end,
+  ['jsonls'] = function()
+    lspconfig.jsonls.setup {
+      capabilities = capabilities,
+      on_attach = on_attach,
+      settings = {
+        json = {
+          schemas = require('schemastore').json.schemas(),
+          validate = { enable = true },
         },
       },
     }

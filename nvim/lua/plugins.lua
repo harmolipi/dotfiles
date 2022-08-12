@@ -53,4 +53,6 @@ packer.startup(function(use)
   use 'dinhhuy258/git.nvim'
 
   use 'tpope/vim-commentary'
+
+  use 'b0o/schemastore.nvim'
 end)
