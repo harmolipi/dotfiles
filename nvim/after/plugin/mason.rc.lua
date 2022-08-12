@@ -11,6 +11,15 @@ mason_lspconfig.setup {
   automatic_installation = true,
 }
 
+local lsp_highlight_document = function(client)
+  -- Set autocommands conditional on server_capabilities
+  local status_ok, illuminate = pcall(require, "illuminate")
+  if not status_ok then
+    return
+  end
+  illuminate.on_attach(client)
+  -- end
+end
 local capabilities = require('cmp_nvim_lsp').update_capabilities(
   vim.lsp.protocol.make_client_capabilities()
 )
@@ -40,6 +49,7 @@ local on_attach = function(client, bufnr)
       buffer = bufnr,
       callback = function() vim.lsp.buf.formatting_seq_sync() end
     })
+  lsp_highlight_document(client)
   end
 end
 

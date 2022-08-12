@@ -55,4 +55,6 @@ packer.startup(function(use)
   use 'tpope/vim-commentary'
 
   use 'b0o/schemastore.nvim'
+
+  use 'RRethy/vim-illuminate'
 end)
