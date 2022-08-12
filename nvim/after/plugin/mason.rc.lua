@@ -20,6 +20,17 @@ local lsp_highlight_document = function(client)
   illuminate.on_attach(client)
   -- end
 end
+local formatting_callback = function(client, bufnr)
+  -- formatting
+  if client.server_capabilities.documentFormattingProvider then
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      group = vim.api.nvim_create_augroup("Format", { clear = true }),
+      buffer = bufnr,
+      callback = function() vim.lsp.buf.formatting_seq_sync() end
+    })
+  end
+end
+
 local capabilities = require('cmp_nvim_lsp').update_capabilities(
   vim.lsp.protocol.make_client_capabilities()
 )
@@ -42,17 +53,16 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', 'gi', '<Cmd>lua vim.lsp.buf.implementation()<CR>', opts)
   --buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
 
-  -- formatting
-  if client.server_capabilities.documentFormattingProvider then
-    vim.api.nvim_create_autocmd("BufWritePre", {
-      group = vim.api.nvim_create_augroup("Format", { clear = true }),
-      buffer = bufnr,
-      callback = function() vim.lsp.buf.formatting_seq_sync() end
-    })
   lsp_highlight_document(client)
-  end
-end
 
+  -- Conditional for when I don't want it to run
+  if client.name == 'tsserver' then
+    vim.notify(client.name)
+    client.resolved_capabilities.document_formatting = false
+  end
+
+  formatting_callback(client, bufnr)
+end
 
 mason_lspconfig.setup_handlers {
   function(server_name)
