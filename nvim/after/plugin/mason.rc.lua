@@ -20,6 +20,7 @@ local lsp_highlight_document = function(client)
   illuminate.on_attach(client)
   -- end
 end
+
 local formatting_callback = function(client, bufnr)
   -- formatting
   if client.server_capabilities.documentFormattingProvider then
@@ -124,4 +125,10 @@ mason_lspconfig.setup_handlers {
       },
     }
   end,
+  ['intelephense'] = function()
+    lspconfig.intelephense.setup {
+      capabilities = capabilities,
+      on_attach = on_attach,
+    }
+  end
 }
