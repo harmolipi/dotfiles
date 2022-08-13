@@ -46,3 +46,6 @@ keymap.set("n", "<Esc>", ":noh<CR><Esc>", { silent = true })
 
 -- Leader key
 vim.g.mapleader = '\\'
+
+-- vCoolor
+keymap.set("n", "<C-c>", ":VCoolor<CR>", { silent = true })

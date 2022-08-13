@@ -48,6 +48,7 @@ packer.startup(function(use)
   }
 
   use 'norcalli/nvim-colorizer.lua'
+  use 'KabbAmine/vCoolor.vim'
 
   use 'lewis6991/gitsigns.nvim'
   use 'dinhhuy258/git.nvim'
