@@ -55,10 +55,34 @@ packer.startup(function(use)
 
   use 'tpope/vim-commentary'
   use 'tpope/vim-surround'
-
   use 'b0o/schemastore.nvim'
 
   use 'RRethy/vim-illuminate'
   use 'ray-x/lsp_signature.nvim'
+
+  use 'mhinz/vim-startify'
+
+  use {
+    "zbirenbaum/neodim",
+    event = "LspAttach",
+    config = function()
+      require("neodim").setup({
+        alpha = 0.75,
+        blend_color = "#000000",
+        update_in_insert = {
+          enable = true,
+          delay = 100,
+        },
+        hide = {
+          virtual_text = true,
+          signs = true,
+          underline = true,
+        }
+      })
+    end
+  }
+
+  use 'maxmellon/vim-jsx-pretty'
+  use 'tpope/vim-sleuth'
 
 end)
