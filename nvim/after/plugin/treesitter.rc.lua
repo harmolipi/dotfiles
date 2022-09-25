@@ -28,5 +28,8 @@ ts.setup {
   },
   autotag = {
     enable = true,
-  }
+  },
+  rainbow = {
+    enable = true,
+  },
 }
