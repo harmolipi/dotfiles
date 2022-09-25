@@ -62,6 +62,18 @@ local on_attach = function(client, bufnr)
     client.resolved_capabilities.document_formatting = false
   end
 
+  local signature_setup = {
+    bind = true,
+    handler_opts = {
+      border = "rounded"
+    },
+    auto_close_after = 3,
+    hint_enable = false,
+    hi_parameter = "IncSearch",
+  }
+
+  require 'lsp_signature'.on_attach(signature_setup, bufnr)
+
   formatting_callback(client, bufnr)
 end
 

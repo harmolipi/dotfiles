@@ -59,4 +59,6 @@ packer.startup(function(use)
   use 'b0o/schemastore.nvim'
 
   use 'RRethy/vim-illuminate'
+  use 'ray-x/lsp_signature.nvim'
+
 end)
