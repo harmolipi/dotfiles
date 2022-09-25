@@ -87,7 +87,7 @@ mason_lspconfig.setup_handlers {
   ['tsserver'] = function()
     lspconfig.tsserver.setup {
       on_attach = on_attach,
-      filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
+      filetypes = { "typescript", "typescriptreact", "typescript.tsx", "javascript", "javascriptreact" },
       cmd = { "typescript-language-server", "--stdio" },
       capabilities = capabilities
     }
