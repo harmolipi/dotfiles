@@ -146,6 +146,13 @@ mason_lspconfig.setup_handlers {
     lspconfig.intelephense.setup {
       capabilities = capabilities,
       on_attach = on_attach,
+      settings = {
+        intelephense = {
+          stubs = {
+            "wordpress",
+          }
+        }
+      }
     }
   end
 }
