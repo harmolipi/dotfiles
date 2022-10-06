@@ -62,6 +62,11 @@ local on_attach = function(client, bufnr)
     client.resolved_capabilities.document_formatting = false
   end
 
+  if client.name == 'html' then
+    vim.notify(client.name)
+    client.resolved_capabilities.document_formatting = false
+  end
+
   local signature_setup = {
     bind = true,
     handler_opts = {
