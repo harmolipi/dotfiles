@@ -85,4 +85,6 @@ packer.startup(function(use)
   use 'maxmellon/vim-jsx-pretty'
   use 'tpope/vim-sleuth'
 
+  use 'urbit/hoon.vim'
+
 end)

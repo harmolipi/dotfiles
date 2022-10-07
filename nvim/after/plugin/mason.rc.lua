@@ -154,5 +154,8 @@ mason_lspconfig.setup_handlers {
         }
       }
     }
-  end
+  end,
+  ['hoon_ls'] = function()
+    lspconfig.hoon_ls.setup {}
+  end,
 }
