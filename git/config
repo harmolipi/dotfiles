@@ -15,10 +15,15 @@
   editor = nvim
 [alias]
 	st = status
-	hist = log --pretty=format:\"%Cgreen%h %Creset%cd %Cblue[%cn] %Creset%s%C(yellow)%d%C(reset)\" --graph --date=relative --decorate --all
-	llog = log -- graph --name-status --pretty=format:\"%C(red)%h %C(reset)(%cd) %C(green)%an %Creset%s %C(yellow)%d%Creset\" --date=relative
+	; hist = log --pretty=format:\"%Cgreen%h %Creset%cd %Cblue[%cn] %Creset%s%C(yellow)%d%C(reset)\" --graph --date=relative --decorate --all
+	hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
 	df = "!git hist | peco | awk '{print $2}' | xargs -I {} git diff {}^ {}"
 	ps = "!git push origin $(git rev-parse --abbrev-ref HEAD)"
 	pl = "!git pull origin $(git rev-parse --abbrev-ref HEAD)"
 	br = branch
 	open = "!hub browse"
+
+	co = checkout
+	ci = commit
+	type = cat-file -t
+	dump = cat-file -p
