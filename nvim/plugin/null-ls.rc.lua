@@ -1,6 +1,7 @@
 local status, null_ls = pcall(require, 'null-ls')
 if (not status) then return end
 
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 null_ls.setup {
   on_attach = function(client, bufnr)
     if client.supports_method("textDocument/formatting") then
@@ -9,7 +10,8 @@ null_ls.setup {
         group = augroup,
         buffer = bufnr,
         callback = function()
-          vim.lsp.buf.formatting_sync()
+          -- vim.lsp.buf.formatting_sync()
+          vim.lsp.buf.format()
         end,
       })
     end

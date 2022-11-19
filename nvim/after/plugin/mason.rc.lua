@@ -7,7 +7,7 @@ if (not status_lspconfig) then return end
 
 mason.setup {}
 mason_lspconfig.setup {
-  ensure_installed = { 'tsserver', 'sumneko_lua', 'prettierd', 'hoon_ls', 'jsonls' },
+  ensure_installed = { 'tsserver', 'sumneko_lua', 'hoon_ls', 'jsonls' },
   automatic_installation = true,
 }
 
@@ -27,14 +27,16 @@ local formatting_callback = function(client, bufnr)
     vim.api.nvim_create_autocmd("BufWritePre", {
       group = vim.api.nvim_create_augroup("Format", { clear = true }),
       buffer = bufnr,
-      callback = function() vim.lsp.buf.formatting_seq_sync() end
+      -- callback = function() vim.lsp.buf.formatting_seq_sync() end
+      callback = function() vim.lsp.buf.format() end
     })
   end
 end
 
-local capabilities = require('cmp_nvim_lsp').update_capabilities(
-  vim.lsp.protocol.make_client_capabilities()
-)
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+-- local capabilities = require('cmp_nvim_lsp').update_capabilities(
+--   vim.lsp.protocol.make_client_capabilities()
+-- )
 
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
@@ -50,21 +52,23 @@ local on_attach = function(client, bufnr)
 
   -- See `:help vim.lsp.*` for documentation on any of the below functions
   buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-  --buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
+  buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
   buf_set_keymap('n', 'gi', '<Cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-  --buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
+  buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
 
   lsp_highlight_document(client)
 
   -- Conditional for when I don't want it to run
-  if client.name == 'tsserver' then
+  if client.name == 'tsserver' or client.name == 'html' or client.name == 'json' then
     vim.notify(client.name)
-    client.resolved_capabilities.document_formatting = false
+    -- client.resolved_capabilities.document_formatting = false
+    client.server_capabilities.document_formatting = false
   end
 
   if client.name == 'html' then
     vim.notify(client.name)
-    client.resolved_capabilities.document_formatting = false
+    -- client.resolved_capabilities.document_formatting = false
+    client.server_capabilities.document_formatting = false
   end
 
   local signature_setup = {
@@ -87,6 +91,12 @@ mason_lspconfig.setup_handlers {
     lspconfig[server_name].setup {
       capabilities = capabilities,
       on_attach = on_attach,
+    }
+  end,
+  ['html'] = function()
+    lspconfig.html.setup {
+      on_attach = on_attach,
+      capabilities = capabilities
     }
   end,
   ['tsserver'] = function()
@@ -120,7 +130,8 @@ mason_lspconfig.setup_handlers {
     lspconfig.emmet_ls.setup {
       capabilities = capabilities,
       on_attach = on_attach,
-      filetypes = { 'html', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less' },
+      filetypes = { 'html', 'php', 'javascript', 'typescript', 'javascriptreact', 'typescriptreact', 'css', 'sass',
+        'scss', 'less' },
       init_options = {
         html = {
           options = {
@@ -149,7 +160,14 @@ mason_lspconfig.setup_handlers {
       settings = {
         intelephense = {
           stubs = {
-            "wordpress",
+            "apache", "bcmath", "bz2", "calendar", "com_dotnet", "Core", "ctype", "curl", "date",
+            "dba", "dom", "enchant", "exif", "FFI", "fileinfo", "filter", "fpm", "ftp", "gd", "gettext",
+            "gmp", "hash", "iconv", "imap", "intl", "json", "ldap", "libxml", "mbstring", "meta", "mysqli",
+            "oci8", "odbc", "openssl", "pcntl", "pcre", "PDO", "pdo_ibm", "pdo_mysql", "pdo_pgsql", "pdo_sqlite", "pgsql",
+            "Phar", "posix", "pspell", "readline", "Reflection", "session", "shmop", "SimpleXML", "snmp", "soap",
+            "sockets", "sodium", "SPL", "sqlite3", "standard", "superglobals", "sysvmsg", "sysvsem", "sysvshm", "tidy",
+            "tokenizer", "xml", "xmlreader", "xmlrpc", "xmlwriter", "xsl", "Zend OPcache", "zip", "zlib",
+            "wordpress", "phpunit",
           }
         }
       }
