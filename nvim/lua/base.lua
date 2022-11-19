@@ -48,3 +48,13 @@ vim.opt.formatoptions:append({ "r" })
 -- My settings
 vim.opt.splitbelow = true
 vim.opt.splitright = true
+vim.g.user_emmet_settings = {
+  php = {
+    extends = 'html',
+    filters = 'c',
+  },
+}
+
+vim.g.pdv_template_dir = '~/.config/nvim/after/plugin/phptemplates'
+
+vim.g.minimap_auto_start = 1

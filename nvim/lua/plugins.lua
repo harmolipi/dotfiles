@@ -18,7 +18,7 @@ packer.startup(function(use)
   use 'rafamadriz/friendly-snippets'
   use {
     'nvim-lualine/lualine.nvim', -- Statusline
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true } -- File icons
+    -- requires = { 'kyazdani42/nvim-web-devicons', opt = true } -- File icons
   }
   use 'onsails/lspkind-nvim' -- vscode-like pictograms
   use 'hrsh7th/cmp-buffer' -- nvim-cmp source for buffer words
@@ -30,6 +30,7 @@ packer.startup(function(use)
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate'
   }
+  use 'p00f/nvim-ts-rainbow'
   use 'jose-elias-alvarez/null-ls.nvim' -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
   use 'MunifTanjim/prettier.nvim' -- Prettier plugin for Neovim's built-in LSP
   use 'williamboman/mason.nvim'
@@ -86,5 +87,14 @@ packer.startup(function(use)
   use 'tpope/vim-sleuth'
 
   use 'urbit/hoon.vim'
+  use 'mattn/emmet-vim'
+  use 'pedro757/emmet'
 
+  use 'wakatime/vim-wakatime'
+
+  use 'tobyS/vmustache'
+  use 'tobyS/pdv'
+
+  use 'wfxr/minimap.vim'
+  use 'ludovicchabant/vim-gutentags'
 end)

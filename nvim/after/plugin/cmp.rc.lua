@@ -51,6 +51,7 @@ cmp.setup({
     end, { "i", "s" }),
   }),
   sources = cmp.config.sources({
+    { name = 'emmet' },
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
     { name = 'buffer' },
