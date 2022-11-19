@@ -49,3 +49,4 @@ vim.g.mapleader = '\\'
 
 -- vCoolor
 keymap.set("n", "<C-c>", ":VCoolor<CR>", { silent = true })
+keymap.set('n', '<C-p>', '<Cmd>call pdv#DocumentCurrentLine()<CR>', opts)
