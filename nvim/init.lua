@@ -1,25 +1,21 @@
--- local options = vim.opt
---
--- options.backupskip =
--- 	"set backupskip=$TMPDIR/*,$TMP/*,$TEMP/*,/tmp/*,$TMPDIR/*,$TMP/*,$TEMP/*,/private/tmp/*,$TMPDIR/*,$TMP/*,$TEMP/*"
--- options.showcmd = false
+local impatient_ok, impatient = pcall(require, "impatient")
+if impatient_ok then impatient.enable_profile() end
 
-require("base")
-require("highlight")
-require("maps")
-require("plugins")
-
-local has = function(x)
-  return vim.fn.has(x) == 1
+for _, source in ipairs {
+  "core.utils",
+  "core.options",
+  "core.bootstrap",
+  "core.diagnostics",
+  "core.autocmds",
+  "core.mappings",
+  "configs.which-key-register",
+} do
+  local status_ok, fault = pcall(require, source)
+  if not status_ok then vim.api.nvim_err_writeln("Failed to load " .. source .. "\n\n" .. fault) end
 end
 
-local is_mac = has("macunix")
-local is_win = has("win32")
+astronvim.conditional_func(astronvim.user_plugin_opts("polish", nil, false))
 
-if is_mac then
-  require("macos")
-end
-
-if is_win then
-  require("windows")
+if vim.fn.has "nvim-0.8" ~= 1 or vim.version().prerelease then
+  vim.schedule(function() astronvim.notify("Unsupported Neovim Version! Please check the requirements", "error") end)
 end
