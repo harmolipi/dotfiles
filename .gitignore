@@ -1,5 +1,4 @@
 envman
-fish
 iterm2
 valet
 omf
@@ -16,3 +15,4 @@ nvim-configurator
 StardewValley
 fontforge
 stripe
+fish/functions/tide/configure
