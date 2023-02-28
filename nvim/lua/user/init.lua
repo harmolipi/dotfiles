@@ -5,7 +5,6 @@
 -- normal format is "key = value". These also handle array like data structures
 -- where a value with no key simply has an implicit numeric key
 local config = {
-
         -- Configure AstroNvim updates
         updater = {
                 remote = "origin", -- remote to use
@@ -24,20 +23,33 @@ local config = {
                 --   ["remote3"] = "github_user", -- GitHub user assume AstroNvim fork
                 -- },
         },
-
         -- Set colorscheme to use
         -- colorscheme = "NeoSolarized",
-
-        -- Add highlight groups in any theme
+        -- colorscheme = "everforest",
+        colorscheme = "onedark",
         highlights = {
-                -- init = { -- this table overrides highlights in all themes
-                --   Normal = { bg = "#000000" },
-                -- }
-                -- duskfox = { -- a table of overrides/changes to the duskfox theme
-                --   Normal = { bg = "#000000" },
-                -- },
-        },
+                init = function()
+                        local normalFloatHl = astronvim.get_hlgroup "NormalFloat"
+                        local normalFloatFg = normalFloatHl.fg
 
+                        local cursorLineHl = astronvim.get_hlgroup "CursorLine"
+                        local cursorLineBg = cursorLineHl.bg
+
+                        local aerialLine = astronvim.get_hlgroup "AerialLine"
+                        local aerialLineBg = aerialLine.bg
+
+                        return {
+                                TelescopePromptTitle = { link = "PMenuSel" },
+                                TelescopePreviewTitle = { link = "PMenuSel" },
+                                TelescopePromptNormal = { fg = normalFloatFg, bg = aerialLineBg },
+                                TelescopePromptBorder = { fg = aerialLineBg, bg = aerialLineBg },
+                                TelescopeResultsBorder = { fg = cursorLineBg, bg = cursorLineBg },
+                                TelescopeNormal = { link = "CursorLine" },
+                                TelescopePreviewBorder = { fg = cursorLineBg, bg = cursorLineBg },
+                                TelescopeBorder = { fg = cursorLineBg, bg = cursorLineBg },
+                        }
+                end,
+        },
         -- set vim options here (vim.<first_key>.<second_key> = value)
         options = {
                 opt = {
@@ -61,6 +73,9 @@ local config = {
 
                         copilot_no_tab_map = true, -- disable copilot tab map
                         -- copilot_assume_mapped = true,
+                        onedark_config = {
+                                style = "deep",
+                        }
                 },
         },
         -- If you need more control, you can use the function()...end notation
@@ -87,7 +102,6 @@ local config = {
                 "    ██  ██ ██  ██  ██  ██ ██  ██  ██",
                 "    ██   ████   ████   ██ ██      ██",
         },
-
         -- Default theme configuration
         default_theme = {
                 -- Modify the color palette for the default theme
@@ -131,13 +145,11 @@ local config = {
                         ["which-key"] = true,
                 },
         },
-
         -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
         diagnostics = {
                 virtual_text = true,
                 underline = true,
         },
-
         -- Extend LSP configuration
         lsp = {
                 -- enable servers that you already have installed without mason
@@ -230,7 +242,6 @@ local config = {
                         -- },
                 },
         },
-
         -- Mapping data with "desc" stored directly by vim.keymap.set().
         --
         -- Please use this mappings table to set keyboard mapping since this is the
@@ -259,7 +270,6 @@ local config = {
                         -- ["<esc>"] = false,
                 },
         },
-
         -- Configure plugins
         plugins = {
                 init = {
@@ -301,6 +311,7 @@ local config = {
                                 "iamcco/markdown-preview.nvim",
                                 run = function() vim.fn["mkdp#util#install"]() end,
                         },
+                        { "navarasu/onedark.nvim" },
                         -- You can disable default plugins as follows:
                         -- ["goolord/alpha-nvim"] = { disable = true },
 
