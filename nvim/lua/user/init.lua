@@ -28,14 +28,28 @@ local config = {
         -- colorscheme = "everforest",
         colorscheme = "onedark",
         highlights = {
-                -- init = { -- this table overrides highlights in all themes
-                --   Normal = { bg = "#000000" },
-                -- }
-                -- duskfox = { -- a table of overrides/changes to the duskfox theme
-                --   Normal = { bg = "#000000" },
-                -- },
-        },
+                init = function()
+                        local normalFloatHl = astronvim.get_hlgroup "NormalFloat"
+                        local normalFloatFg = normalFloatHl.fg
 
+                        local cursorLineHl = astronvim.get_hlgroup "CursorLine"
+                        local cursorLineBg = cursorLineHl.bg
+
+                        local aerialLine = astronvim.get_hlgroup "AerialLine"
+                        local aerialLineBg = aerialLine.bg
+
+                        return {
+                                TelescopePromptTitle = { link = "PMenuSel" },
+                                TelescopePreviewTitle = { link = "PMenuSel" },
+                                TelescopePromptNormal = { fg = normalFloatFg, bg = aerialLineBg },
+                                TelescopePromptBorder = { fg = aerialLineBg, bg = aerialLineBg },
+                                TelescopeResultsBorder = { fg = cursorLineBg, bg = cursorLineBg },
+                                TelescopeNormal = { link = "CursorLine" },
+                                TelescopePreviewBorder = { fg = cursorLineBg, bg = cursorLineBg },
+                                TelescopeBorder = { fg = cursorLineBg, bg = cursorLineBg },
+                        }
+                end,
+        },
         -- set vim options here (vim.<first_key>.<second_key> = value)
         options = {
                 opt = {
