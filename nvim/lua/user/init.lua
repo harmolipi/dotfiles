@@ -69,7 +69,7 @@ local config = {
                         status_diagnostics_enabled = true, -- enable diagnostics in statusline
                         icons_enabled = true, -- disable icons in the UI (disable if no nerd font is available, requires :PackerSync after changing)
                         ui_notifications_enabled = true, -- disable notifications when toggling UI elements
-                        heirline_bufferline = false, -- enable new heirline based bufferline (requires :PackerSync after changing)
+                        heirline_bufferline = true, -- enable new heirline based bufferline (requires :PackerSync after changing)
 
                         copilot_no_tab_map = true, -- disable copilot tab map
                         -- copilot_assume_mapped = true,
@@ -103,7 +103,6 @@ local config = {
                 "    ██  ██ ██  ██  ██  ██ ██  ██  ██",
                 "    ██   ████   ████   ██ ██      ██",
         },
-
         -- Default theme configuration
         default_theme = {
                 -- Modify the color palette for the default theme
@@ -370,8 +369,29 @@ local config = {
                 ["mason-nvim-dap"] = { -- overrides `require("mason-nvim-dap").setup(...)`
                         -- ensure_installed = { "python" },
                 },
+                heirline = function(config)
+                        -- the first element of the default configuration table is the statusline
+                        config[1] = {
+                                -- set the fg/bg of the statusline
+                                hl = { fg = "fg", bg = "bg" },
+                                -- when adding the mode component, enable the mode text with padding to the left/right of it
+                                astronvim.status.component.mode { mode_text = { padding = { left = 1, right = 1 } } },
+                                -- add all the other components for the statusline
+                                astronvim.status.component.git_branch(),
+                                astronvim.status.component.file_info(),
+                                astronvim.status.component.git_diff(),
+                                astronvim.status.component.diagnostics(),
+                                astronvim.status.component.fill(),
+                                astronvim.status.component.cmd_info(),
+                                astronvim.status.component.fill(),
+                                astronvim.status.component.lsp(),
+                                astronvim.status.component.treesitter(),
+                                astronvim.status.component.nav(),
+                        }
+                        -- return the final configuration table
+                        return config
+                end,
         },
-
         -- LuaSnip Options
         luasnip = {
                 -- Extend filetypes
@@ -401,13 +421,13 @@ local config = {
         -- Customize Heirline options
         heirline = {
                 -- -- Customize different separators between sections
-                -- separators = {
-                --   tab = { "", "" },
-                -- },
+                separators = {
+                        tab = { "", "" },
+                },
                 -- -- Customize colors for each element each element has a `_fg` and a `_bg`
                 -- colors = function(colors)
-                --   colors.git_branch_fg = astronvim.get_hlgroup "Conditional"
-                --   return colors
+                --         colors.git_branch_fg = astronvim.get_hlgroup "Conditional"
+                --         return colors
                 -- end,
                 -- -- Customize attributes of highlighting in Heirline components
                 -- attributes = {
@@ -423,7 +443,6 @@ local config = {
                 --   },
                 -- },
         },
-
         -- Modify which-key registration (Use this with mappings table in the above.)
         ["which-key"] = {
                 -- Add bindings which show up as group name
@@ -439,7 +458,6 @@ local config = {
                         },
                 },
         },
-
         -- This function is run last and is a good place to configuring
         -- augroups/autocommands and custom filetypes also this just pure lua so
         -- anything that doesn't fit in the normal config locations above can go here
