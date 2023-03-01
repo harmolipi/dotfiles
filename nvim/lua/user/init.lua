@@ -463,7 +463,8 @@ local config = {
         -- anything that doesn't fit in the normal config locations above can go here
         polish = function()
                 local copilot_options = { silent = true, expr = true, script = true }
-                vim.api.nvim_set_keymap("i", "<C-cr>", "copilot#Accept(<Tab>)", copilot_options)
+                -- vim.api.nvim_set_keymap("i", "<C-cr>", "copilot#Accept(<Tab>)", copilot_options)
+                vim.api.nvim_set_keymap("i", "<C-l>", "copilot#Accept(<Tab>)", copilot_options)
                 -- Set up custom filetypes
                 -- vim.filetype.add {
                 --   extension = {
