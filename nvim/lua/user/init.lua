@@ -257,6 +257,7 @@ local config = {
                         ["<leader>bc"] = { "<cmd>BufferLinePickClose<cr>", desc = "Pick to close" },
                         ["<leader>bj"] = { "<cmd>BufferLinePick<cr>", desc = "Pick to jump" },
                         ["<leader>bt"] = { "<cmd>BufferLineSortByTabs<cr>", desc = "Sort by tabs" },
+                        ["<leader>pm"] = { ":PhpactorContextMenu<cr>" },
                         -- Devaslife mappings:
                         ["x"] = { '"_x', desc = "Don't yank with 'x'" },
                         ["+"] = { "<C-a>", desc = "Increment" },
@@ -315,6 +316,11 @@ local config = {
                         -- { "folke/tokyonight.nvim" }
                         -- { "sainnhe/everforest" },
                         { "navarasu/onedark.nvim" },
+                        {
+                                "phpactor/phpactor",
+                                ft = "php",
+                                run = "composer install --no-dev --optimize-autoloader",
+                        }
                         -- You can disable default plugins as follows:
                         -- ["goolord/alpha-nvim"] = { disable = true },
 
