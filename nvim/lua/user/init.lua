@@ -5,7 +5,6 @@
 -- normal format is "key = value". These also handle array like data structures
 -- where a value with no key simply has an implicit numeric key
 local config = {
-
         -- Configure AstroNvim updates
         updater = {
                 remote = "origin", -- remote to use
@@ -24,11 +23,10 @@ local config = {
                 --   ["remote3"] = "github_user", -- GitHub user assume AstroNvim fork
                 -- },
         },
-
         -- Set colorscheme to use
         -- colorscheme = "NeoSolarized",
-
-        -- Add highlight groups in any theme
+        -- colorscheme = "everforest",
+        colorscheme = "onedark",
         highlights = {
                 -- init = { -- this table overrides highlights in all themes
                 --   Normal = { bg = "#000000" },
@@ -61,6 +59,10 @@ local config = {
 
                         copilot_no_tab_map = true, -- disable copilot tab map
                         -- copilot_assume_mapped = true,
+
+                        onedark_config = {
+                                style = "dark",
+                        }
                 },
         },
         -- If you need more control, you can use the function()...end notation
@@ -131,13 +133,11 @@ local config = {
                         ["which-key"] = true,
                 },
         },
-
         -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
         diagnostics = {
                 virtual_text = true,
                 underline = true,
         },
-
         -- Extend LSP configuration
         lsp = {
                 -- enable servers that you already have installed without mason
@@ -230,7 +230,6 @@ local config = {
                         -- },
                 },
         },
-
         -- Mapping data with "desc" stored directly by vim.keymap.set().
         --
         -- Please use this mappings table to set keyboard mapping since this is the
@@ -259,17 +258,16 @@ local config = {
                         -- ["<esc>"] = false,
                 },
         },
-
         -- Configure plugins
         plugins = {
                 init = {
-                        {
-                                "Tsuzat/NeoSolarized.nvim",
-                                as = "NeoSolarized",
-                                config = function()
-                                        require("NeoSolarized").setup()
-                                end,
-                        },
+                        -- {
+                        --         "Tsuzat/NeoSolarized.nvim",
+                        --         as = "NeoSolarized",
+                        --         config = function()
+                        --                 require("NeoSolarized").setup()
+                        --         end,
+                        -- },
                         { "ray-x/lsp_signature.nvim" },
                         { "tpope/vim-surround" },
                         {
@@ -301,6 +299,9 @@ local config = {
                                 "iamcco/markdown-preview.nvim",
                                 run = function() vim.fn["mkdp#util#install"]() end,
                         },
+                        -- { "folke/tokyonight.nvim" }
+                        -- { "sainnhe/everforest" },
+                        { "navarasu/onedark.nvim" },
                         -- You can disable default plugins as follows:
                         -- ["goolord/alpha-nvim"] = { disable = true },
 
@@ -369,7 +370,6 @@ local config = {
                         paths = {},
                 },
         },
-
         -- CMP Source Priorities
         -- modify here the priorities of default cmp sources
         -- higher value == higher priority
@@ -384,7 +384,6 @@ local config = {
                         path = 250,
                 },
         },
-
         -- Customize Heirline options
         heirline = {
                 -- -- Customize different separators between sections
