@@ -16,3 +16,6 @@ ln -s $DOTFILES/lua $HOME/.config/lua
 
 rm -rf $HOME/.config/git
 ln -s $DOTFILES/git $HOME/.config/git
+
+rm -rf $HOME/.zshrc
+ln -s $DOTFILES/.zshrc $HOME/.zshrc
