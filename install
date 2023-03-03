@@ -14,8 +14,5 @@ ln -s $DOTFILES/nvim $HOME/.config/nvim
 rm -rf $HOME/.config/lua
 ln -s $DOTFILES/lua $HOME/.config/lua
 
-# rm -rf $HOME/.config/fish
-# ln -s $DOTFILES/fish $HOME/.config/fish
-
 rm -rf $HOME/.config/git
 ln -s $DOTFILES/git $HOME/.config/git
