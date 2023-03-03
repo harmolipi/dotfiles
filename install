@@ -2,20 +2,43 @@
 
 DOTFILES=$(cd $(dirname "${BASH_SOURCE[0]}" ) && pwd)
 
-rm -rf $HOME/.config/kitty
-ln -s $DOTFILES/kitty $HOME/.config/kitty
+# Create the backup directory if it doesn't exist
+mkdir -p $HOME/.config/.dotfiles-backup
 
-rm -rf $HOME/.config/tmux
-ln -s $DOTFILES/tmux $HOME/.config/tmux
+# Define an array of file paths to move or copy
+declare -a files_to_move=(
+    "$HOME/.config/kitty"
+    "$HOME/.config/tmux"
+    "$HOME/.config/nvim"
+    "$HOME/.config/git"
+    "$HOME/.zshrc"
+)
 
-rm -rf $HOME/.config/nvim
-ln -s $DOTFILES/nvim $HOME/.config/nvim
+# Loop through the array and move or copy the files to the backup directory
+for file_path in "${files_to_move[@]}"; do
+    if [ -L "$file_path" ] && [ -e "$file_path" ]; then
+        if [ -d "$file_path" ]; then
+            cp -r "$(readlink "$file_path")" "$HOME/.config/.dotfiles-backup"
+        else
+            cp "$(readlink "$file_path")" "$HOME/.config/.dotfiles-backup"
+        fi
+    else
+        mv "$file_path" "$HOME/.config/.dotfiles-backup"
+    fi
+done
 
-rm -rf $HOME/.config/lua
-ln -s $DOTFILES/lua $HOME/.config/lua
+# Create symlinks to the dotfiles
+rm -rf "$HOME/.config/kitty"
+ln -s "$DOTFILES/kitty" "$HOME/.config/kitty"
 
-rm -rf $HOME/.config/git
-ln -s $DOTFILES/git $HOME/.config/git
+rm -rf "$HOME/.config/tmux"
+ln -s "$DOTFILES/tmux" "$HOME/.config/tmux"
 
-rm -rf $HOME/.zshrc
-ln -s $DOTFILES/.zshrc $HOME/.zshrc
+rm -rf "$HOME/.config/nvim"
+ln -s "$DOTFILES/nvim" "$HOME/.config/nvim"
+
+rm -rf "$HOME/.config/git"
+ln -s "$DOTFILES/git" "$HOME/.config/git"
+
+rm -rf "$HOME/.zshrc"
+ln -s "$DOTFILES/.zshrc" "$HOME/.zshrc"
