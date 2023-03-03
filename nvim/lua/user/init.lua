@@ -76,7 +76,7 @@ local config = {
 
                         onedark_config = {
                                 style = "dark",
-                        }
+                        },
                 },
         },
         -- If you need more control, you can use the function()...end notation
@@ -187,15 +187,15 @@ local config = {
                 },
                 -- add to the global LSP on_attach function
                 on_attach = function(client, bufnr)
-                        require "lsp_signature".on_attach({
+                        require("lsp_signature").on_attach {
                                 bind = true,
                                 handler_opts = {
-                                        border = "rounded"
+                                        border = "rounded",
                                 },
                                 auto_close_after = 3,
                                 hint_enable = false,
                                 hi_parameter = "IncSearch",
-                        })
+                        }
                 end,
 
                 -- override the mason server-registration function
@@ -209,26 +209,83 @@ local config = {
                                 settings = {
                                         intelephense = {
                                                 stubs = {
-                                                        "apache", "bcmath", "bz2", "calendar", "com_dotnet", "Core",
-                                                        "ctype", "curl", "date",
-                                                        "dba", "dom", "enchant", "exif", "FFI", "fileinfo", "filter",
-                                                        "fpm", "ftp", "gd", "gettext",
-                                                        "gmp", "hash", "iconv", "imap", "intl", "json", "ldap", "libxml",
-                                                        "mbstring", "meta", "mysqli",
-                                                        "oci8", "odbc", "openssl", "pcntl", "pcre", "PDO", "pdo_ibm",
-                                                        "pdo_mysql", "pdo_pgsql", "pdo_sqlite", "pgsql",
-                                                        "Phar", "posix", "pspell", "readline", "Reflection", "session",
-                                                        "shmop", "SimpleXML", "snmp", "soap",
-                                                        "sockets", "sodium", "SPL", "sqlite3", "standard", "superglobals",
-                                                        "sysvmsg", "sysvsem", "sysvshm", "tidy",
-                                                        "tokenizer", "xml", "xmlreader", "xmlrpc", "xmlwriter", "xsl",
-                                                        "Zend OPcache", "zip", "zlib",
-                                                        "wordpress", "phpunit",
-                                                }
-
-                                        }
-                                }
-                        }
+                                                        "apache",
+                                                        "bcmath",
+                                                        "bz2",
+                                                        "calendar",
+                                                        "com_dotnet",
+                                                        "Core",
+                                                        "ctype",
+                                                        "curl",
+                                                        "date",
+                                                        "dba",
+                                                        "dom",
+                                                        "enchant",
+                                                        "exif",
+                                                        "FFI",
+                                                        "fileinfo",
+                                                        "filter",
+                                                        "fpm",
+                                                        "ftp",
+                                                        "gd",
+                                                        "gettext",
+                                                        "gmp",
+                                                        "hash",
+                                                        "iconv",
+                                                        "imap",
+                                                        "intl",
+                                                        "json",
+                                                        "ldap",
+                                                        "libxml",
+                                                        "mbstring",
+                                                        "meta",
+                                                        "mysqli",
+                                                        "oci8",
+                                                        "odbc",
+                                                        "openssl",
+                                                        "pcntl",
+                                                        "pcre",
+                                                        "PDO",
+                                                        "pdo_ibm",
+                                                        "pdo_mysql",
+                                                        "pdo_pgsql",
+                                                        "pdo_sqlite",
+                                                        "pgsql",
+                                                        "Phar",
+                                                        "posix",
+                                                        "pspell",
+                                                        "readline",
+                                                        "Reflection",
+                                                        "session",
+                                                        "shmop",
+                                                        "SimpleXML",
+                                                        "snmp",
+                                                        "soap",
+                                                        "sockets",
+                                                        "sodium",
+                                                        "SPL",
+                                                        "sqlite3",
+                                                        "standard",
+                                                        "superglobals",
+                                                        "sysvmsg",
+                                                        "sysvsem",
+                                                        "sysvshm",
+                                                        "tidy",
+                                                        "tokenizer",
+                                                        "xml",
+                                                        "xmlreader",
+                                                        "xmlrpc",
+                                                        "xmlwriter",
+                                                        "xsl",
+                                                        "Zend OPcache",
+                                                        "zip",
+                                                        "zlib",
+                                                        "wordpress",
+                                                        "phpunit",
+                                                },
+                                        },
+                                },
+                        },
                         -- example for addings schemas to yamlls
                         -- yamlls = { -- override table for require("lspconfig").yamlls.setup({...})
                         --   settings = {
@@ -263,7 +320,7 @@ local config = {
                         ["+"] = { "<C-a>", desc = "Increment" },
                         ["-"] = { "<C-x>", desc = "Decrement" },
                         ["dw"] = { 'vb"_d', desc = "Delete a word backwards" },
-                        ["<C-a>"] = { 'gg<S-v>G', desc = "Select all" },
+                        ["<C-a>"] = { "gg<S-v>G", desc = "Select all" },
                         -- quick save
                         -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
                 },
@@ -287,10 +344,7 @@ local config = {
                         {
                                 "narutoxy/dim.lua",
                                 requires = { "nvim-treesitter/nvim-treesitter", "neovim/nvim-lspconfig" },
-                                config = function()
-                                        require('dim').setup({})
-                                end
-
+                                config = function() require("dim").setup {} end,
                         },
                         -- {
                         --         "nvim-treesitter/nvim-treesitter",
@@ -320,7 +374,7 @@ local config = {
                                 "phpactor/phpactor",
                                 ft = "php",
                                 run = "composer install --no-dev --optimize-autoloader",
-                        }
+                        },
                         -- You can disable default plugins as follows:
                         -- ["goolord/alpha-nvim"] = { disable = true },
 
@@ -358,19 +412,43 @@ local config = {
                         }
                         return config -- return final config table
                 end,
-                treesitter = { -- overrides `require("treesitter").setup(...)`
-                        -- ensure_installed = { "lua" },
-                        highlight = {
-                                -- disable = { "html" },
-                        },
-                },
+                -- treesitter = { -- overrides `require("treesitter").setup(...)`
+                -- -- ensure_installed = {
+                -- -- "c",
+                -- -- "css",
+                -- -- "help",
+                -- -- "html",
+                -- -- "javascript",
+                -- -- "lua",
+                -- -- "markdown",
+                -- -- "php",
+                -- -- "typescript",
+                -- -- "vim",
+                -- -- },
+                -- highlight = {
+                --         -- disable = { "html" },
+                -- },
+                -- },
                 -- use mason-lspconfig to configure LSP installations
                 ["mason-lspconfig"] = { -- overrides `require("mason-lspconfig").setup(...)`
-                        -- ensure_installed = { "sumneko_lua" },
+                        ensure_installed = {
+                                -- "css-lsp",
+                                -- "hoon-language-server",
+                                -- "html-lsp",
+                                -- "intelephense",
+                                -- "lua-language-server",
+                                -- "php-cs-fixer",
+                                -- "prettier",
+                                -- "tailwindcss-language-server",
+                                -- "typescript-language-server",
+                        },
                 },
                 -- use mason-null-ls to configure Formatters/Linter installation for null-ls sources
                 ["mason-null-ls"] = { -- overrides `require("mason-null-ls").setup(...)`
-                        -- ensure_installed = { "prettier", "stylua" },
+                        -- ensure_installed = {
+                        --         "prettier",
+                        --         "stylua",
+                        -- },
                 },
                 ["mason-nvim-dap"] = { -- overrides `require("mason-nvim-dap").setup(...)`
                         -- ensure_installed = { "python" },
