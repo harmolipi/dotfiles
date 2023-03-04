@@ -7,16 +7,16 @@
 local config = {
         -- Configure AstroNvim updates
         updater = {
-                remote = "origin", -- remote to use
-                channel = "stable", -- "stable" or "nightly"
-                version = "latest", -- "latest", tag name, or regex search like "v1.*" to only do updates before v2 (STABLE ONLY)
-                branch = "main", -- branch name (NIGHTLY ONLY)
-                commit = nil, -- commit hash (NIGHTLY ONLY)
-                pin_plugins = nil, -- nil, true, false (nil will pin plugins on stable only)
-                skip_prompts = false, -- skip prompts about breaking changes
+                remote = "origin",     -- remote to use
+                channel = "stable",    -- "stable" or "nightly"
+                version = "latest",    -- "latest", tag name, or regex search like "v1.*" to only do updates before v2 (STABLE ONLY)
+                branch = "main",       -- branch name (NIGHTLY ONLY)
+                commit = nil,          -- commit hash (NIGHTLY ONLY)
+                pin_plugins = nil,     -- nil, true, false (nil will pin plugins on stable only)
+                skip_prompts = false,  -- skip prompts about breaking changes
                 show_changelog = true, -- show the changelog after performing an update
-                auto_reload = false, -- automatically reload and sync packer after a successful update
-                auto_quit = false, -- automatically quit the current session after a successful update
+                auto_reload = false,   -- automatically reload and sync packer after a successful update
+                auto_quit = false,     -- automatically quit the current session after a successful update
                 -- remotes = { -- easily add new remotes to track
                 --   ["remote_name"] = "https://remote_url.come/repo.git", -- full remote url
                 --   ["remote2"] = "github_user/repo", -- GitHub user/repo shortcut,
@@ -24,9 +24,8 @@ local config = {
                 -- },
         },
         -- Set colorscheme to use
-        -- colorscheme = "NeoSolarized",
-        -- colorscheme = "everforest",
         colorscheme = "onedark",
+        -- Add highlight groups in any theme
         highlights = {
                 init = function()
                         local normalFloatHl = astronvim.get_hlgroup "NormalFloat"
@@ -55,23 +54,22 @@ local config = {
                 opt = {
                         -- set to true or false etc.
                         relativenumber = false, -- sets vim.opt.relativenumber
-                        number = true, -- sets vim.opt.number
-                        spell = false, -- sets vim.opt.spell
-                        signcolumn = "auto", -- sets vim.opt.signcolumn to auto
-                        wrap = false, -- sets vim.opt.wrap
+                        number = true,          -- sets vim.opt.number
+                        spell = false,          -- sets vim.opt.spell
+                        signcolumn = "auto",    -- sets vim.opt.signcolumn to auto
+                        wrap = false,           -- sets vim.opt.wrap
                 },
                 g = {
-                        mapleader = " ", -- sets vim.g.mapleader
-                        autoformat_enabled = true, -- enable or disable auto formatting at start (lsp.formatting.format_on_save must be enabled)
-                        cmp_enabled = true, -- enable completion at start
-                        autopairs_enabled = true, -- enable autopairs at start
-                        diagnostics_enabled = true, -- enable diagnostics at start
+                        mapleader = " ",                   -- sets vim.g.mapleader
+                        autoformat_enabled = true,         -- enable or disable auto formatting at start (lsp.formatting.format_on_save must be enabled)
+                        cmp_enabled = true,                -- enable completion at start
+                        autopairs_enabled = true,          -- enable autopairs at start
+                        diagnostics_enabled = true,        -- enable diagnostics at start
                         status_diagnostics_enabled = true, -- enable diagnostics in statusline
-                        icons_enabled = true, -- disable icons in the UI (disable if no nerd font is available, requires :PackerSync after changing)
-                        ui_notifications_enabled = true, -- disable notifications when toggling UI elements
-                        heirline_bufferline = true, -- enable new heirline based bufferline (requires :PackerSync after changing)
-
-                        copilot_no_tab_map = true, -- disable copilot tab map
+                        icons_enabled = true,              -- disable icons in the UI (disable if no nerd font is available, requires :PackerSync after changing)
+                        ui_notifications_enabled = true,   -- disable notifications when toggling UI elements
+                        heirline_bufferline = true,        -- enable new heirline based bufferline (requires :PackerSync after changing)
+                        copilot_no_tab_map = true,         -- disable copilot tab map
                         -- copilot_assume_mapped = true,
 
                         onedark_config = {
@@ -160,7 +158,7 @@ local config = {
                 formatting = {
                         -- control auto formatting on save
                         format_on_save = {
-                                enabled = true, -- enable or disable format on save globally
+                                enabled = true,     -- enable or disable format on save globally
                                 allow_filetypes = { -- enable format on save for specified filetypes only
                                         -- "go",
                                 },
@@ -181,9 +179,6 @@ local config = {
                         n = {
                                 -- ["<leader>lf"] = false -- disable formatting keymap
                         },
-                        -- i = {
-                        --         ["<C-J>"] = { "copilot#Accept(<CR>)", silent = true, expr = true, script = true },
-                        -- },
                 },
                 -- add to the global LSP on_attach function
                 on_attach = function(client, bufnr)
@@ -197,7 +192,6 @@ local config = {
                                 hi_parameter = "IncSearch",
                         }
                 end,
-
                 -- override the mason server-registration function
                 -- server_registration = function(server, opts)
                 --   require("lspconfig")[server].setup(opts)
@@ -332,13 +326,6 @@ local config = {
         -- Configure plugins
         plugins = {
                 init = {
-                        -- {
-                        --         "Tsuzat/NeoSolarized.nvim",
-                        --         as = "NeoSolarized",
-                        --         config = function()
-                        --                 require("NeoSolarized").setup()
-                        --         end,
-                        -- },
                         { "ray-x/lsp_signature.nvim" },
                         { "tpope/vim-surround" },
                         {
@@ -346,29 +333,13 @@ local config = {
                                 requires = { "nvim-treesitter/nvim-treesitter", "neovim/nvim-lspconfig" },
                                 config = function() require("dim").setup {} end,
                         },
-                        -- {
-                        --         "nvim-treesitter/nvim-treesitter",
-                        --         config = function()
-                        --                 require("nvim-treesitter.configs").setup({
-                        --                         highlight = {
-                        --                                 disable = { "html" },
-                        --                         },
-                        --                         autotag = {
-                        --                                 enable = true,
-                        --                         },
-                        --                 })
-                        --         end,
-                        -- },
                         { "urbit/hoon.vim" },
-                        -- { "MaxMEllon/vim-jsx-pretty" },
                         { "github/copilot.vim" },
                         { "wakatime/vim-wakatime" },
                         {
                                 "iamcco/markdown-preview.nvim",
                                 run = function() vim.fn["mkdp#util#install"]() end,
                         },
-                        -- { "folke/tokyonight.nvim" }
-                        -- { "sainnhe/everforest" },
                         { "navarasu/onedark.nvim" },
                         {
                                 "phpactor/phpactor",
@@ -412,23 +383,25 @@ local config = {
                         }
                         return config -- return final config table
                 end,
-                -- treesitter = { -- overrides `require("treesitter").setup(...)`
-                -- -- ensure_installed = {
-                -- -- "c",
-                -- -- "css",
-                -- -- "help",
-                -- -- "html",
-                -- -- "javascript",
-                -- -- "lua",
-                -- -- "markdown",
-                -- -- "php",
-                -- -- "typescript",
-                -- -- "vim",
-                -- -- },
-                -- highlight = {
-                --         -- disable = { "html" },
-                -- },
-                -- },
+                treesitter = {
+                        -- overrides `require("treesitter").setup(...)`
+                        auto_install = true,
+                        -- -- ensure_installed = {
+                        -- -- "c",
+                        -- -- "css",
+                        -- -- "help",
+                        -- -- "html",
+                        -- -- "javascript",
+                        -- -- "lua",
+                        -- -- "markdown",
+                        -- -- "php",
+                        -- -- "typescript",
+                        -- -- "vim",
+                        -- -- },
+                        -- highlight = {
+                        --         -- disable = { "html" },
+                        -- },
+                },
                 -- use mason-lspconfig to configure LSP installations
                 ["mason-lspconfig"] = { -- overrides `require("mason-lspconfig").setup(...)`
                         ensure_installed = {
@@ -510,8 +483,8 @@ local config = {
                 },
                 -- -- Customize colors for each element each element has a `_fg` and a `_bg`
                 -- colors = function(colors)
-                --         colors.git_branch_fg = astronvim.get_hlgroup "Conditional"
-                --         return colors
+                --   colors.git_branch_fg = astronvim.get_hlgroup "Conditional"
+                --   return colors
                 -- end,
                 -- -- Customize attributes of highlighting in Heirline components
                 -- attributes = {
