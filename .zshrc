@@ -144,5 +144,8 @@ alias zshconfig="nvim ~/.zshrc"
 alias ll="exa -l -g --icons"
 alias lla="exa -l -a -g --icons"
 
+# Kitty SSH fix
+[ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
