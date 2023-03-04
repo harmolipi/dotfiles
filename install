@@ -14,16 +14,18 @@ declare -a files_to_move=(
     "$HOME/.zshrc"
 )
 
-# Loop through the array and move or copy the files to the backup directory
+# Loop through the array and move or copy the files
 for file_path in "${files_to_move[@]}"; do
-    if [ -L "$file_path" ] && [ -e "$file_path" ]; then
-        if [ -d "$file_path" ]; then
-            cp -r "$(readlink "$file_path")" "$HOME/.config/.dotfiles-backup"
+    if [ -e "$file_path" ]; then
+        if [ -L "$file_path" ]; then
+            if [ -d "$file_path" ]; then
+                cp -r "$(readlink "$file_path")" "$HOME/.config/.dotfiles-backup"
+            else
+                cp "$(readlink "$file_path")" "$HOME/.config/.dotfiles-backup"
+            fi
         else
-            cp "$(readlink "$file_path")" "$HOME/.config/.dotfiles-backup"
+            mv "$file_path" "$HOME/.config/.dotfiles-backup"
         fi
-    else
-        mv "$file_path" "$HOME/.config/.dotfiles-backup"
     fi
 done
 
