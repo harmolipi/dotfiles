@@ -29,4 +29,10 @@ return {
     event = "User AstroFile",
   },
   { "rafamadriz/friendly-snippets", event = "User AstroFile" },
+  -- {
+  --   "giusgad/pets.nvim",
+  --   dependencies = { "MunifTanjim/nui.nvim", "giusgad/hologram.nvim" },
+  --   config = function() require("pets").setup { row = 6 } end,
+  --   lazy = false,
+  -- },
 }
