@@ -29,6 +29,12 @@ return {
     event = "User AstroFile",
   },
   { "rafamadriz/friendly-snippets", event = "User AstroFile" },
+  {
+    "folke/todo-comments.nvim",
+    requires = "nvim-lua/plenary.nvim",
+    config = function() require("todo-comments").setup {} end,
+    event = "User AstroFile"
+  },
   -- {
   --   "giusgad/pets.nvim",
   --   dependencies = { "MunifTanjim/nui.nvim", "giusgad/hologram.nvim" },
