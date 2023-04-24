@@ -48,6 +48,20 @@ return {
     end,
     event = "User AstroFile"
   },
+
+  -- Quickfix diagnostics list
+  {
+    "folke/trouble.nvim",
+    requires = "kyazdani42/nvim-web-devicons",
+    event = "User AstroFile",
+    config = function()
+      vim.keymap.set('n', '<Leader>xx', ':TroubleToggle<CR>')
+      vim.keymap.set('n', '<Leader>xw', ':TroubleToggle workspace_diagnostics<CR>')
+      vim.keymap.set('n', '<Leader>xd', ':TroubleToggle document_diagnostics<CR>')
+      vim.keymap.set('n', '<Leader>xq', ':TroubleToggle quickfix<CR>')
+    end,
+  },
+
   -- {
   --   "giusgad/pets.nvim",
   --   dependencies = { "MunifTanjim/nui.nvim", "giusgad/hologram.nvim" },
