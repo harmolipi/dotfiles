@@ -35,6 +35,19 @@ return {
     config = function() require("todo-comments").setup {} end,
     event = "User AstroFile"
   },
+
+  -- Testing helper
+  {
+    "vim-test/vim-test",
+    config = function()
+      vim.keymap.set('n', '<Leader>dn', ':TestNearest<CR>')
+      vim.keymap.set('n', '<Leader>df', ':TestFile<CR>')
+      vim.keymap.set('n', '<Leader>ds', ':TestSuite<CR>')
+      vim.keymap.set('n', '<Leader>dl', ':TestLast<CR>')
+      vim.keymap.set('n', '<Leader>dv', ':TestVisit<CR>')
+    end,
+    event = "User AstroFile"
+  },
   -- {
   --   "giusgad/pets.nvim",
   --   dependencies = { "MunifTanjim/nui.nvim", "giusgad/hologram.nvim" },
