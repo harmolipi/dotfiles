@@ -5,9 +5,3 @@ customCommands:
     context: "files"
     loadingText: "opening commitizen commit tool"
     subprocess: true
-  - key: "G"
-    command: "aicommits"
-    description: "commit with aicommits"
-    context: "files"
-    loadingText: "generating ai commit message"
-    subprocess: true
