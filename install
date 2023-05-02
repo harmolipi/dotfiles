@@ -11,6 +11,7 @@ declare -a files_to_move=(
     "$HOME/.config/tmux"
     "$HOME/.config/nvim/lua/user"
     "$HOME/.config/git"
+    "$HOME/.config/lazygit"
     "$HOME/.zshrc"
 )
 
@@ -41,6 +42,9 @@ ln -s "$DOTFILES/nvim/user" "$HOME/.config/nvim/lua/user"
 
 rm -rf "$HOME/.config/git"
 ln -s "$DOTFILES/git" "$HOME/.config/git"
+
+rm -rf "$HOME/.config/lazygit"
+ln -s "$DOTFILES/lazygit" "$HOME/.config/lazygit"
 
 rm -rf "$HOME/.zshrc"
 ln -s "$DOTFILES/.zshrc" "$HOME/.zshrc"
