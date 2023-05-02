@@ -99,12 +99,16 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 ZSH_HIGHLIGHT_STYLES[path]=none
 ZSH_HIGHLIGHT_STYLES[path_prefix]=none
 
+export NVM_LAZY_LOAD=true
+
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+  zsh-nvm
+  nvm
   git
   z
   zsh-autosuggestions
@@ -162,3 +166,6 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 HOME=${HOME:-'/Users/nikobirbilis'}
 export PATH="$HOME/"'.platformsh/bin':"$PATH"
 if [ -f "$HOME/"'.platformsh/shell-config.rc' ]; then . "$HOME/"'.platformsh/shell-config.rc'; fi # END SNIPPET
+
+# Created by `pipx` on 2023-04-30 17:46:08
+export PATH="$PATH:/Users/nikobirbilis/.local/bin"
