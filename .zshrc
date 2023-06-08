@@ -156,16 +156,16 @@ alias lla="exa -l -a -g --icons"
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # bun completions
-[ -s "/Users/nikobirbilis/.bun/_bun" ] && source "/Users/nikobirbilis/.bun/_bun"
+[ -s "/Users/niko/.bun/_bun" ] && source "/Users/niko/.bun/_bun"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 # BEGIN SNIPPET: Platform.sh CLI configuration
-HOME=${HOME:-'/Users/nikobirbilis'}
+HOME=${HOME:-'/Users/niko'}
 export PATH="$HOME/"'.platformsh/bin':"$PATH"
 if [ -f "$HOME/"'.platformsh/shell-config.rc' ]; then . "$HOME/"'.platformsh/shell-config.rc'; fi # END SNIPPET
 
 # Created by `pipx` on 2023-04-30 17:46:08
-export PATH="$PATH:/Users/nikobirbilis/.local/bin"
+export PATH="$PATH:/Users/niko/.local/bin"
