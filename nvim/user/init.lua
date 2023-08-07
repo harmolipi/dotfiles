@@ -42,13 +42,13 @@ return {
       timeout_ms = 1000, -- default format timeout
     },
     config = {
-      tsserver = {
-        settings = {
-          implicitProjectConfiguration = {
-            checkJs = true,
-          }
-        }
-      },
+      -- tsserver = {
+      --   settings = {
+      --     implicitProjectConfiguration = {
+      --       checkJs = true,
+      --     }
+      --   }
+      -- },
       intelephense = {
         settings = {
           intelephense = {
