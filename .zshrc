@@ -149,6 +149,7 @@ source $ZSH/oh-my-zsh.sh
 alias zshconfig="nvim ~/.zshrc"
 alias ll="exa -l -g --icons"
 alias lla="exa -l -a -g --icons"
+alias icat="kitty +kitten icat"
 
 # Kitty SSH fix
 [ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
