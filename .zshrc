@@ -114,6 +114,8 @@ plugins=(
   zsh-autosuggestions
   zsh-syntax-highlighting
   zsh-vim-mode
+  dirhistory
+  keychain
 )
 
 # Configuring completions
@@ -172,3 +174,5 @@ if [ -f "$HOME/"'.platformsh/shell-config.rc' ]; then . "$HOME/"'.platformsh/she
 
 # Created by `pipx` on 2023-04-30 17:46:08
 export PATH="$PATH:/Users/niko/.local/bin"
+export PATH="$PATH:/Users/niko/.composer/vendor/bin"
+export COMPOSER_HOME="$HOME/.composer"
