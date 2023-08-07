@@ -116,6 +116,8 @@ plugins=(
   zsh-vim-mode
 )
 
+# Configuring completions
+FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
