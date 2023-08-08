@@ -106,21 +106,33 @@ export NVM_LAZY_LOAD=true
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(
-  zsh-nvm
-  nvm
-  git
-  z
-  zsh-autosuggestions
-  zsh-syntax-highlighting
-  zsh-vim-mode
-  dirhistory
-  keychain
-)
 
 # Configuring completions
 FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 source $ZSH/oh-my-zsh.sh
+
+source $HOMEBREW_PREFIX/share/antigen/antigen.zsh
+
+# Load the oh-my-zsh's library.
+# Iinitially wouldn't work until I used the line below:
+# antigen use ohmyzsh/ohmyzsh
+antigen use oh-my-zsh
+
+antigen bundle command-not-found
+antigen bundle nvm
+antigen bundle git
+# antigen bundle dirhistory
+antigen bundle keychain
+
+export NVM_COMPLETION=true
+antigen bundle lukechilds/zsh-nvm
+antigen bundle marlonrichert/zsh-autocomplete@main
+antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle agkozak/zsh-z
+
+# Tell Antigen that you're done.
+antigen apply
 
 # User configuration
 
