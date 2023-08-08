@@ -121,7 +121,6 @@ antigen use oh-my-zsh
 antigen bundle command-not-found
 antigen bundle nvm
 antigen bundle git
-# antigen bundle dirhistory
 antigen bundle keychain
 
 export NVM_COMPLETION=true
@@ -188,3 +187,6 @@ if [ -f "$HOME/"'.platformsh/shell-config.rc' ]; then . "$HOME/"'.platformsh/she
 export PATH="$PATH:/Users/niko/.local/bin"
 export PATH="$PATH:/Users/niko/.composer/vendor/bin"
 export COMPOSER_HOME="$HOME/.composer"
+
+# Navi shell widget configuration
+eval "$(navi widget zsh)"
