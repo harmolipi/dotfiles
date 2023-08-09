@@ -68,4 +68,8 @@ return {
   --   config = function() require("pets").setup { row = 6 } end,
   --   lazy = false,
   -- },
+	{
+		"justinmk/vim-sneak",
+		event = "User AstroFile",
+	},
 }
