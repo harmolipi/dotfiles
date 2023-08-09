@@ -72,4 +72,24 @@ return {
 		"justinmk/vim-sneak",
 		event = "User AstroFile",
 	},
+	{
+		"ThePrimeagen/harpoon",
+		event = "User AstroFile",
+		require = {
+			"nvim-lua/plenary.nvim",
+		},
+		config = function()
+			-- Left index finger
+			vim.keymap.set("n", "<Leader><Leader>f", ":lua require('harpoon.ui').toggle_quick_menu()<CR>")
+
+			-- Lift the finger to do something dangerous
+			vim.keymap.set("n", "<Leader><Leader>g", ":lua require('harpoon.mark').add_file()<CR>")
+
+			-- Right home row, no finger lifting required
+			vim.keymap.set("n", "<Leader><Leader>j", ":lua require('harpoon.ui').nav_file(1)<CR>")
+			vim.keymap.set("n", "<Leader><Leader>k", ":lua require('harpoon.ui').nav_file(2)<CR>")
+			vim.keymap.set("n", "<Leader><Leader>l", ":lua require('harpoon.ui').nav_file(3)<CR>")
+			vim.keymap.set("n", "<Leader><Leader>;", ":lua require('harpoon.ui').nav_file(4)<CR>")
+		end,
+	},
 }
