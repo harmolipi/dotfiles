@@ -9,6 +9,7 @@ gui:
   nerdFontsVersion: "3"
   theme:
     selectedLineBgColor:
-      - '#E5E5E5'
+      - "#E5E5E5"
     selectedRangeBgColor:
-      - '#E5E5E5'
+      - "#E5E5E5"
+  border: "rounded"
