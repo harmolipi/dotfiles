@@ -5,3 +5,10 @@ customCommands:
     context: "files"
     loadingText: "opening commitizen commit tool"
     subprocess: true
+gui:
+  nerdFontsVersion: "3"
+  theme:
+    selectedLineBgColor:
+      - '#E5E5E5'
+    selectedRangeBgColor:
+      - '#E5E5E5'
