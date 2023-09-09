@@ -19,6 +19,10 @@ return {
 		["<C-a>"] = { "gg<S-v>G", desc = "Select all" },
 		-- Primeagen mappings:
 		["<leader>d"] = { '"_d', desc = "Don't yank with 'd'" },
+		["<leader>s"] = {
+			[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
+			desc = "Find and replace current word",
+		},
 	},
 	t = {},
 	v = {
