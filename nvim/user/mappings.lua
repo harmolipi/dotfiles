@@ -17,6 +17,12 @@ return {
 		["-"] = { "<C-x>", desc = "Decrement" },
 		["dw"] = { 'vb"_d', desc = "Delete a word backwards" },
 		["<C-a>"] = { "gg<S-v>G", desc = "Select all" },
+		-- Primeagen mappings:
+		["<leader>d"] = { '"_d', desc = "Don't yank with 'd'" },
 	},
 	t = {},
+	v = {
+		["J"] = { ":m '>+1<cr>gv=gv", desc = "Move line down" },
+		["K"] = { ":m '<-2<cr>gv=gv", desc = "Move line up" },
+	},
 }
