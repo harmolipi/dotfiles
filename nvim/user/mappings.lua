@@ -23,6 +23,7 @@ return {
 			[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
 			desc = "Find and replace current word",
 		},
+		["<leader>U"] = { vim.cmd.UndotreeToggle, desc = "Toggle UndoTree" },
 	},
 	t = {},
 	v = {
