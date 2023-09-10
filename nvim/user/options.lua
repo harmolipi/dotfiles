@@ -25,6 +25,7 @@ return {
 		onedark_config = {
 			style = "dark",
 		},
+		undotree_WindowLayout = 2,
 	},
 }
 -- If you need more control, you can use the function()...end notation
