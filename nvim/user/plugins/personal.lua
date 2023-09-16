@@ -69,8 +69,17 @@ return {
   --   lazy = false,
   -- },
 	{
-		"justinmk/vim-sneak",
+	},
+	{
+		"smoka7/hop.nvim",
+		version = "*",
 		event = "User AstroFile",
+		config = function()
+			require("hop").setup()
+			vim.keymap.set("n", "s", ":HopWord<CR>")
+			vim.keymap.set("n", "f", ":HopChar1CurrentLineAC<CR>")
+			vim.keymap.set("n", "F", ":HopChar1CurrentLineBC<CR>")
+		end,
 	},
 	{
 		"ThePrimeagen/harpoon",
