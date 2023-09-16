@@ -125,7 +125,6 @@ antigen bundle keychain
 
 export NVM_COMPLETION=true
 antigen bundle lukechilds/zsh-nvm
-antigen bundle marlonrichert/zsh-autocomplete@main
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle agkozak/zsh-z
