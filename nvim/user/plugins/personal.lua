@@ -105,4 +105,8 @@ return {
 		"mbbill/undotree",
 		event = "User AstroFile",
 	},
+	{
+		"tpope/vim-fugitive",
+		event = "User AstroFile",
+	},
 }
