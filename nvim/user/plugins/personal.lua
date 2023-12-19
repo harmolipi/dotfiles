@@ -125,6 +125,28 @@ return {
 		"mbbill/undotree",
 		event = "User AstroFile",
 	},
+	-- {
+	-- 	"tpope/vim-fugitive",
+	-- 	lazy = false,
+	-- },
+	{
+		"NeogitOrg/neogit",
+		dependencies = {
+			"nvim-lua/plenary.nvim",      -- required
+			"nvim-telescope/telescope.nvim", -- optional
+			"sindrets/diffview.nvim",     -- optional
+		},
+		config = function()
+			local neogit = require("neogit")
+			neogit.setup({
+				integrations = {
+					telescope = true,
+					diffview = true,
+				},
+			})
+		end,
+		lazy = false,
+	},
 	{
 		"tpope/vim-fugitive",
 		event = "User AstroFile",
