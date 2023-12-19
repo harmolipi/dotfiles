@@ -189,5 +189,8 @@ export PATH="$PATH:/Users/niko/.local/bin"
 export PATH="$PATH:/Users/niko/.composer/vendor/bin"
 export COMPOSER_HOME="$HOME/.composer"
 
+# Go executables directory
+export PATH="$PATH:/Users/niko/go/bin"
+
 # Navi shell widget configuration
 eval "$(navi widget zsh)"
