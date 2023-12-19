@@ -163,6 +163,7 @@ alias ll="exa -l -g --icons"
 alias lla="exa -l -a -g --icons"
 alias icat="kitty +kitten icat"
 
+alias nvim="nvim --listen /tmp/nvim-server.pipe"
 # Kitty SSH fix
 [ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
 [ "$TERM" = "xterm-kitty" ] && alias d="kitty +kitten diff"
