@@ -128,6 +128,7 @@ antigen bundle lukechilds/zsh-nvm
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle agkozak/zsh-z
+antigen bundle joshskidmore/zsh-fzf-history-search
 
 # Tell Antigen that you're done.
 antigen apply
