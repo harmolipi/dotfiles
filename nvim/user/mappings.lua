@@ -16,7 +16,7 @@ return {
 		["-"] = { "<C-x>", desc = "Decrement" },
 		["<C-a>"] = { "gg<S-v>G", desc = "Select all" },
 		-- Primeagen mappings:
-		["<leader>d"] = { '"_d', desc = "Don't yank with 'd'" },
+		["<leader><leader>d"] = { '"_d', desc = "Don't yank with 'd'" }, -- Added second leader so I can still use the debugger
 		["<leader>s"] = {
 			[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
 			desc = "Find and replace current word",
