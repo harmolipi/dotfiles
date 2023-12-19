@@ -16,11 +16,6 @@ return {
   { "urbit/hoon.vim",        event = "User AstroFile" },
   { "github/copilot.vim",    event = "User AstroFile" },
   { "wakatime/vim-wakatime", event = "User AstroFile" },
-  {
-    "iamcco/markdown-preview.nvim",
-    run = function() vim.fn["mkdp#util#install"]() end,
-    event = "User AstroFile",
-  },
   { "navarasu/onedark.nvim" },
   {
     "phpactor/phpactor",
@@ -28,7 +23,6 @@ return {
     run = "composer install --no-dev --optimize-autoloader",
     event = "User AstroFile",
   },
-  { "rafamadriz/friendly-snippets", event = "User AstroFile" },
   {
     "folke/todo-comments.nvim",
     requires = "nvim-lua/plenary.nvim",
@@ -48,6 +42,7 @@ return {
     end,
     event = "User AstroFile"
   },
+	-- { "rafamadriz/friendly-snippets", event = "User AstroFile" },
 
   -- Quickfix diagnostics list
   {
@@ -62,14 +57,23 @@ return {
     end,
   },
 
-  -- {
-  --   "giusgad/pets.nvim",
-  --   dependencies = { "MunifTanjim/nui.nvim", "giusgad/hologram.nvim" },
-  --   config = function() require("pets").setup { row = 6 } end,
-  --   lazy = false,
-  -- },
 	{
 	},
+	-- {
+	-- 	"jackMort/ChatGPT.nvim",
+	-- 	event = "VeryLazy",
+	-- 	config = function()
+	-- 		require("chatgpt").setup({
+	-- 			api_key_cmd = "pass show openai/chatgpt.nvim",
+	-- 		})
+	-- 	end,
+	-- 	dependencies = {
+	-- 		"MunifTanjim/nui.nvim",
+	-- 		"nvim-lua/plenary.nvim",
+	-- 		"nvim-telescope/telescope.nvim",
+	-- 	},
+	-- 	enabled = true,
+	-- },
 	{
 		"smoka7/hop.nvim",
 		version = "*",
@@ -77,8 +81,6 @@ return {
 		config = function()
 			require("hop").setup()
 			vim.keymap.set("n", "s", ":HopWord<CR>")
-			vim.keymap.set("n", "f", ":HopChar1CurrentLineAC<CR>")
-			vim.keymap.set("n", "F", ":HopChar1CurrentLineBC<CR>")
 		end,
 	},
 	{
