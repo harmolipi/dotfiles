@@ -9,13 +9,13 @@ return {
 	{ "tpope/vim-surround", event = "User AstroFile" },
 	{
 		"narutoxy/dim.lua",
-		requires = { "nvim-treesitter/nvim-treesitter", "neovim/nvim-lspconfig" },
+		dependencies = { "nvim-treesitter/nvim-treesitter", "neovim/nvim-lspconfig" },
 		config = function()
 			require("dim").setup({})
 		end,
 		event = "user astrofile",
 	},
-	{ "urbit/hoon.vim",     event = "User AstroFile" },
+	{ "urbit/hoon.vim", event = "User AstroFile" },
 	-- { "github/copilot.vim", event = "User AstroFile" },
 	{
 		"zbirenbaum/copilot.lua",
@@ -39,13 +39,13 @@ return {
 	{
 		"phpactor/phpactor",
 		ft = "php",
-		run = "composer install --no-dev --optimize-autoloader",
+		-- run = "composer install --no-dev --optimize-autoloader",
 		event = "User AstroFile",
 	},
 	-- { "rafamadriz/friendly-snippets", event = "User AstroFile" },
 	{
 		"folke/todo-comments.nvim",
-		requires = "nvim-lua/plenary.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
 		config = function()
 			require("todo-comments").setup({})
 		end,
@@ -68,7 +68,7 @@ return {
 	-- Quickfix diagnostics list
 	{
 		"folke/trouble.nvim",
-		requires = "kyazdani42/nvim-web-devicons",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
 		event = "User AstroFile",
 		config = function()
 			vim.keymap.set("n", "<Leader>xx", ":TroubleToggle<CR>")
@@ -104,7 +104,7 @@ return {
 	{
 		"ThePrimeagen/harpoon",
 		event = "User AstroFile",
-		require = {
+		dependencies = {
 			"nvim-lua/plenary.nvim",
 		},
 		config = function()
@@ -132,9 +132,9 @@ return {
 	{
 		"NeogitOrg/neogit",
 		dependencies = {
-			"nvim-lua/plenary.nvim",      -- required
+			"nvim-lua/plenary.nvim", -- required
 			"nvim-telescope/telescope.nvim", -- optional
-			"sindrets/diffview.nvim",     -- optional
+			"sindrets/diffview.nvim", -- optional
 		},
 		config = function()
 			local neogit = require("neogit")
@@ -174,24 +174,13 @@ return {
 	},
 	{
 		"nvim-treesitter/nvim-treesitter-context",
-		requires = { "nvim-treesitter/nvim-treesitter" },
+		dependencies = { "nvim-treesitter/nvim-treesitter" },
 		config = function()
 			require("treesitter-context").setup({
 				enable = true,
 				max_lines = 2,
 				line_numbers = false,
 			})
-		end,
-		event = "User AstroFile",
-	},
-	{
-		"antosha417/nvim-lsp-file-operations",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"nvim-neo-tree/neo-tree.nvim",
-		},
-		config = function()
-			require("lsp-file-operations").setup()
 		end,
 		event = "User AstroFile",
 	},
@@ -203,6 +192,41 @@ return {
 			require("oil").setup()
 		end,
 		event = "UIEnter",
+	},
+	{
+		"wuelnerdotexe/vim-astro",
+		event = "User AstroFile",
+	},
+	{
+		"ray-x/go.nvim",
+		dependencies = { -- optional packages
+			"ray-x/guihua.lua",
+			"neovim/nvim-lspconfig",
+			"nvim-treesitter/nvim-treesitter",
+		},
+		config = function()
+			require("go").setup()
+		end,
+		event = { "CmdlineEnter" },
+		ft = { "go", "gomod" },
+		build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
+	},
+	{
+		"christoomey/vim-tmux-navigator",
+		cmd = {
+			"TmuxNavigateLeft",
+			"TmuxNavigateDown",
+			"TmuxNavigateUp",
+			"TmuxNavigateRight",
+			"TmuxNavigatePrevious",
+		},
+		keys = {
+			{ "<c-h>", "<cmd><C-U>TmuxNavigateLeft<cr>" },
+			{ "<c-j>", "<cmd><C-U>TmuxNavigateDown<cr>" },
+			{ "<c-k>", "<cmd><C-U>TmuxNavigateUp<cr>" },
+			{ "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
+			{ "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
+		},
 	},
 	-- {
 	-- 	"nvim-neo-tree/neo-tree.nvim",

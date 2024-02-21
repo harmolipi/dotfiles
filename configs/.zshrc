@@ -127,7 +127,7 @@ export NVM_COMPLETION=true
 antigen bundle lukechilds/zsh-nvm
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle agkozak/zsh-z
+# antigen bundle agkozak/zsh-z
 antigen bundle joshskidmore/zsh-fzf-history-search
 
 # Tell Antigen that you're done.
@@ -164,7 +164,6 @@ alias ll="exa -l -g --icons"
 alias lla="exa -l -a -g --icons"
 alias icat="kitty +kitten icat"
 
-alias nvim="nvim --listen /tmp/nvim-server.pipe"
 # Kitty SSH fix
 [ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
 [ "$TERM" = "xterm-kitty" ] && alias d="kitty +kitten diff"
@@ -194,3 +193,8 @@ export PATH="$PATH:/Users/niko/go/bin"
 
 # Navi shell widget configuration
 eval "$(navi widget zsh)"
+
+# Zoxide
+eval "$(zoxide init zsh)"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

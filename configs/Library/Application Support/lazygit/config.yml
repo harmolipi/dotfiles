@@ -13,6 +13,8 @@ gui:
     selectedRangeBgColor:
       - "#E5E5E5"
   border: "rounded"
-os:
-  editCommand: "nvim"
-  editCommandTemplate: '{{editor}} --server /tmp/nvim-server.pipe --remote-tab "$(pwd)/{{filename}}"'
+# os:
+#   edit: "nvim"
+#   editCommandTemplate: '{{editor}} --server /tmp/nvim-server.pipe --remote-tab "$(pwd)/{{filename}}"'
+# open: '{{editor}} --server /tmp/nvim-server.pipe --remote-tab "$(pwd)/{{filename}}"'
+# open: 'nvim --server /tmp/nvim-server.pipe --remote-tab "$(pwd)/{{filename}}"'
