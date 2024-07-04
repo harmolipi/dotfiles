@@ -17,3 +17,4 @@ fontforge
 stripe
 fish/functions/tide/configure
 fish/fish_variables
+configs/.config/tmux/plugins
