@@ -1,0 +1,17 @@
+- name: Set up development environment
+  hosts: localhost
+  #
+  tasks:
+    - name: Install packages with brew
+      community.general.homebrew:
+        name:
+          - git
+          - tmux
+          - lazygit
+          - neovim
+        state: present
+      when: ansible_distribution == "MacOSX"
+    - name: Install packages with npm
+      community.general.npm:
+        name: tree-sitter # Astronvim dependency
+        global: true
