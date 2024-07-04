@@ -3,14 +3,17 @@ bold_font Hack Nerd Font Mono Bold
 italic_font Hack Nerd Font Mono Italic
 bold_italic_font Hack Nerd Font Mono Bold Italic
 
-font_size 14
+font_size 11
 adjust_line_height 175%
 
 cursor_blink_interval 0
 enable_audio_bell 0
+visual_bell_duration 0.2
 hide_window_decorations titlebar-only
 window_padding_width 10
+map cmd+enter new_window_with_cwd
 
+editor .
 
 # BEGIN_KITTY_THEME
 # One Half Dark
