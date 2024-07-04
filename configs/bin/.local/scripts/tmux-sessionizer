@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+if [[ $# -eq 1 ]]; then
+    selected=$1
+else
+    selected=$(find ~/Documents/coding ~/Documents/coding/personal_projects ~/Documents/coding/guw ~/Documents/coding/guw/guw_valet ~/Local\ Sites -mindepth 1 -maxdepth 1 -type d | fzf)
+fi
+
+if [[ -z $selected ]]; then
+    exit 0
+fi
+
+selected_name=$(basename "$selected" | tr . _)
+
+# Check if TMUX is running or if we are inside a tmux session
+if [[ -z $TMUX ]] && [[ -z $(pgrep tmux) ]]; then
+    # If neither is the case, start a new session
+    tmux new-session -s $selected_name -c $selected
+    exit 0
+fi
+
+# Check if the session already exists
+if ! tmux has-session -t $selected_name 2> /dev/null; then
+    # If it doesn't exist, create a new detached session
+    tmux new-session -d -s $selected_name -c $selected
+fi
+
+# Switch to the selected session
+tmux switch-client -t $selected_name
