@@ -163,6 +163,8 @@ alias zshconfig="nvim ~/.zshrc"
 alias ll="exa -l -g --icons"
 alias lla="exa -l -a -g --icons"
 alias icat="kitty +kitten icat"
+alias tmuxfzf='tmux switch-client -n || tmux new-session -d -s $(fzf --prompt="Attach to or create session: " | awk "{print \$1}" | sed s/:.*//)'
+alias python=python3
 
 # Kitty SSH fix
 [ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
@@ -198,3 +200,6 @@ eval "$(navi widget zsh)"
 eval "$(zoxide init zsh)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Lando
+export PATH="/Users/niko/.lando/bin${PATH+:$PATH}"; #landopath
