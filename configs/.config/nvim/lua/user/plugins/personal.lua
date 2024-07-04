@@ -15,7 +15,7 @@ return {
 		end,
 		event = "user astrofile",
 	},
-	{ "urbit/hoon.vim", event = "User AstroFile" },
+	{ "urbit/hoon.vim",     event = "User AstroFile" },
 	-- { "github/copilot.vim", event = "User AstroFile" },
 	{
 		"zbirenbaum/copilot.lua",
@@ -129,24 +129,24 @@ return {
 	-- 	"tpope/vim-fugitive",
 	-- 	lazy = false,
 	-- },
-	{
-		"NeogitOrg/neogit",
-		dependencies = {
-			"nvim-lua/plenary.nvim", -- required
-			"nvim-telescope/telescope.nvim", -- optional
-			"sindrets/diffview.nvim", -- optional
-		},
-		config = function()
-			local neogit = require("neogit")
-			neogit.setup({
-				integrations = {
-					telescope = true,
-					diffview = true,
-				},
-			})
-		end,
-		lazy = false,
-	},
+	-- {
+	-- 	"NeogitOrg/neogit",
+	-- 	dependencies = {
+	-- 		"nvim-lua/plenary.nvim",      -- required
+	-- 		"nvim-telescope/telescope.nvim", -- optional
+	-- 		"sindrets/diffview.nvim",     -- optional
+	-- 	},
+	-- 	config = function()
+	-- 		local neogit = require("neogit")
+	-- 		neogit.setup({
+	-- 			integrations = {
+	-- 				telescope = true,
+	-- 				diffview = true,
+	-- 			},
+	-- 		})
+	-- 	end,
+	-- 	lazy = false,
+	-- },
 	{
 		"ThePrimeagen/refactoring.nvim",
 		dependencies = {
@@ -221,10 +221,10 @@ return {
 			"TmuxNavigatePrevious",
 		},
 		keys = {
-			{ "<c-h>", "<cmd><C-U>TmuxNavigateLeft<cr>" },
-			{ "<c-j>", "<cmd><C-U>TmuxNavigateDown<cr>" },
-			{ "<c-k>", "<cmd><C-U>TmuxNavigateUp<cr>" },
-			{ "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
+			{ "<c-h>",  "<cmd><C-U>TmuxNavigateLeft<cr>" },
+			{ "<c-j>",  "<cmd><C-U>TmuxNavigateDown<cr>" },
+			{ "<c-k>",  "<cmd><C-U>TmuxNavigateUp<cr>" },
+			{ "<c-l>",  "<cmd><C-U>TmuxNavigateRight<cr>" },
 			{ "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
 		},
 	},

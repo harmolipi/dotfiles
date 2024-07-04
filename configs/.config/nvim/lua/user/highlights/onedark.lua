@@ -1,11 +1,11 @@
 local astronvim = require("astronvim.utils")
-local normalFloatHl = astronvim.get_hlgroup "NormalFloat"
+local normalFloatHl = astronvim.get_hlgroup("NormalFloat")
 local normalFloatFg = normalFloatHl.fg
 
-local cursorLineHl = astronvim.get_hlgroup "CursorLine"
+local cursorLineHl = astronvim.get_hlgroup("CursorLine")
 local cursorLineBg = cursorLineHl.bg
 
-local aerialLine = astronvim.get_hlgroup "AerialLine"
+local aerialLine = astronvim.get_hlgroup("AerialLine")
 local aerialLineBg = aerialLine.bg
 
 return {

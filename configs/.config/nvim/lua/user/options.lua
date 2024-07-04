@@ -22,9 +22,9 @@ return {
 		icons_enabled = true,          -- disable icons in the UI (disable if no nerd font is available, requires :PackerSync after changing)
 		ui_notifications_enabled = true, -- disable notifications when toggling UI elements
 		copilot_no_tab_map = true,     -- disable copilot tab map
-		onedark_config = {
-			style = "dark",
-		},
+		-- onedark_config = {
+		-- 	style = "dark",
+		-- },
 		undotree_WindowLayout = 2,
 	},
 }
