@@ -201,6 +201,7 @@ export PATH="$PATH:/Users/niko/go/bin"
 eval "$(navi widget zsh)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source <(fzf --zsh)
 
 # Lando
 export PATH="/Users/niko/.lando/bin${PATH+:$PATH}"; #landopath
