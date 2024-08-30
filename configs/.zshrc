@@ -99,6 +99,9 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 ZSH_HIGHLIGHT_STYLES[path]=none
 ZSH_HIGHLIGHT_STYLES[path_prefix]=none
 
+# Zoxide
+eval "$(zoxide init zsh)"
+
 export NVM_LAZY_LOAD=true
 
 # Which plugins would you like to load?
@@ -125,7 +128,8 @@ antigen bundle keychain
 
 export NVM_COMPLETION=true
 antigen bundle lukechilds/zsh-nvm
-antigen bundle zsh-users/zsh-autosuggestions
+# antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle marlonrichert/zsh-autocomplete@main
 antigen bundle zsh-users/zsh-syntax-highlighting
 # antigen bundle agkozak/zsh-z
 antigen bundle joshskidmore/zsh-fzf-history-search
@@ -195,9 +199,6 @@ export PATH="$PATH:/Users/niko/go/bin"
 
 # Navi shell widget configuration
 eval "$(navi widget zsh)"
-
-# Zoxide
-eval "$(zoxide init zsh)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
