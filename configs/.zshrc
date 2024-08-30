@@ -164,8 +164,8 @@ antigen apply
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias zshconfig="nvim ~/.zshrc"
-alias ll="exa -l -g --icons"
-alias lla="exa -l -a -g --icons"
+alias ll="eza -l -g --icons"
+alias lla="eza -l -a -g --icons"
 alias icat="kitty +kitten icat"
 alias tmuxfzf='tmux switch-client -n || tmux new-session -d -s $(fzf --prompt="Attach to or create session: " | awk "{print \$1}" | sed s/:.*//)'
 alias python=python3
