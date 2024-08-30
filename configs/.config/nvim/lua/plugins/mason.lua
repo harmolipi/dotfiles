@@ -11,7 +11,7 @@ return {
     opts = {
       ensure_installed = {
         "lua_ls",
-        -- add more arguments for adding more language servers
+        "intelephense",
       },
     },
   },
@@ -22,7 +22,7 @@ return {
     opts = {
       ensure_installed = {
         "stylua",
-        -- add more arguments for adding more null-ls sources
+        "php-cs-fixer",
       },
     },
   },
@@ -32,8 +32,18 @@ return {
     opts = {
       ensure_installed = {
         "python",
-        -- add more arguments for adding more debuggers
+        "php",
       },
     },
+  },
+  {
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    optional = true,
+    opts = function(_, opts)
+      opts.ensure_installed = require("astrocore").list_insert_unique(
+        opts.ensure_installed,
+        { "intelephense", "php-debug-adapter", "php-cs-fixer" }
+      )
+    end,
   },
 }
