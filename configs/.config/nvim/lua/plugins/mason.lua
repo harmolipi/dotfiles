@@ -11,7 +11,7 @@ return {
     opts = {
       ensure_installed = {
         "lua_ls",
-        "intelephense",
+        -- "intelephense",
       },
     },
   },
@@ -22,7 +22,7 @@ return {
     opts = {
       ensure_installed = {
         "stylua",
-        "php-cs-fixer",
+        -- "php-cs-fixer",
       },
     },
   },
@@ -31,8 +31,8 @@ return {
     -- overrides `require("mason-nvim-dap").setup(...)`
     opts = {
       ensure_installed = {
-        "python",
-        "php",
+        -- "python",
+        -- "php",
       },
     },
   },
@@ -42,7 +42,11 @@ return {
     opts = function(_, opts)
       opts.ensure_installed = require("astrocore").list_insert_unique(
         opts.ensure_installed,
-        { "intelephense", "php-debug-adapter", "php-cs-fixer" }
+        {
+          "intelephense",
+          -- "php-debug-adapter",
+          -- "php-cs-fixer"
+        }
       )
     end,
   },
