@@ -14,7 +14,7 @@ if [[ "$(uname)" == "Linux" ]]; then
     export EDITOR=/usr/bin/vim
   else
     # If Neovim is installed with package manager:
-    export EDITOR=/usr/bin/nvim
+    export EDITOR=/run/current-system/sw/bin/nvim
     # If Neovim is installed from source:
     # export EDITOR=/usr/local/bin/nvim
   fi
