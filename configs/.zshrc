@@ -32,13 +32,13 @@ fi
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
+# export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="powerlevel10k/powerlevel10k"
+# ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -111,31 +111,31 @@ export NVM_LAZY_LOAD=true
 # Add wisely, as too many plugins slow down shell startup.
 
 # Configuring completions
-FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+# FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 source $ZSH/oh-my-zsh.sh
 
-source $HOMEBREW_PREFIX/share/antigen/antigen.zsh
+# source $HOMEBREW_PREFIX/share/antigen/antigen.zsh
 
 # Load the oh-my-zsh's library.
 # Iinitially wouldn't work until I used the line below:
 # antigen use ohmyzsh/ohmyzsh
-antigen use oh-my-zsh
+# antigen use oh-my-zsh
 
-antigen bundle command-not-found
-antigen bundle nvm
-antigen bundle git
-antigen bundle keychain
+# antigen bundle command-not-found
+# antigen bundle nvm
+# antigen bundle git
+# antigen bundle keychain
 
 export NVM_COMPLETION=true
-antigen bundle lukechilds/zsh-nvm
+# antigen bundle lukechilds/zsh-nvm
 # antigen bundle zsh-users/zsh-autosuggestions
-antigen bundle marlonrichert/zsh-autocomplete@main
-antigen bundle zsh-users/zsh-syntax-highlighting
+# antigen bundle marlonrichert/zsh-autocomplete@main
+# antigen bundle zsh-users/zsh-syntax-highlighting
 # antigen bundle agkozak/zsh-z
-antigen bundle joshskidmore/zsh-fzf-history-search
+# antigen bundle joshskidmore/zsh-fzf-history-search
 
 # Tell Antigen that you're done.
-antigen apply
+# antigen apply
 
 # User configuration
 
@@ -168,7 +168,7 @@ alias ll="eza -l -g --icons"
 alias lla="eza -l -a -g --icons"
 alias icat="kitty +kitten icat"
 alias tmuxfzf='tmux switch-client -n || tmux new-session -d -s $(fzf --prompt="Attach to or create session: " | awk "{print \$1}" | sed s/:.*//)'
-alias python=python3
+# alias python=python3
 
 # Kitty SSH fix
 [ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
@@ -178,11 +178,11 @@ alias python=python3
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # bun completions
-[ -s "/Users/niko/.bun/_bun" ] && source "/Users/niko/.bun/_bun"
+# [ -s "/Users/niko/.bun/_bun" ] && source "/Users/niko/.bun/_bun"
 
 # bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
+# export BUN_INSTALL="$HOME/.bun"
+# export PATH="$BUN_INSTALL/bin:$PATH"
 
 # BEGIN SNIPPET: Platform.sh CLI configuration
 HOME=${HOME:-'/Users/niko'}
@@ -190,15 +190,15 @@ export PATH="$HOME/"'.platformsh/bin':"$PATH"
 if [ -f "$HOME/"'.platformsh/shell-config.rc' ]; then . "$HOME/"'.platformsh/shell-config.rc'; fi # END SNIPPET
 
 # Created by `pipx` on 2023-04-30 17:46:08
-export PATH="$PATH:/Users/niko/.local/bin"
-export PATH="$PATH:/Users/niko/.composer/vendor/bin"
-export COMPOSER_HOME="$HOME/.composer"
+# export PATH="$PATH:/Users/niko/.local/bin"
+# export PATH="$PATH:/Users/niko/.composer/vendor/bin"
+# export COMPOSER_HOME="$HOME/.composer"
 
 # Go executables directory
-export PATH="$PATH:/Users/niko/go/bin"
+# export PATH="$PATH:/Users/niko/go/bin"
 
 # Navi shell widget configuration
-eval "$(navi widget zsh)"
+# eval "$(navi widget zsh)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source <(fzf --zsh)
