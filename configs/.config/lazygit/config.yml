@@ -74,3 +74,8 @@ gui:
       - "#eed49f"
   authorColors:
     "*": "#b7bdf8"
+# os:
+#   edit: "nvim"
+#   editCommandTemplate: '{{editor}} --server /tmp/nvim-server.pipe --remote-tab "$(pwd)/{{filename}}"'
+# open: '{{editor}} --server /tmp/nvim-server.pipe --remote-tab "$(pwd)/{{filename}}"'
+# open: 'nvim --server /tmp/nvim-server.pipe --remote-tab "$(pwd)/{{filename}}"'
