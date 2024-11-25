@@ -154,6 +154,9 @@ in
       enable = true;
       # plugins = [ "zsh-syntax-highlighting" ];
     };
+    interactiveShellInit = ''
+      eval "$(direnv hook zsh)" 
+    '';
   };
 
   programs.tmux = {
@@ -226,6 +229,7 @@ in
     gcc
     gnupg
     pinentry-gnome3
+    direnv
   ];
 
   programs.gnupg = {
