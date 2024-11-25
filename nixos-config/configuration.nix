@@ -263,7 +263,13 @@ in
   # services.openssh.enable = true;
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [ 21000 21013 ];
+  networking.firewall.allowedTCPPorts = [
+    21000
+    21013
+    19000 # Expo dev server
+    19001 # Metro bundler
+    8081 # Metro bundler alternative port
+  ];
   networking.firewall.allowedUDPPorts = [ 21003 ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
