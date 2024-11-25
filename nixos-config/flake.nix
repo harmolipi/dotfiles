@@ -6,7 +6,7 @@
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/release-24.05"; # 24.11
       inputs.nixpkgs.follows = "nixpkgs";
     };
     glaumar_repo = {
@@ -34,6 +34,8 @@
           allowUnfree = true;
         };
       };
+
+      immersed-vr = pkgs.callPackage ./packages/immersed/default.nix { };
     in
     {
       nixosConfigurations.nixos = lib.nixosSystem {
@@ -50,6 +52,10 @@
               (final: prev: {
                 zen-browser = zen-browser.packages."${prev.system}".default;
               })
+
+              (final: prev: {
+                immersed-vr = immersed-vr;
+              })
             ];
           })
           ./configuration.nix
@@ -61,10 +67,16 @@
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
+              users.niko = { ... }: import ./home.nix {
+                inherit pkgs;
+                inherit (self) outPath;
+              };
               # users.niko = import ./home.nix;
-              users.niko = import ./home.nix;
             };
           }
+          ({ pkgs, ... }: {
+            environment.systemPackages = [ immersed-vr ];
+          })
         ];
 
         specialArgs = {
@@ -81,11 +93,12 @@
       #   };
       # };
 
-      packages = {
-        immersed-vr = nixpkgs.lib.mkPackage
-          {
-            src = ./packages/immersed-vr.nix;
-          };
-      };
+      packages =
+        {
+          # immersed-vr = nixpkgs.lib.mkPackage
+          #   {
+          #     src = ./packages/immersed-vr.nix;
+          #   };
+        };
     };
 }
