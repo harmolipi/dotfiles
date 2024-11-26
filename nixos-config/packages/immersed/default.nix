@@ -7,12 +7,12 @@
 }:
 let
   pname = "immersed";
-  version = "10.3.2";
+  version = "10.5.0";
   system = "x86_64-linux";
 
   src = fetchurl {
     url = "https://static.immersed.com/dl/Immersed-x86_64.AppImage";
-    hash = "sha256-baor2NPCxHnBuPCaXy8eLQDXawEz480Z4LzjGflsCq0=";
+    hash = "sha256-/fc/URYJZftZPyVicmZjyvcGPLaHrnlsrERlQFN5E98=";
   };
 
   extraPkgs = pkgs: with pkgs; [
