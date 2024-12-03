@@ -229,6 +229,7 @@ in
     gcc
     gnupg
     pinentry-gnome3
+    audacity
     direnv
   ];
 
