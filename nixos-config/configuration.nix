@@ -143,6 +143,7 @@ in
       gnomeExtensions.caffeine
       R-with-my-packages
       RStudio-with-my-packages
+      nushell
     ];
     shell = pkgs.zsh;
   };
