@@ -24,7 +24,7 @@ These dotfiles are now set up to be used with
 programs, symlink the configs to the proper locations with:
 
 ```bash
-stow configs -t ~
+stow configs
 ```
 
 ## Story
