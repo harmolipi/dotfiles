@@ -40,10 +40,40 @@
         keybindings: []
       }
 
+        # Completions
+        let carapace_completer = {|spans: list<string>|
+          carapace $spans.0 nushell ...$spans
+          | from json
+          | if ($in | default [] | where value == $"($spans | last)ERR" | is-empty) { $in } else { null }
+        }
     
       # Basic alias
       alias ll = ls
       alias lla = ls -a
+        $env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense'
+
+        let zoxide_completer = {|spans|
+          $spans | skip 1 | zoxide query -l ...$in | lines | where {|x| $x != $env.PWD}
+        }
+
+        let multiple_completers = {|spans|
+          let expanded_alias = scope aliases
+          | where name == $spans.0
+          | get -i 0.expansion
+
+          let spans = if $expanded_alias != null {
+            $spans
+            | skip 1
+            | prepend ($expanded_alias | split row ' ' | take 1)
+          } else {
+            $spans
+          }
+
+          match $spans.0 {
+            __zoxide_z | __zoxide_zi => $zoxide_completer
+            _ => $carapace_completer
+          } | do $in $spans
+        }
     
       # For direnv integration
       def --env nuenv [] { direnv export json | from json | default {} | load-env }
@@ -56,6 +86,8 @@
     '';
   };
 
+  programs.carapace.enable = true;
+  programs.carapace.enableNushellIntegration = true;
 
   programs.direnv = {
     enable = true;
