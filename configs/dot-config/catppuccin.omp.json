@@ -8,6 +8,11 @@
     "wight": "#FFFFFF",
     "text": "#494D64"
   },
+  "transient_prompt": {
+    "background": "transparent",
+    "foreground": "#a6da95",
+    "template": "❱ "
+  },
   "blocks": [
     {
       "alignment": "left",
