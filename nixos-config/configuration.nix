@@ -144,7 +144,7 @@ in
       R-with-my-packages
       RStudio-with-my-packages
       nushell
-      starship
+      oh-my-posh
     ];
     shell = pkgs.nushell;
   };

@@ -28,6 +28,7 @@
     extraEnv = ''
       # Initialize zoxide
       zoxide init nushell | save -f ~/.zoxide.nu
+      oh-my-posh init nu --config ~/.config/catppuccin.omp.json
     '';
 
     extraConfig = ''
@@ -39,9 +40,6 @@
         keybindings: []
       }
 
-      # Set up starship prompt
-      $env.PROMPT_COMMAND = { || starship prompt }
-      $env.PROMPT_COMMAND_RIGHT = { || "" }
     
       # Basic alias
       alias ll = ls
@@ -51,14 +49,10 @@
       def --env nuenv [] { direnv export json | from json | default {} | load-env }
       alias nue = nuenv
 
-      # Set up starship prompt correctly
-      $env.STARSHIP_SHELL = "nu"
-      $env.STARSHIP_SESSION_KEY = (random chars -l 16)
-      $env.PROMPT_COMMAND = { || starship prompt }
-      $env.PROMPT_COMMAND_RIGHT = { || "" }
 
       # Load zoxide
       source ~/.zoxide.nu
+      source ~/.oh-my-posh.nu
     '';
   };
 
