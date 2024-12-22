@@ -18,8 +18,7 @@ stripe
 fish/functions/tide/configure
 fish/fish_variables
 configs/.config/tmux/plugins
-configs/.config/nvim/undodir
 node_modules
 configs/.ssh/*
 !configs/.ssh/config
-nixos-config/nvim/undodir
+undodir
