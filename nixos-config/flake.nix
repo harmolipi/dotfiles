@@ -60,19 +60,17 @@
           })
           ./configuration.nix
           ./hardware-configuration.nix
-          # ./configuration.nix
-          # ./hardware-configuration.nix
           home-manager.nixosModules.home-manager
           {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              users.niko = { ... }: import ./home.nix {
-                inherit pkgs;
-                inherit (self) outPath;
+            home-manager =
+              {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                backupFileExtension = "backup";
+                users.niko = {
+                  imports = [ ./home.nix ];
+                };
               };
-              # users.niko = import ./home.nix;
-            };
           }
           ({ pkgs, ... }: {
             environment.systemPackages = [ immersed-vr ];
