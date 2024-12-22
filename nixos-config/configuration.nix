@@ -89,7 +89,6 @@ in
     extraPackages = with pkgs; [ libva vaapiVdpau libvdpau-va-gl libgpg-error ];
   };
 
-  hardware.opengl.extraPackages = with pkgs; [ libva vaapiVdpau libvdpau-va-gl ];
   hardware.uinput.enable = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
@@ -284,7 +283,6 @@ in
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  # system.stateVersion = "24.05"; # Did you read the comment?
   system.stateVersion = "24.05"; # Did you read the comment?
 
   virtualisation.docker.enable = true;
