@@ -1,4 +1,4 @@
-{ pkgs, pkgs-unstable, config, ... }:
+{ pkgs, config, ... }:
 
 with pkgs;
 let
@@ -114,7 +114,7 @@ in
       (pass.withExtensions (exts: [ exts.pass-otp ]))
       diceware
       zbar
-      pkgs-unstable.plex-desktop
+      plex-desktop
       lazygit
       commitizen
       stow
@@ -131,7 +131,6 @@ in
       immersed-vr
       obsidian
       brave
-      vivaldi
       zen-browser
       sidequest
       glaumar_repo.qrookie
@@ -145,6 +144,7 @@ in
       nushell
       carapace
       oh-my-posh
+      libsForQt5.okular
     ];
     shell = pkgs.nushell;
   };
