@@ -145,6 +145,7 @@ in
       carapace
       oh-my-posh
       libsForQt5.okular
+      neovim
     ];
     shell = pkgs.nushell;
   };
@@ -199,13 +200,6 @@ in
       "browser.newtabpage.activity-stream.showSponsored" = false;
     };
   };
-
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-    viAlias = true;
-    vimAlias = true;
-    };
 
   programs.git = {
     enable = true;

@@ -5,22 +5,19 @@
 
   programs.home-manager.enable = true;
 
-  home.packages = [
-    pkgs.nixpkgs-fmt
+  home.packages = with pkgs; [
+    # LSPs
+    lua-language-server
+    nil
+    elixir-ls
+
+    # Formatters
+    nixpkgs-fmt
+    stylua
+    selene
+    nodePackages.prettier
+    mdformat
   ];
-
-  # programs.neovim = {
-  #   enable = true;
-  #   extraConfig = "./nvim/init.lua";
-  # };
-
-  #home.file = {
-  #".config/nvim" = {
-  # source = toString (outPath + "/nvim");
-  #source = ./nvim/lua;
-  #recursive = true;
-  #};
-  #};
 
   programs.nushell = {
     enable = true;

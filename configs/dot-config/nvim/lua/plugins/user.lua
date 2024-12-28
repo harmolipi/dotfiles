@@ -94,12 +94,12 @@ return {
   { "tpope/vim-surround", event = "User AstroFile" },
   { "urbit/hoon.vim", event = "User AstroFile" },
   { "wakatime/vim-wakatime", event = "User AstroFile" },
-  {
-    "phpactor/phpactor",
-    ft = "php",
-    -- run = "composer install --no-dev --optimize-autoloader",
-    event = "User AstroFile",
-  },
+  -- {
+  --   "phpactor/phpactor",
+  --   ft = "php",
+  --   -- run = "composer install --no-dev --optimize-autoloader",
+  --   event = "User AstroFile",
+  -- },
 
   -- Testing helper
   {
@@ -268,4 +268,5 @@ return {
       }
     end,
   },
+  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 }
