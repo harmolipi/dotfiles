@@ -14,9 +14,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
+    ghostty.url = "github:ghostty-org/ghostty";
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, nixos-hardware, home-manager, glaumar_repo, zen-browser, ... }:
+  outputs = { self, nixpkgs, nixpkgs-unstable, nixos-hardware, home-manager, glaumar_repo, zen-browser, ghostty, ... }:
     let
       system = "x86_64-linux";
       lib = nixpkgs.lib;
@@ -73,7 +74,10 @@
               };
           }
           ({ pkgs, ... }: {
-            environment.systemPackages = [ immersed-vr ];
+            environment.systemPackages = [
+              immersed-vr
+              ghostty.packages.x86_64-linux.default
+            ];
           })
         ];
 

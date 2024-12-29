@@ -1,0 +1,8 @@
+theme = catppuccin-macchiato
+font-family = "Hack Nerd Font Mono"
+font-size = 10
+window-padding-x = 10
+window-padding-y = 4
+clipboard-trim-trailing-spaces = true
+adjust-cell-height = 75%
+adjust-box-thickness = 1
