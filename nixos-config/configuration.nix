@@ -177,6 +177,8 @@ in
     '';
   };
 
+  services.tailscale.enable = true;
+
   systemd.services.fprintd = {
     wantedBy = [ "multi-user.target" ];
     serviceConfig.Type = "simple";
@@ -231,6 +233,8 @@ in
     pinentry-gnome3
     audacity
     direnv
+    nomacs
+    openvpn
   ];
 
   programs.gnupg = {
