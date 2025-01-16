@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, pkgs-unstable, config, ... }:
 
 with pkgs;
 let
@@ -146,6 +146,7 @@ in
       oh-my-posh
       libsForQt5.okular
       neovim
+      pkgs-unstable.trezor-suite
     ];
     shell = pkgs.nushell;
   };
