@@ -105,50 +105,56 @@ in
   nix.settings.auto-optimise-store = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.niko = {
-    isNormalUser = true;
-    description = "Niko Birbilis";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      signal-desktop
-      (pass.withExtensions (exts: [ exts.pass-otp ]))
-      diceware
-      zbar
-      plex-desktop
-      lazygit
-      commitizen
-      stow
-      kitty
-      zsh-powerlevel10k
-      zoxide
-      zsh-autocomplete
-      zsh-syntax-highlighting
-      fzf
-      eza
-      nnn
-      tldr
-      bitwarden-desktop
-      immersed-vr
-      obsidian
-      brave
-      zen-browser
-      sidequest
-      glaumar_repo.qrookie
-      ffmpeg
-      kdePackages.kdenlive
-      libsForQt5.kdenlive
-      yt-dlp
-      gnomeExtensions.caffeine
-      R-with-my-packages
-      RStudio-with-my-packages
-      nushell
-      carapace
-      oh-my-posh
-      libsForQt5.okular
-      neovim
-      pkgs-unstable.trezor-suite
-    ];
-    shell = pkgs.nushell;
+  users = {
+    defaultUserShell = pkgs.zsh;
+    users.niko = {
+      isNormalUser = true;
+      description = "Niko Birbilis";
+      extraGroups = [ "networkmanager" "wheel" "adbusers" ];
+      shell = pkgs.zsh;
+      packages = with pkgs; [
+        signal-desktop
+        (pass.withExtensions (exts: [ exts.pass-otp ]))
+        diceware
+        zbar
+        plex-desktop
+        lazygit
+        commitizen
+        stow
+        kitty
+        zsh-powerlevel10k
+        zoxide
+        zsh-autocomplete
+        zsh-syntax-highlighting
+        fzf
+        eza
+        nnn
+        tldr
+        bitwarden-desktop
+        # immersed-vr
+        obsidian
+        brave
+        zen-browser
+        sidequest
+        glaumar_repo.qrookie
+        ffmpeg
+        kdePackages.kdenlive
+        libsForQt5.kdenlive
+        kdePackages.kimageformats
+        yt-dlp
+        gnomeExtensions.caffeine
+        R-with-my-packages
+        RStudio-with-my-packages
+        nushell
+        carapace
+        oh-my-posh
+        libsForQt5.okular
+        neovim
+        pkgs-unstable.trezor-suite
+        pkgs-unstable.trezord
+        pkgs-unstable.trezor-udev-rules
+      ];
+    };
   };
 
   programs.zsh = {
@@ -158,6 +164,7 @@ in
       enable = true;
       # plugins = [ "zsh-syntax-highlighting" ];
     };
+    syntaxHighlighting.enable = true;
     interactiveShellInit = ''
       eval "$(direnv hook zsh)" 
     '';

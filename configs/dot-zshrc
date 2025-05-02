@@ -1,3 +1,4 @@
+eval "$(zoxide init zsh)"
 # vi mode
 bindkey -v
 
