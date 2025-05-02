@@ -287,4 +287,6 @@ in
   system.stateVersion = "24.05"; # Did you read the comment?
 
   virtualisation.docker.enable = true;
+
+  programs.adb.enable = true;
 }

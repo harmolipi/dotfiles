@@ -20,7 +20,21 @@
     nodePackages.prettier
     mdformat
 
+    # Applications
+    # bibletime
+    ncdu
+    exercism
+    filezilla
+    croc
+    minigalaxy
+    wineWowPackages.full
+    ngrok
+    jre8
+    android-tools
+    moonlight-qt
 
+    # Games
+    prismlauncher
   ];
 
   programs.git =
