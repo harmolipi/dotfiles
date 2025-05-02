@@ -42,6 +42,8 @@ return {
       "lua_ls",
       "nil_ls",
       "elixirls",
+      "ts_ls",
+      "gopls",
     },
     -- customize language server configuration options passed to `lspconfig`
     ---@diagnostic disable: missing-fields

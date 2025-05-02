@@ -10,6 +10,8 @@
     lua-language-server
     nil
     elixir-ls
+    typescript-language-server
+    gopls
 
     # Formatters
     nixpkgs-fmt
