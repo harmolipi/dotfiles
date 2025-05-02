@@ -11,6 +11,7 @@ return {
   ---@type AstroCoreOpts
   opts = {
     -- Configure core features of AstroNvim
+    termguicolors = true,
     features = {
       large_buf = { size = 1024 * 256, lines = 10000 }, -- set global limits for large files for disabling features like treesitter
       autopairs = true, -- enable autopairs at start
@@ -103,5 +104,8 @@ return {
         ["K"] = { ":m '<-2<cr>gv=gv", desc = "Move line up" },
       },
     },
+  },
+  env = {
+    TERM = "xterm-256color",
   },
 }
