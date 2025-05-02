@@ -31,6 +31,7 @@ Host homeserver
   HostName 192.168.0.113
   User pi
   IdentityFile ~/.ssh/id_rsa
+  SetEnv TERM=xterm-256color
 
 Host vaultprep
   HostName 146.190.38.127
