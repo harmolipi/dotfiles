@@ -23,6 +23,45 @@
 
   ];
 
+  programs.git =
+    {
+      enable = true;
+      includes = [
+        { path = "~/.gitlocalconfig"; }
+      ];
+      aliases = {
+        st = "status";
+        "; hist" = "log --pretty=format:\"%Cgreen%h %Creset%cd %Cblue[%cn] %Creset%s%C(yellow)%d%C(reset)\" --graph --date=relative --decorate --all";
+        df = "!git hist | peco | awk '{print $2}' | xargs -I {} git diff {}^ {}";
+        br = "branch";
+        open = "!hub browse";
+        type = "cat-file -t";
+        dump = "cat-file -p";
+      };
+      extraConfig = {
+        user = {
+          name = "Niko Birbilis";
+          email = "nikob381@gmail.com";
+        };
+        init.defaultBranch = "main";
+        color = {
+          status = "auto";
+          diff = "auto";
+          branch = "auto";
+          interactive = "auto";
+          grep = "auto";
+          ui = "auto";
+        };
+        core = {
+          excludesFile = "~/.gitignore_global";
+          editor = "nvim";
+        };
+        "diff \"lockb\"" = {
+          textconv = "bun";
+          binary = "true";
+        };
+      };
+    };
 
   # programs.nushell = {
   #   enable = false;

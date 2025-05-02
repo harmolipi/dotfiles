@@ -23,3 +23,4 @@ configs/.ssh/*
 !configs/.ssh/config
 undodir
 configs/dot-config/tmux/plugins
+configs/dot-config/git/config

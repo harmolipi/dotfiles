@@ -211,17 +211,6 @@ in
     };
   };
 
-  programs.git = {
-    enable = true;
-    config = {
-      user.name = "Niko Birbilis";
-      user.email = "nikob381@gmail.com";
-      init.defaultBranch = "main";
-      color.ui = "auto";
-      pull.rebase = false;
-    };
-  };
-
   programs.steam.enable = true;
   programs.browserpass.enable = true;
 
