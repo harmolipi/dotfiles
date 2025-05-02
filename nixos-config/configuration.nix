@@ -242,6 +242,7 @@ in
     direnv
     nomacs
     openvpn
+    ncurses
   ];
 
   programs.gnupg = {
@@ -285,6 +286,8 @@ in
   networking.firewall.allowedUDPPorts = [ 21003 ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
+
+  networking.nameservers = [ "192.168.0.113" ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

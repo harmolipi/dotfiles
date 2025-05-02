@@ -36,7 +36,7 @@
         };
       };
 
-      immersed-vr = pkgs.callPackage ./packages/immersed/default.nix { };
+      # immersed-vr = pkgs.callPackage ./packages/immersed/default.nix { };
     in
     {
       nixosConfigurations.nixos = lib.nixosSystem {
@@ -54,9 +54,9 @@
                 zen-browser = zen-browser.packages."${prev.system}".default;
               })
 
-              (final: prev: {
-                immersed-vr = immersed-vr;
-              })
+              # (final: prev: {
+              #   immersed-vr = immersed-vr;
+              # })
             ];
           })
           ./configuration.nix
@@ -75,7 +75,7 @@
           }
           ({ pkgs, ... }: {
             environment.systemPackages = [
-              immersed-vr
+              # immersed-vr
               ghostty.packages.x86_64-linux.default
             ];
           })
