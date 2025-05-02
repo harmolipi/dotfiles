@@ -155,10 +155,10 @@ return {
       vim.keymap.set("n", "<Leader><Leader>;", ":lua require('harpoon.ui').nav_file(4)<CR>")
     end,
   },
-  -- {
-  --   "mbbill/undotree",
-  --   event = "User AstroFile",
-  -- },
+  {
+    "mbbill/undotree",
+    event = "User AstroFile",
+  },
   {
     "ThePrimeagen/refactoring.nvim",
     dependencies = {
