@@ -34,6 +34,7 @@
     moonlight-qt
 
     # Games
+    lutris
     prismlauncher
   ];
 
