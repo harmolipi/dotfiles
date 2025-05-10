@@ -33,6 +33,19 @@
     moonlight-qt
     xclip
 
+    # Tree-sitter parsers
+    (pkgs.vimPlugins.nvim-treesitter.withPlugins (
+      plugins: with plugins; [
+        lua
+        vim
+        nix
+        elixir
+        go
+        typescript
+        javascript
+        hoon
+      ]
+    ))
   ];
 
   programs.git =
