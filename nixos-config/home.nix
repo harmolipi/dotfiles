@@ -75,6 +75,60 @@
       };
     };
 
+  programs.helix = {
+    enable = true;
+    settings = {
+      theme = "catppuccin_macchiato";
+
+      editor = {
+        scrolloff = 8;
+        mouse = false;
+        line-number = "relative";
+        cursorline = true;
+        bufferline = "multiple";
+        color-modes = true;
+
+        # Cursor shapes similar to Neovim
+        cursor-shape = {
+          insert = "bar";
+          normal = "block";
+          select = "underline";
+        };
+
+        # File picker (similar to Telescope)
+        # file-picker = {
+        #   hidden = false;  # Enable to see hidden files
+        # };
+
+        # Status line configuration
+        statusline = {
+          left = [ "mode" "spinner" "file-name" "version-control" ];
+          center = [ "diagnostics" ];
+          right = [ "selections" "position-percentage" "file-type" ];
+          separator = "|";
+        };
+
+        lsp = {
+          display-inlay-hints = true;
+        };
+
+        inline-diagnostics = {
+          cursor-line = "error";
+        };
+      };
+
+      #   keys = {
+      #     normal = {
+      #       space = { 
+      #         w = ":w";  # Save file with space-w
+      #         q = ":q";  # Quit with space-q
+      #       };
+      #     };
+      #   };
+      # };
+    };
+  };
+
   # programs.nushell = {
   #   enable = false;
   #
