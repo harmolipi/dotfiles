@@ -31,6 +31,7 @@
     jre8
     android-tools
     moonlight-qt
+    xclip
 
   ];
 
