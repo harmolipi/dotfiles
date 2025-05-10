@@ -129,6 +129,15 @@
     };
   };
 
+  programs.zellij = {
+    enable = true;
+    enableZshIntegration = true;
+    settings = {
+      theme = "catppuccin-macchiato";
+      rounded_corners = true;
+    };
+  };
+
   # programs.nushell = {
   #   enable = false;
   #
