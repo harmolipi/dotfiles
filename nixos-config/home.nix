@@ -14,7 +14,7 @@
     gopls
 
     # Formatters
-    nixpkgs-fmt
+    nixfmt-rfc-style
     stylua
     selene
     nodePackages.prettier
