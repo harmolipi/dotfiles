@@ -24,7 +24,6 @@
     # bibletime
     ncdu
     exercism
-    filezilla
     croc
     minigalaxy
     wineWowPackages.full
@@ -33,9 +32,6 @@
     android-tools
     moonlight-qt
 
-    # Games
-    lutris
-    prismlauncher
   ];
 
   programs.git =
