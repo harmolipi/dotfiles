@@ -149,7 +149,6 @@ in
         carapace
         oh-my-posh
         libsForQt5.okular
-        neovim
         pkgs-unstable.trezor-suite
         pkgs-unstable.trezord
         pkgs-unstable.trezor-udev-rules
