@@ -1,31 +1,26 @@
 return {
-  -- use mason-lspconfig to configure LSP installations
-  {
-    "williamboman/mason-lspconfig.nvim",
-    opts = {
-      ensure_installed = {
-        -- your LSPs here
-      },
-    },
-  },
-  {
-    "jay-babu/mason-nvim-dap.nvim",
-    opts = {
-      ensure_installed = {
-        -- your DAP configs here
-      },
-    },
-  },
   {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
-    optional = true,
-    opts = function(_, opts)
-      opts.ensure_installed = require("astrocore").list_insert_unique(
-        opts.ensure_installed,
-        {
-          "intelephense",
-        }
-      )
-    end,
+    enabled = false,
+    opts = {
+      ensure_installed = {
+        -- install language servers
+        "lua-language-server",
+        "intelephense",
+
+        -- install formatters
+        "stylua",
+        "nixpkgs-fmt",
+        "prettier",
+        "mdformat",
+
+        -- install debuggers
+
+        -- install any other package
+        "tree-sitter-cli",
+      },
+    },
   },
+  -- { "williamboman/mason.nvim", enabled = false },
+  -- { "williamboman/mason-lspconfig.nvim", enabled = false },
 }

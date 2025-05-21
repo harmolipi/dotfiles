@@ -1,39 +1,38 @@
--- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
-
--- You can also add or configure plugins by creating files in this `plugins/` folder
--- Here are some examples:
-
 ---@type LazySpec
 return {
-
-  -- == Examples of Adding Plugins ==
-
-  -- {
-  --   "ray-x/lsp_signature.nvim",
-  --   event = "BufRead",
-  --   config = function() require("lsp_signature").setup() end,
-  -- },
-
-  -- == Examples of Overriding Plugins ==
-
-  -- customize alpha options
   {
-    "goolord/alpha-nvim",
-    opts = function(_, opts)
-      -- customize the dashboard header
-      opts.section.header.val = {
-        "███╗   ██╗    ██╗    ██╗  ██╗     ██████╗         ██╗  ██╗    ███████╗    ██████╗     ███████╗",
-        "████╗  ██║    ██║    ██║ ██╔╝    ██╔═══██╗        ██║  ██║    ██╔════╝    ██╔══██╗    ██╔════╝",
-        "██╔██╗ ██║    ██║    █████╔╝     ██║   ██║        ███████║    █████╗      ██████╔╝    █████╗  ",
-        "██║╚██╗██║    ██║    ██╔═██╗     ██║   ██║        ██╔══██║    ██╔══╝      ██╔══██╗    ██╔══╝  ",
-        "██║ ╚████║    ██║    ██║  ██╗    ╚██████╔╝        ██║  ██║    ███████╗    ██║  ██║    ███████╗",
-        "╚═╝  ╚═══╝    ╚═╝    ╚═╝  ╚═╝     ╚═════╝         ╚═╝  ╚═╝    ╚══════╝    ╚═╝  ╚═╝    ╚══════╝",
-      }
-      return opts
-    end,
+    "folke/snacks.nvim",
+    priority = 1000,
+    lazy = false,
+    ---@type snacks.Config
+    opts = {
+      bigfile = { enabled = true },
+      dashboard = {
+        preset = {
+          header = table.concat({
+            "███╗   ██╗    ██╗    ██╗  ██╗     ██████╗         ██╗  ██╗    ███████╗    ██████╗     ███████╗",
+            "████╗  ██║    ██║    ██║ ██╔╝    ██╔═══██╗        ██║  ██║    ██╔════╝    ██╔══██╗    ██╔════╝",
+            "██╔██╗ ██║    ██║    █████╔╝     ██║   ██║        ███████║    █████╗      ██████╔╝    █████╗  ",
+            "██║╚██╗██║    ██║    ██╔═██╗     ██║   ██║        ██╔══██║    ██╔══╝      ██╔══██╗    ██╔══╝  ",
+            "██║ ╚████║    ██║    ██║  ██╗    ╚██████╔╝        ██║  ██║    ███████╗    ██║  ██║    ███████╗",
+            "╚═╝  ╚═══╝    ╚═╝    ╚═╝  ╚═╝     ╚═════╝         ╚═╝  ╚═╝    ╚══════╝    ╚═╝  ╚═╝    ╚══════╝",
+          }, "\n"),
+        },
+      },
+      explorer = { enabled = true },
+      indent = { enabled = true },
+      input = { enabled = true },
+      lazygit = { enabled = true },
+      notifier = { enabled = true },
+      picker = { enabled = true },
+      quickfile = { enabled = true },
+      scope = { enabled = true },
+      statuscolumn = { enabled = true },
+      words = { enabled = true },
+      zen = { enabled = true },
+    },
   },
 
-  -- You can also easily customize additional setup of plugins that is outside of the plugin's setup call
   {
     "L3MON4D3/LuaSnip",
     config = function(plugin, opts)
@@ -160,29 +159,6 @@ return {
     event = "User AstroFile",
   },
   {
-    "ThePrimeagen/refactoring.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-treesitter",
-    },
-    config = function()
-      require("refactoring").setup()
-      vim.keymap.set("x", "<leader>re", ":Refactor extract ")
-      vim.keymap.set("x", "<leader>rf", ":Refactor extract_to_file ")
-
-      vim.keymap.set("x", "<leader>rv", ":Refactor extract_var ")
-
-      vim.keymap.set({ "n", "x" }, "<leader>ri", ":Refactor inline_var")
-
-      vim.keymap.set("n", "<leader>rI", ":Refactor inline_func")
-
-      vim.keymap.set("n", "<leader>rb", ":Refactor extract_block")
-      vim.keymap.set("n", "<leader>rbf", ":Refactor extract_block_to_file")
-      vim.keymap.set({ "n", "x" }, "<leader>rr", function() require("telescope").extensions.refactoring.refactors() end)
-    end,
-    event = "User AstroFile",
-  },
-  {
     "nvim-treesitter/nvim-treesitter-context",
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     config = function()
@@ -217,41 +193,6 @@ return {
       { "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
       { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
     },
-  },
-  {
-    "max397574/better-escape.nvim",
-    cond = not vim.g.vscode,
-    opts = function()
-      local esc_fn = function()
-        if vim.bo.filetype == "OverseerForm" then
-          return vim.api.nvim_win_get_cursor(0)[2] > 1 and "<Esc>lx" or "<Esc>x"
-        end
-        return vim.api.nvim_win_get_cursor(0)[2] > 1 and "<Esc>l" or "<Esc>"
-      end
-      local disabled = {
-        j = { j = false, k = false },
-        k = { j = false, k = false },
-      }
-      return {
-        create_default_mappings = false,
-        mappings = {
-          i = {
-            j = {
-              k = esc_fn,
-            },
-          },
-          c = {
-            j = {
-              k = esc_fn,
-            },
-          },
-          t = disabled,
-          v = disabled,
-          x = disabled,
-          s = disabled,
-        },
-      }
-    end,
   },
   {
     "stevearc/conform.nvim",

@@ -28,16 +28,16 @@ return {
       astrodark = { -- a table of overrides/changes when applying the astrotheme theme
         -- Normal = { bg = "#000000" },
       },
-      onedark = {
-        TelescopePromptTitle = { link = "PMenuSel" },
-        TelescopePreviewTitle = { link = "PMenuSel" },
-        TelescopePromptNormal = { fg = normalFloatFg, bg = aerialLineBg },
-        TelescopePromptBorder = { fg = aerialLineBg, bg = aerialLineBg },
-        TelescopeResultsBorder = { fg = cursorLineBg, bg = cursorLineBg },
-        TelescopeNormal = { link = "CursorLine" },
-        TelescopePreviewBorder = { fg = cursorLineBg, bg = cursorLineBg },
-        TelescopeBorder = { fg = cursorLineBg, bg = cursorLineBg },
-      },
+      -- onedark = {
+      --   TelescopePromptTitle = { link = "PMenuSel" },
+      --   TelescopePreviewTitle = { link = "PMenuSel" },
+      --   TelescopePromptNormal = { fg = normalFloatFg, bg = aerialLineBg },
+      --   TelescopePromptBorder = { fg = aerialLineBg, bg = aerialLineBg },
+      --   TelescopeResultsBorder = { fg = cursorLineBg, bg = cursorLineBg },
+      --   TelescopeNormal = { link = "CursorLine" },
+      --   TelescopePreviewBorder = { fg = cursorLineBg, bg = cursorLineBg },
+      --   TelescopeBorder = { fg = cursorLineBg, bg = cursorLineBg },
+      -- },
     },
     -- Icons can be configured throughout the interface
     icons = {
