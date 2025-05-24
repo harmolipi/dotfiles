@@ -14,6 +14,7 @@
     gopls
 
     # Formatters
+    nixpkgs-fmt
     nixfmt-rfc-style
     stylua
     selene
@@ -32,6 +33,11 @@
     android-tools
     moonlight-qt
     xclip
+    gnomecast
+    lutris
+    protonup-qt
+
+    winetricks
   ];
 
   programs.neovim.enable = true;
