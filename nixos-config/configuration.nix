@@ -131,7 +131,6 @@ in
         nnn
         tldr
         bitwarden-desktop
-        # immersed-vr
         obsidian
         brave
         zen-browser

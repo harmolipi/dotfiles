@@ -36,6 +36,7 @@
     gnomecast
     lutris
     protonup-qt
+    immersed
 
     winetricks
   ];
