@@ -153,19 +153,9 @@ in
         pkgs-unstable.trezor-udev-rules
       ];
     };
-  };
-
-  programs.zsh = {
-    enable = true;
-    promptInit = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-    ohMyZsh = {
-      enable = true;
-      # plugins = [ "zsh-syntax-highlighting" ];
+    users.root = {
+      shell = pkgs.zsh;
     };
-    syntaxHighlighting.enable = true;
-    interactiveShellInit = ''
-      eval "$(direnv hook zsh)" 
-    '';
   };
 
   programs.tmux = {

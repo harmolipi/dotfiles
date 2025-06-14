@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, lib, ... }: {
   home.username = "niko";
   home.homeDirectory = "/home/niko";
   home.stateVersion = "24.05";
@@ -21,6 +21,9 @@
     nodePackages.prettier
     mdformat
 
+    # CLI Tools
+    fd
+    ripgrep
     # Applications
     # bibletime
     ncdu
@@ -336,4 +339,139 @@
     enable = true;
     # enableNushellIntegration = true;
   };
+
+  programs.zoxide = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
+  programs.starship = {
+    enable = true;
+    settings = {
+      add_newline = true;
+
+      format = ''
+        $directory$git_branch$git_status
+        $character '';
+
+      # Prompt components
+      directory = {
+        style = "blue bold";
+        truncation_length = 3;
+        truncation_symbol = "…/";
+      };
+
+      git_branch = {
+        symbol = " ";
+        style = "green";
+        format = "[$symbol$branch]($style) ";
+      };
+
+      git_status = {
+        style = "yellow";
+        format = "[$all_status$ahead_behind]($style) ";
+      };
+
+      character = {
+        success_symbol = "[❯](bold green)";
+        error_symbol = "[❯](bold red)";
+        vicmd_symbol = "[❮](bold yellow)";
+      };
+    };
+  };
+
+  programs.fzf = {
+    enable = true;
+    enableZshIntegration = true;
+    defaultCommand = "fd --type f";
+    defaultOptions = [ "--height 40%" "--border" ];
+    changeDirWidgetCommand = "fd --type d";
+    changeDirWidgetOptions = [ "--preview 'ls -la {}'" "--preview-window right:60%" ];
+    fileWidgetCommand = "fd --type f";
+    fileWidgetOptions = [ "--preview 'cat {}'" "--preview-window right:60%" ];
+    historyWidgetOptions = [ "--sort" "--exact" ];
+  };
+
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    syntaxHighlighting.enable = true;
+
+    plugins = [
+      {
+        name = "zsh-syntax-highlighting";
+        src = pkgs.zsh-syntax-highlighting;
+      }
+      {
+        name = "zsh-autosuggestions";
+        src = pkgs.zsh-autosuggestions;
+      }
+    ];
+
+    shellAliases = {
+      zshconfig = "nvim ~/.zshrc";
+      ll = "eza -l -g --icons";
+      lla = "eza -l -a -g --icons";
+      icat = "kitty +kitten icat";
+      tmuxfzf = ''tmux switch-client -n || tmux new-session -d -s $(fzf --prompt="Attach to or create session: " | awk "{print \\$1}" | sed s/:.*//)'';
+      ssh = "[ \"$TERM\" = \"xterm-kitty\" ] && kitty +kitten ssh || ssh";
+      d = "[ \"$TERM\" = \"xterm-kitty\" ] && kitty +kitten diff || diff";
+    };
+
+    # Pure prompt setup
+    initContent = lib.mkBefore ''
+      # shell
+
+      eval "$(starship init zsh)"
+
+      # Direnv hook
+      eval "$(direnv hook zsh)"
+
+      # Reset keymap correctly on mode change
+      autoload -Uz add-zsh-hook
+
+      function zle-line-init zle-keymap-select {
+        VIMODE=""
+        case $KEYMAP in
+          vicmd) VIMODE="%F{yellow}[N]%f" ;;
+          main|viins) VIMODE="" ;;
+        esac
+        zle reset-prompt
+      }
+
+      zle -N zle-line-init
+      zle -N zle-keymap-select
+
+      n () {
+        [ "$''${NNNLVL:-0}" -eq 0 ] || {
+          echo "nnn is already running"
+          return
+        }
+        if [ -z "\$XDG_CONFIG_HOME" ]; then
+          export NNN_TMPFILE="\$HOME/.config/nnn/.lastd"
+        else
+          export NNN_TMPFILE="\$XDG_CONFIG_HOME/nnn/.lastd"
+        fi
+        command nnn "\$@"
+        [ ! -f "\$NNN_TMPFILE" ] || {
+          . "\$NNN_TMPFILE"
+          rm -f -- "\$NNN_TMPFILE" > /dev/null
+        }
+      }
+
+      if [[ -z $${ZSH_HIGHLIGHT_STYLES+x} ]]; then
+        typeset -A ZSH_HIGHLIGHT_STYLES
+      fi
+      # ZSH_HIGHLIGHT_STYLES[path]=none
+      # ZSH_HIGHLIGHT_STYLES[path_prefix]=none
+      
+      # Configure key bindings for history search
+      bindkey '^R' fzf-history-widget
+      # Use up and down arrow keys for history navigation
+      bindkey '^[[A' up-line-or-history
+      bindkey '^[[B' down-line-or-history
+    '';
+  };
+
+  programs.tmux = {
 }
