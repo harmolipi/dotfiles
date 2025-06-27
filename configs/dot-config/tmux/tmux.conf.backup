@@ -1,8 +1,19 @@
-# set -g default-terminal "xterm-256color"
-set -g default-terminal "screen-256color"
-# set -ga terminal-overrides ",xterm-256color:Tc"
-set -sa terminal-features ',xterm-256color:RGB'
-set -as terminal-overrides ',*:Smulx=\E[4::%p1%dm'
+# Let tmux use its own terminal type
+set -g default-terminal "tmux-256color"
+
+# Tell tmux that the outside terminal (Ghostty) supports true color
+set -sa terminal-overrides ',xterm-ghostty:Tc'
+
+# Also add common fallbacks
+set -sa terminal-overrides ',xterm-256color:Tc'
+set -sa terminal-overrides ',ghostty:Tc'
+
+# Reduce escape time for better Neovim experience
+set -sg escape-time 10
+
+# Support cursor shapes
+set -ga terminal-overrides ',*:Ss=\E[%p1%d q:Se=\E[2 q'
+
 # action key
 unbind C-b
 set-option -g prefix C-b
@@ -72,10 +83,10 @@ set-window-option -g window-status-style fg=colour244,bg=colour234,dim
 set-window-option -g window-status-current-style fg=colour166,bg=default,bright
 
 # improve colors
-set -g default-terminal "${TERM}"
+# set -g default-terminal "${TERM}"
 
 # enable undercurl
-set -as terminal-overrides ',*:Smulx=\E[4::%p1%dm'
+# set -as terminal-overrides ',*:Smulx=\E[4::%p1%dm'
 
 # enable undercurl colors
 set -as terminal-overrides ",*:Setulc=\E[58::2::%p1%{65536}%/%d::%p1%{256}%/%{255}%&%d::%p1%{255}%&%d::%p1%{255}%&%d%;m"
@@ -107,7 +118,6 @@ bind % split-window -h -c "#{pane_current_path}"
 
 # Use zsh as the default at the nix path if it's present
 set-option -g default-shell /run/current-system/sw/bin/zsh
-# set-option -g default-shell /run/current-system/sw/bin/nu
 
 # import
 if-shell "uname -s | grep -q Darwin" "source ~/.config/tmux/macos.conf"
@@ -141,12 +151,12 @@ bind-key -r f run-shell "tmux neww ~/bin/.local/scripts/tmux-sessionizer"
 # List of plugins
 set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'tmux-plugins/tmux-sensible'
-# set -g @plugin 'christoomey/vim-tmux-navigator'
+set -g @plugin 'christoomey/vim-tmux-navigator'
 # set -g @plugin '27medkamal/tmux-session-wizard'
 set -g @plugin 'dreamsofcode-io/catppuccin-tmux'
 # set -g @catppuccin_flavour 'macchiato' # latte,frappe, macchiato or mocha
 # set -g @plugin 'tmux-plugins/tmux-yank'
-# set -g @plugin 'omerxx/tmux-sessionx'
+set -g @plugin 'omerxx/tmux-sessionx'
 
 # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
 run '~/.config/tmux/plugins/tpm/tpm'
