@@ -19,6 +19,9 @@ return {
       "lua_ls",
       "nil_ls",
       "elixirls",
+      -- elixirls = {
+      --   cmd = { "elixir-ls" },
+      -- },
       "ts_ls",
       "gopls",
     },
