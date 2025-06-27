@@ -158,19 +158,7 @@ in
     };
   };
 
-  programs.tmux = {
-    enable = true;
-    plugins = [
-      pkgs.tmuxPlugins.sensible
-      pkgs.tmuxPlugins.vim-tmux-navigator
-      pkgs.tmuxPlugins.session-wizard
-      pkgs.tmuxPlugins.catppuccin
-      pkgs.tmuxPlugins.yank
-    ];
-    extraConfig = ''
-      set -g @catppuccin_flavor 'macchiato'
-    '';
-  };
+  programs.zsh.enable = true;
 
   services.tailscale.enable = true;
 
