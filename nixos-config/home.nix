@@ -9,7 +9,7 @@
     # LSPs
     lua-language-server
     nil
-    elixir-ls
+    # elixir-ls
     typescript-language-server
     gopls
 
@@ -24,8 +24,9 @@
     # CLI Tools
     fd
     ripgrep
+
     # Applications
-    # bibletime
+    bibletime
     ncdu
     exercism
     croc
@@ -36,10 +37,13 @@
     android-tools
     moonlight-qt
     xclip
+    google-fonts
     gnomecast
     lutris
     protonup-qt
     immersed
+    tmux-sessionizer
+    claude-code
 
     winetricks
   ];
@@ -140,14 +144,14 @@
     };
   };
 
-  programs.zellij = {
-    enable = true;
-    enableZshIntegration = true;
-    settings = {
-      theme = "catppuccin-macchiato";
-      rounded_corners = true;
-    };
-  };
+  # programs.zellij = {
+  #   enable = true;
+  #   enableZshIntegration = true;
+  #   settings = {
+  #     theme = "catppuccin-macchiato";
+  #     rounded_corners = true;
+  #   };
+  # };
 
   # programs.nushell = {
   #   enable = false;
@@ -383,6 +387,7 @@
   programs.fzf = {
     enable = true;
     enableZshIntegration = true;
+    # enableZshIntegration = false;
     defaultCommand = "fd --type f";
     defaultOptions = [ "--height 40%" "--border" ];
     changeDirWidgetCommand = "fd --type d";
@@ -395,52 +400,63 @@
   programs.zsh = {
     enable = true;
     enableCompletion = true;
+    autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
-
     plugins = [
       {
-        name = "zsh-syntax-highlighting";
-        src = pkgs.zsh-syntax-highlighting;
-      }
-      {
-        name = "zsh-autosuggestions";
-        src = pkgs.zsh-autosuggestions;
+        name = "vi-mode";
+        src = pkgs.zsh-vi-mode;
+        file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
       }
     ];
+    # plugins = [
+    #   {
+    #     name = "zsh-syntax-highlighting";
+    #     src = pkgs.zsh-syntax-highlighting;
+    #   }
+    #   {
+    #     name = "zsh-autosuggestions";
+    #     src = pkgs.zsh-autosuggestions;
+    #   }
+    # ];
 
     shellAliases = {
       zshconfig = "nvim ~/.zshrc";
       ll = "eza -l -g --icons";
       lla = "eza -l -a -g --icons";
-      icat = "kitty +kitten icat";
+      # icat = "kitty +kitten icat";
       tmuxfzf = ''tmux switch-client -n || tmux new-session -d -s $(fzf --prompt="Attach to or create session: " | awk "{print \\$1}" | sed s/:.*//)'';
-      ssh = "[ \"$TERM\" = \"xterm-kitty\" ] && kitty +kitten ssh || ssh";
-      d = "[ \"$TERM\" = \"xterm-kitty\" ] && kitty +kitten diff || diff";
+      # ssh = "[ \"$TERM\" = \"xterm-kitty\" ] && kitty +kitten ssh || ssh";
+      # d = "[ \"$TERM\" = \"xterm-kitty\" ] && kitty +kitten diff || diff";
     };
 
-    # Pure prompt setup
     initContent = lib.mkBefore ''
       # shell
 
       eval "$(starship init zsh)"
 
       # Direnv hook
-      eval "$(direnv hook zsh)"
+      # eval "$(direnv hook zsh)"
+      direnv() {
+        unfunction direnv
+        eval "$(command direnv hook zsh)"
+        direnv "$@"
+      }
 
       # Reset keymap correctly on mode change
       autoload -Uz add-zsh-hook
 
-      function zle-line-init zle-keymap-select {
-        VIMODE=""
-        case $KEYMAP in
-          vicmd) VIMODE="%F{yellow}[N]%f" ;;
-          main|viins) VIMODE="" ;;
-        esac
-        zle reset-prompt
-      }
-
-      zle -N zle-line-init
-      zle -N zle-keymap-select
+      # function zle-line-init zle-keymap-select {
+      #   VIMODE=""
+      #   case $KEYMAP in
+      #     vicmd) VIMODE="%F{yellow}[N]%f" ;;
+      #     main|viins) VIMODE="" ;;
+      #   esac
+      #   zle reset-prompt
+      # }
+      #
+      # zle -N zle-line-init
+      # zle -N zle-keymap-select
 
       n () {
         [ "$''${NNNLVL:-0}" -eq 0 ] || {
@@ -470,8 +486,140 @@
       # Use up and down arrow keys for history navigation
       bindkey '^[[A' up-line-or-history
       bindkey '^[[B' down-line-or-history
+
+      # bindkey '^I' autosuggest-accept
+      bindkey "^H" backward-delete-char
+      bindkey "^?" backward-delete-char
+
+      eval "$(zoxide init zsh)"
     '';
   };
 
   programs.tmux = {
+    enable = true;
+    terminal = "tmux-256color";
+    escapeTime = 10;
+    baseIndex = 1;
+    keyMode = "vi";
+    mouse = false;
+
+    # Prefix key
+    prefix = "C-b";
+
+    # Shell
+    shell = "${pkgs.zsh}/bin/zsh";
+
+    # Plugins
+    plugins = with pkgs.tmuxPlugins; [
+      sensible
+      vim-tmux-navigator
+      catppuccin
+      yank
+      tmux-sessionx
+      {
+        plugin = catppuccin;
+        extraConfig = ''
+          # More comprehensive terminal overrides for Ghostty
+          # set -sa terminal-overrides ',xterm-ghostty:RGB'
+          # set -sa terminal-overrides ',xterm-ghostty:Tc'
+          # set -sa terminal-overrides ',xterm-ghostty:Ms=\\E]52;%p1%s;%p2%s\\007'
+          # set -sa terminal-overrides ',xterm-ghostty:Cs=\\E]12;%p1%s\\007'
+          # set -sa terminal-overrides ',xterm-ghostty:Cr=\\E]112\\007'
+          # set -sa terminal-overrides ',xterm-ghostty:Ss=\\E[%p1%d q'
+          # set -sa terminal-overrides ',xterm-ghostty:Se=\\E[2 q'
+    
+          # Disable BCE (background color erase) which can cause issues
+          # set -ga terminal-overrides ',xterm-ghostty:bce@'
+    
+          # Focus events (can cause escape sequences with some autocomplete plugins)
+          # set -g focus-events off
+    
+          # Alternative: if you need focus events, try:
+          # set -g focus-events on
+          # set -sa terminal-overrides ',xterm-ghostty:Tc:clipboard:cstyle'
+          
+          set -g @catppuccin_flavour 'macchiato'
+          set -g @catppuccin_window_left_separator ""
+          set -g @catppuccin_window_right_separator " "
+          set -g @catppuccin_window_middle_separator " █"
+          set -g @catppuccin_window_number_position "right"
+          set -g @catppuccin_window_default_fill "number"
+          set -g @catppuccin_window_default_text "#W"
+          set -g @catppuccin_window_current_fill "number"
+          set -g @catppuccin_window_current_text "#W"
+          set -g @catppuccin_status_modules_right "directory user host session"
+          set -g @catppuccin_status_left_separator  " "
+          set -g @catppuccin_status_right_separator ""
+          set -g @catppuccin_status_fill "icon"
+          set -g @catppuccin_status_connect_separator "no"
+          set -g @catppuccin_directory_text "#{pane_current_path}"
+        '';
+      }
+    ];
+
+    extraConfig = ''
+      # Terminal overrides for Ghostty
+      set -sa terminal-overrides ',xterm-ghostty:RGB'
+      set -sa terminal-overrides ',xterm-ghostty:Tc'
+      set -sa terminal-overrides ',ghostty:RGB'
+      set -sa terminal-overrides ',ghostty:Tc'
+      set -sa terminal-overrides ',xterm-256color:RGB'
+      
+      # Cursor shape support
+      set -ga terminal-overrides ',*:Ss=\E[%p1%d q:Se=\E[2 q'
+      
+      # Undercurl support
+      set -as terminal-overrides ',*:Smulx=\E[4::%p1%dm'
+      set -as terminal-overrides ',*:Setulc=\E[58::2::%p1%{65536}%/%d::%p1%{256}%/%{255}%&%d::%p1%{255}%&%d%;m'
+
+      # Window options
+      setw -g pane-base-index 1
+      set-option -g status-justify "left"
+      set-option -g status-fg cyan
+      set-option -g status-bg black
+      set -g pane-active-border-style fg=colour166,bg=default
+      set -g window-style fg=colour10,bg=default
+      set -g window-active-style fg=colour12,bg=default
+
+      # Key bindings
+      bind r source-file ~/.config/tmux/tmux.conf \; display "Reloaded!"
+      bind -r e kill-pane -a
+      bind-key -n C-S-Left swap-window -t -1 \; previous-window
+      bind-key -n C-S-Right swap-window -t +1 \; next-window
+      bind -r C-k resize-pane -U 5
+      bind -r C-j resize-pane -D 5
+      bind -r C-h resize-pane -L 5
+      bind -r C-l resize-pane -R 5
+      bind Space last-window
+      bind ^ switch-client -l
+      bind C-o display-popup -E "tms"
+      
+      # Vi mode bindings
+      bind-key -T copy-mode-vi v send-keys -X begin-selection
+      bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
+      bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
+      
+      # Open in current directory
+      bind c new-window -c "#{pane_current_path}"
+      bind '"' split-window -c "#{pane_current_path}"
+      bind % split-window -h -c "#{pane_current_path}"
+
+      # Sessionx
+      set -g @sessionx-bind 'o'
+      set -g @sessionx-zoxide-mode 'on'
+      
+      # Your other custom settings...
+      bind-key -r f run-shell "tmux neww ~/bin/.local/scripts/tmux-sessionizer"
+    '';
+  };
+
+  home.file.".config/tms/config.toml".text = ''
+    [[search_dirs]]
+    path = "/home/niko/Documents/coding"
+    depth = 10
+
+    [[search_dirs]]
+    path = "/home/niko/dotfiles"
+    depth = 10
+  '';
 }
