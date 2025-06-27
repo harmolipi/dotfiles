@@ -226,8 +226,9 @@ in
 
   environment.variables.EDITOR = "nvim";
 
-  fonts.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "Hack" "Meslo" ]; })
+  fonts.packages = [
+    pkgs.nerd-fonts.hack
+    pkgs.nerd-fonts.meslo-lg
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
