@@ -105,7 +105,7 @@ return {
       },
     },
   },
-  env = {
-    TERM = "xterm-256color",
-  },
+  -- env = {
+  --   TERM = "xterm-256color",
+  -- },
 }
