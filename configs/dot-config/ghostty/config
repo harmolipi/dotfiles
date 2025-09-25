@@ -6,3 +6,4 @@ window-padding-y = 4
 clipboard-trim-trailing-spaces = true
 adjust-cell-height = 75%
 adjust-box-thickness = 1
+keybind = shift+enter=text:\n
