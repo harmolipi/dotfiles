@@ -163,15 +163,15 @@ in
         sidequest
         glaumar_repo.qrookie
         ffmpeg
-        kdePackages.kdenlive
-        libsForQt5.kdenlive
-        kdePackages.kimageformats
+        # kdePackages.kdenlive
+        # libsForQt5.kdenlive
+        # kdePackages.kimageformats
         yt-dlp
         gnomeExtensions.caffeine
-        nushell
-        carapace
         # R-with-my-packages
         # RStudio-with-my-packages
+        # nushell
+        # carapace
         oh-my-posh
         libsForQt5.okular
         pkgs-unstable.trezor-suite
@@ -238,11 +238,13 @@ in
     gcc
     gnupg
     pinentry-gnome3
-    audacity
+    # audacity
     direnv
     nomacs
     openvpn
     ncurses
+    cnijfilter2
+    gutenprint
   ];
 
   programs.gnupg = {
