@@ -15,7 +15,11 @@
     };
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     ghostty.url = "github:ghostty-org/ghostty";
-    tmux-sessionx.url = "github:omerxx/tmux-sessionx";
+    # doom-emacs = {
+    #   url = "github:hlissner/doom-emacs/master";
+    #   flake = false;
+    # };
+    # tmux-sessionx.url = "github:omerxx/tmux-sessionx";
   };
 
   outputs = { self, nixpkgs, nixpkgs-unstable, nixos-hardware, home-manager, glaumar_repo, zen-browser, ghostty, ... }:

@@ -537,7 +537,6 @@
       vim-tmux-navigator
       catppuccin
       yank
-      tmux-sessionx
       {
         plugin = catppuccin;
         extraConfig = ''
@@ -627,8 +626,8 @@
       bind % split-window -h -c "#{pane_current_path}"
 
       # Sessionx
-      set -g @sessionx-bind 'o'
-      set -g @sessionx-zoxide-mode 'on'
+      # set -g @sessionx-bind 'o'
+      # set -g @sessionx-zoxide-mode 'on'
       
       # Your other custom settings...
       bind-key -r f run-shell "tmux neww ~/bin/.local/scripts/tmux-sessionizer"
