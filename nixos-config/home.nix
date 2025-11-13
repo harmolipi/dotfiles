@@ -26,29 +26,44 @@
     # CLI Tools
     fd
     ripgrep
+    gemini-cli
+    pandoc
 
     # Applications
-    bibletime
+    # bibletime
     ncdu
-    exercism
+    # exercism
     croc
-    minigalaxy
-    wineWowPackages.full
+    # minigalaxy
+    # wineWowPackages.full
     ngrok
     jre8
-    android-tools
-    moonlight-qt
+    # android-tools
+    # moonlight-qt
     xclip
     google-fonts
-    gnomecast
+    # gnomecast
     lutris
-    protonup-qt
+    # protonup-qt
     immersed
     tmux-sessionizer
     claude-code
+    foliate
+    calibre
+    anki-bin
+    mpv-unwrapped
+    amfora
+    flyctl
     gobang
+    runescape
+    bolt-launcher
+    desmume
+    htop-vim
+    age
+    sops
+    inkscape
 
-    winetricks
+    # winetricks
   ];
 
   programs.neovim.enable = true;
@@ -94,7 +109,7 @@
     };
 
   programs.helix = {
-    enable = true;
+    enable = false;
     settings = {
       theme = "catppuccin_macchiato";
 
