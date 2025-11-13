@@ -1021,4 +1021,13 @@
     bkmk_modal_field_text = "#c6d0f5"
   '';
 
+  programs.emacs = {
+    enable = true;
+    package = pkgs.emacs;
+  };
+
+  home.file.".config/emacs".source = builtins.fetchGit {
+    url = "https://github.com/doomemacs/doomemacs";
+    rev = "1d1d17e9c910146731cb7b19d5bcbf6c4b283a74";
+  };
 }

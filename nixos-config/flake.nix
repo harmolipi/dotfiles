@@ -78,6 +78,18 @@
               ghostty.packages.x86_64-linux.default
             ];
           })
+          {
+            # programs.emacs = {
+            #   enable = true;
+            #   package = pkgs.emacs;
+            #   extraPackages = epkgs: [ epkgs.vterm ];
+            # };
+
+            # xdg.configFile."doom" = {
+            #   source = doom-emacs;
+            #   recursive = true;
+            # };
+          }
         ];
 
         specialArgs = {
