@@ -44,6 +44,7 @@
     immersed
     tmux-sessionizer
     claude-code
+    gobang
 
     winetricks
   ];
