@@ -12,7 +12,7 @@ return {
   -- { import = "astrocommunity.pack.html-css" },
   -- { import = "astrocommunity.pack.tailwindcss" },
   -- { import = "astrocommunity.pack.typescript" },
-  { import = "astrocommunity.recipes.picker-lsp-mappings" },
+  -- { import = "astrocommunity.recipes.picker-lsp-mappings" },
   -- { import = "astrocommunity.lsp.lsp-signature-nvim" },
   -- { import = "astrocommunity.colorscheme.onedarkpro-nvim" },
   { import = "astrocommunity.colorscheme.catppuccin" },

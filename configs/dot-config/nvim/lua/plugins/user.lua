@@ -73,23 +73,23 @@ return {
     end,
   },
   -- { "navarasu/onedark.nvim" },
-  {
-    "zbirenbaum/copilot.lua",
-    event = "User AstroFile",
-    config = function()
-      require("copilot").setup {
-        panel = {
-          auto_refresh = true,
-        },
-        suggestion = {
-          auto_trigger = true,
-          keymap = {
-            accept = "<C-l>",
-          },
-        },
-      }
-    end,
-  },
+  -- {
+  --   "zbirenbaum/copilot.lua",
+  --   event = "User AstroFile",
+  --   config = function()
+  --     require("copilot").setup {
+  --       panel = {
+  --         auto_refresh = true,
+  --       },
+  --       suggestion = {
+  --         auto_trigger = true,
+  --         keymap = {
+  --           accept = "<C-l>",
+  --         },
+  --       },
+  --     }
+  --   end,
+  -- },
   { "tpope/vim-surround", event = "User AstroFile" },
   { "urbit/hoon.vim", event = "User AstroFile" },
   { "wakatime/vim-wakatime", event = "User AstroFile" },
