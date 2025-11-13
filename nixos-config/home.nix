@@ -367,40 +367,40 @@
     enableZshIntegration = true;
   };
 
-  programs.starship = {
-    enable = true;
-    settings = {
-      add_newline = true;
-
-      format = ''
-        $directory$git_branch$git_status
-        $character '';
-
-      # Prompt components
-      directory = {
-        style = "blue bold";
-        truncation_length = 3;
-        truncation_symbol = "…/";
-      };
-
-      git_branch = {
-        symbol = " ";
-        style = "green";
-        format = "[$symbol$branch]($style) ";
-      };
-
-      git_status = {
-        style = "yellow";
-        format = "[$all_status$ahead_behind]($style) ";
-      };
-
-      character = {
-        success_symbol = "[❯](bold green)";
-        error_symbol = "[❯](bold red)";
-        vicmd_symbol = "[❮](bold yellow)";
-      };
-    };
-  };
+  # programs.starship = {
+  #   enable = false;
+  #   settings = {
+  #     add_newline = true;
+  #
+  #     format = ''
+  #       $directory$git_branch$git_status
+  #       $character '';
+  #
+  #     # Prompt components
+  #     directory = {
+  #       style = "blue bold";
+  #       truncation_length = 3;
+  #       truncation_symbol = "…/";
+  #     };
+  #
+  #     git_branch = {
+  #       symbol = " ";
+  #       style = "green";
+  #       format = "[$symbol$branch]($style) ";
+  #     };
+  #
+  #     git_status = {
+  #       style = "yellow";
+  #       format = "[$all_status$ahead_behind]($style) ";
+  #     };
+  #
+  #     character = {
+  #       success_symbol = "[❯](bold green)";
+  #       error_symbol = "[❯](bold red)";
+  #       vicmd_symbol = "[❮](bold yellow)";
+  #     };
+  #   };
+  # };
 
   programs.fzf = {
     enable = true;
@@ -420,6 +420,17 @@
     enableCompletion = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
+    plugins = [
+      {
+        name = "pure";
+        src = pkgs.fetchFromGitHub {
+          owner = "sindresorhus";
+          repo = "pure";
+          rev = "v1.23.0";
+          sha256 = "1jcb5cg1539iy89vm9d59g8lnp3dm0yv88mmlhkp9zwx3bihwr06"; # `nix-prefetch-url --unpack https://github.com/sindresorhus/pure/archive/refs/tags/v1.23.0.tar.gz`
+        };
+      }
+    ];
     # plugins = [
     #   {
     #     name = "zsh-syntax-highlighting";
@@ -443,8 +454,6 @@
 
     initContent = lib.mkBefore ''
       # shell
-
-      eval "$(starship init zsh)"
 
       # Direnv hook
       # eval "$(direnv hook zsh)"
@@ -503,6 +512,8 @@
       bindkey "^?" backward-delete-char
 
       eval "$(zoxide init zsh)"
+
+      export PATH="$HOME/.config/emacs/bin:$PATH"
     '';
   };
 
