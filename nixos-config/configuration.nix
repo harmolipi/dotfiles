@@ -1,4 +1,4 @@
-{ pkgs, pkgs-unstable, config, ... }:
+{ pkgs, pkgs-unstable, config, sops-nix, ... }:
 
 with pkgs;
 let
@@ -21,6 +21,10 @@ let
   # };
 in
 {
+  imports = [
+    sops-nix.nixosModules.sops
+  ];
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -321,4 +325,11 @@ in
   virtualisation.docker.enable = true;
 
   programs.adb.enable = true;
+
+  # sops = {
+  #   age.keyFile = "/home/niko/.config/sops/age/keys.txt";
+  #   secrets."pia-auth.txt" = {
+  #     file = ./secrets/pia-auth.txt;
+  #   };
+  # };
 }

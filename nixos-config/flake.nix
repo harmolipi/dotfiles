@@ -20,9 +20,10 @@
     #   flake = false;
     # };
     # tmux-sessionx.url = "github:omerxx/tmux-sessionx";
+    sops-nix.url = "github:Mic92/sops-nix";
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, nixos-hardware, home-manager, glaumar_repo, zen-browser, ghostty, ... }:
+  outputs = { self, nixpkgs, nixpkgs-unstable, nixos-hardware, home-manager, glaumar_repo, zen-browser, ghostty, sops-nix, ... }:
     let
       system = "x86_64-linux";
       lib = nixpkgs.lib;
@@ -74,6 +75,9 @@
                 users.niko = {
                   imports = [ ./home.nix ];
                 };
+                # sharedModules = [
+                #   sops-nix.homeManagerModules.sops
+                # ];
               };
           }
           ({ pkgs, ... }: {
@@ -93,10 +97,11 @@
             #   recursive = true;
             # };
           }
+          sops-nix.nixosModules.sops
         ];
 
         specialArgs = {
-          inherit pkgs-unstable;
+          inherit pkgs-unstable sops-nix;
         };
       };
 
