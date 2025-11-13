@@ -210,38 +210,48 @@ return {
     end,
   },
   { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
-  {
-    "elixir-tools/elixir-tools.nvim",
-    version = "*",
-    event = { "BufReadPre", "BufNewFile" },
-    config = function()
-      local elixir = require "elixir"
-      local elixirls = require "elixir.elixirls"
-
-      elixir.setup {
-        nextls = { enable = false }, -- Disable nextls for now
-        elixirls = {
-          enable = true,
-          settings = elixirls.settings {
-            dialyzerEnabled = false,
-            enableTestLenses = false,
-          },
-          on_attach = function(client, bufnr)
-            print("ElixirLS attached to buffer " .. bufnr) -- Debug message
-            vim.keymap.set("n", "<space>fp", ":ElixirFromPipe<cr>", { buffer = true, noremap = true })
-            vim.keymap.set("n", "<space>tp", ":ElixirToPipe<cr>", { buffer = true, noremap = true })
-            vim.keymap.set("v", "<space>em", ":ElixirExpandMacro<cr>", { buffer = true, noremap = true })
-          end,
-        },
-        projectionist = {
-          enable = true,
-        },
-      }
-    end,
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-    },
-  },
+  -- {
+  --   "elixir-tools/elixir-tools.nvim",
+  --   version = "*",
+  --   event = { "BufReadPre", "BufNewFile" },
+  --   config = function()
+  --     -- Debug: Check if elixir-ls is available
+  --     local elixir_ls_path = vim.fn.exepath "elixir-ls"
+  --     print("DEBUG: elixir-ls path = " .. (elixir_ls_path ~= "" and elixir_ls_path or "NOT FOUND"))
+  --
+  --     if elixir_ls_path == "" then
+  --       vim.notify("elixir-ls not found in PATH. Current PATH: " .. vim.env.PATH, vim.log.levels.ERROR)
+  --       return
+  --     end
+  --
+  --     local elixir = require "elixir"
+  --     local elixirls = require "elixir.elixirls"
+  --
+  --     elixir.setup {
+  --       nextls = { enable = false },
+  --       elixirls = {
+  --         enable = true,
+  --         cmd = { elixir_ls_path },
+  --         settings = elixirls.settings {
+  --           dialyzerEnabled = false,
+  --           enableTestLenses = false,
+  --         },
+  --         on_attach = function(client, bufnr)
+  --           print("DEBUG: ElixirLS attached to buffer " .. bufnr .. " with client: " .. client.name)
+  --           vim.keymap.set("n", "<space>fp", ":ElixirFromPipe<cr>", { buffer = true, noremap = true })
+  --           vim.keymap.set("n", "<space>tp", ":ElixirToPipe<cr>", { buffer = true, noremap = true })
+  --           vim.keymap.set("v", "<space>em", ":ElixirExpandMacro<cr>", { buffer = true, noremap = true })
+  --         end,
+  --       },
+  --       projectionist = {
+  --         enable = true,
+  --       },
+  --     }
+  --   end,
+  --   dependencies = {
+  --     "nvim-lua/plenary.nvim",
+  --   },
+  -- },
   -- {
   --   "elixir-tools/elixir-tools.nvim",
   --   version = "*",

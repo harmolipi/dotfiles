@@ -27,6 +27,16 @@ return {
     },
     ---@diagnostic disable: missing-fields
     config = {
+      elixirls = {
+        cmd = { "elixir-ls" },
+        settings = {
+          elixirLS = {
+            dialyzerEnabled = false,
+            fetchDeps = false,
+            enableTestLenses = false,
+          },
+        },
+      },
       -- intelephense = {
       --   settings = {
       --     intelephense = {
