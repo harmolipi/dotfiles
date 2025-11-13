@@ -25,3 +25,4 @@ undodir
 configs/dot-config/tmux/plugins
 configs/dot-config/git/config
 configs/dot-config/git
+configs/dot-config/tmux/tmux.conf
