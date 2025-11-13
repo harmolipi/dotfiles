@@ -12,6 +12,8 @@
     # elixir-ls
     typescript-language-server
     gopls
+    # rPackages.languageserver
+    # quarto
 
     # Formatters
     nixpkgs-fmt

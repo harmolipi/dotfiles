@@ -2,8 +2,23 @@
 
 with pkgs;
 let
-  R-with-my-packages = rWrapper.override { packages = with rPackages; [ ggplot2 ]; };
-  RStudio-with-my-packages = rstudioWrapper.override { packages = with rPackages; [ ggplot2 dplyr xts tidyverse ]; };
+  # R-with-my-packages = rWrapper.override {
+  #   packages = with rPackages;
+  #     [
+  #       ggplot2
+  #       languageserver
+  #     ];
+  # };
+  # RStudio-with-my-packages = rstudioWrapper.override {
+  #   packages = with rPackages;
+  #     [
+  #       ggplot2
+  #       dplyr
+  #       xts
+  #       tidyverse
+  #       languageserver
+  #     ];
+  # };
 in
 {
   # Bootloader.
@@ -145,10 +160,10 @@ in
         kdePackages.kimageformats
         yt-dlp
         gnomeExtensions.caffeine
-        R-with-my-packages
-        RStudio-with-my-packages
         nushell
         carapace
+        # R-with-my-packages
+        # RStudio-with-my-packages
         oh-my-posh
         libsForQt5.okular
         pkgs-unstable.trezor-suite
