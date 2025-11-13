@@ -20,7 +20,7 @@
     nixfmt-rfc-style
     stylua
     selene
-    nodePackages.prettier
+    # nodePackages.prettier
     mdformat
 
     # CLI Tools
