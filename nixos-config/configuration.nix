@@ -180,6 +180,15 @@ in
 
   services.tailscale.enable = true;
 
+  services.postgresql = {
+    enable = true;
+    package = pkgs.postgresql_15;
+    initialScript = pkgs.writeText "init.sql" ''
+      CREATE ROLE nixos WITH LOGIN SUPERUSER PASSWORD 'nixos';
+      CREATE DATABASE nixos OWNER nixos;
+    '';
+  };
+
   systemd.services.fprintd = {
     wantedBy = [ "multi-user.target" ];
     serviceConfig.Type = "simple";
