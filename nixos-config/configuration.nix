@@ -47,6 +47,12 @@ in
   # Enable networking
   networking.networkmanager.enable = true;
 
+  networking.networkmanager.settings = {
+    connectivity = {
+      enabled = false;
+    };
+  };
+
   # Set your time zone.
   time.timeZone = "America/New_York";
 
@@ -276,11 +282,34 @@ in
     19001 # Metro bundler
     8081 # Metro bundler alternative port
   ];
-  networking.firewall.allowedUDPPorts = [ 21003 ];
+  networking.firewall.allowedUDPPorts = [
+    21003
+  ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
-  networking.nameservers = [ "192.168.0.113" ];
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true; # Enable .local domain resolution
+    nssmdns6 = true; # Enable IPv6 .local domain resolution
+    publish = {
+      enable = true;
+      addresses = true;
+      domain = true;
+      hinfo = true;
+      userServices = true; # This is the key setting!
+      workstation = true;
+    };
+  };
+
+  # networking.nameservers = [ "192.168.0.113" ];
+  # networking.extraHosts = ''
+  #   96.45.46.46 secure-signon.fcymca.org
+  # '';
+  # 96.45.45.45 secure-signon.fcymca.org
+  # networking.extraHosts = ''
+  #   100.100.100.100 secure-signon.fcymca.org
+  # '';
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
